@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="SimpleView\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Csla" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Csla6RestApi.Dal\Csla6RestApi.Dal.csproj" />
+    <ProjectReference Include="..\Csla6RestApi.Models\Csla6RestApi.Models.csproj" />
+  </ItemGroup>
+
+</Project>
