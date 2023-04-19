@@ -49,6 +49,18 @@
     <Compile Include="Csla6RestApi.SnippetsPackage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CslaModels\CslaModels.pkgdef">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="CslaModels\SimpleView.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="CslaModels\SimpleView\C_RM_Dal.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>

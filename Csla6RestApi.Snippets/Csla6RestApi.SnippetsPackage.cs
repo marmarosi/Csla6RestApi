@@ -24,30 +24,30 @@ namespace Csla6RestApi.Snippets
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(Csla6RestApi.SnippetsPackage.PackageGuidString)]
-    public sealed class Csla6RestApi.SnippetsPackage : AsyncPackage
+    [Guid(SnippetsPackage.PackageGuidString)]
+    public sealed class SnippetsPackage : AsyncPackage
     {
          /// <summary>
         /// Csla6RestApi.SnippetsPackage GUID string.
         /// </summary>
         public const string PackageGuidString = "9727dc97-34d1-40b6-bcc1-b001f3b137d3";
 
-    #region Package Members
+        #region Package Members
 
-    /// <summary>
-    /// Initialization of the package; this method is called right after the package is sited, so this is the place
-    /// where you can put all the initialization code that rely on services provided by VisualStudio.
-    /// </summary>
-    /// <param name="cancellationToken">A cancellation token to monitor for initialization cancellation, which can occur when VS is shutting down.</param>
-    /// <param name="progress">A provider for progress updates.</param>
-    /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
-    protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
-    {
-        // When initialized asynchronously, the current thread may be a background thread at this point.
-        // Do any initialization that requires the UI thread after switching to the UI thread.
-        await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+        /// <summary>
+        /// Initialization of the package; this method is called right after the package is sited, so this is the place
+        /// where you can put all the initialization code that rely on services provided by VisualStudio.
+        /// </summary>
+        /// <param name="cancellationToken">A cancellation token to monitor for initialization cancellation, which can occur when VS is shutting down.</param>
+        /// <param name="progress">A provider for progress updates.</param>
+        /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
+        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
+        {
+            // When initialized asynchronously, the current thread may be a background thread at this point.
+            // Do any initialization that requires the UI thread after switching to the UI thread.
+            await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+        }
+
+        #endregion
     }
-
-    #endregion
-}
 }
