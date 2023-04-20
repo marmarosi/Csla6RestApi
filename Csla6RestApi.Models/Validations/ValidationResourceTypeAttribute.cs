@@ -1,6 +1,6 @@
 using System;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Defines the resource type of the validation messages.

@@ -1,7 +1,7 @@
 using Csla.Rules;
 using Csla.Rules.CommonRules;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Business rule for a non-zero value.

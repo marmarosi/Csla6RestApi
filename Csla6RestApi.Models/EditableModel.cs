@@ -1,12 +1,12 @@
 using Csla;
 using Csla.Core;
 using Csla.Rules;
-using Csla6RestApi.CslaExtensions.Validations;
+using Csla6RestApi.Models.Validations;
 using System.Collections;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
-namespace Csla6RestApi.CslaExtensions.Models
+namespace Csla6RestApi.Models
 {
     /// <summary>
     /// Wrapper for editable models to hide server side properties.
@@ -73,7 +73,7 @@ namespace Csla6RestApi.CslaExtensions.Models
                     {
                         List<ValidationMessage> messages = new List<ValidationMessage>();
                         CollectMessages(this, "", ref messages);
-                        throw new ValidationException(messages);
+                        throw new BrokenRulesException(messages);
                     }
                 }
                 else

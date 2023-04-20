@@ -1,7 +1,7 @@
 using Csla.Core;
-using Csla6RestApi.CslaExtensions.Validations;
+using Csla6RestApi.Models.Validations;
 
-namespace Csla6RestApi.CslaExtensions.Models
+namespace Csla6RestApi.Models
 {
     /// <summary>
     /// Defines the helper functions of editable models.

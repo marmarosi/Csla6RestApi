@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Specifies that a data field value must match the specified regular expression.

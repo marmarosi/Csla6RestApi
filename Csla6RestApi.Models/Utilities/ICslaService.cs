@@ -1,7 +1,7 @@
 ﻿using Csla;
 using Csla6RestApi.Dal;
 
-namespace Csla6RestApi.CslaExtensions
+namespace Csla6RestApi.Models.Utilities
 {
     /// <summary>
     /// Defines the CSLA helper service.

@@ -2,21 +2,30 @@ using Csla;
 using Csla.Data;
 using Csla6RestApi.Dal.Contracts;
 
-namespace Csla6RestApi.CslaExtensions.Models
+namespace Csla6RestApi.Models
 {
     /// <summary>
     /// Represents a key-name option in a read-only choice object.
     /// </summary>
     [Serializable]
-    public class KeyNameOption : ReadOnlyModel<KeyNameOption>
+    public class IdNameOption : ReadOnlyModel<IdNameOption>
     {
         #region Business Methods
+
+        private string HashModel;
 
         public static readonly PropertyInfo<long?> KeyProperty = RegisterProperty<long?>(nameof(Key));
         public long? Key
         {
             get => GetProperty(KeyProperty);
             private set => LoadProperty(KeyProperty, value);
+        }
+
+        public static readonly PropertyInfo<long?> IdProperty = RegisterProperty<long?>(nameof(Id), RelationshipTypes.PrivateField);
+        public string Id
+        {
+            get => KeyHash.Encode(HashModel, Key);
+            private set => Key = KeyHash.Decode(HashModel, value);
         }
 
         public static readonly PropertyInfo<string> NameProperty = RegisterProperty<string>(nameof(Name));
@@ -46,7 +55,7 @@ namespace Csla6RestApi.CslaExtensions.Models
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof(KeyNameOption),
+        //        typeof(IdNameOption),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -60,10 +69,12 @@ namespace Csla6RestApi.CslaExtensions.Models
 
         [FetchChild]
         private void Fetch(
-            KeyNameOptionDao dao
+            IdNameOptionDao dao,
+            string hashModel
             )
         {
             // Set values from data access object.
+            HashModel = hashModel;
             DataMapper.Map(dao, this);
         }
 

@@ -1,6 +1,6 @@
 using Csla6RestApi.Dal;
 
-namespace Csla6RestApi.CslaExtensions.Models
+namespace Csla6RestApi.Models
 {
     /// <summary>
     /// Represents an exception thrown by a business object for failed business logic.

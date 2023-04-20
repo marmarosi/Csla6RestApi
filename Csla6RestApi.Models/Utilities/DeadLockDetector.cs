@@ -1,7 +1,7 @@
 ﻿using Csla6RestApi.Dal;
 using System.Reflection;
 
-namespace Csla6RestApi.CslaExtensions
+namespace Csla6RestApi.Models.Utilities
 {
     /// <summary>
     /// Provides methods to identify database deadlocks.

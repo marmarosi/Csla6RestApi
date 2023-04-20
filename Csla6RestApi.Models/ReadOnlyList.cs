@@ -1,8 +1,6 @@
 using Csla;
-using System;
-using System.Collections.Generic;
 
-namespace Csla6RestApi.CslaExtensions.Models
+namespace Csla6RestApi.Models
 {
     /// <summary>
     /// Wrapper for read-only collections to hide server side properties.

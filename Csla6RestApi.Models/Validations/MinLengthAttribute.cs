@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Specifies the minimum length of array or string data allowed in a property.

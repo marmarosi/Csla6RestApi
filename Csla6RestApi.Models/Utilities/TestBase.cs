@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Csla6RestApi.CslaExtensions
+namespace Csla6RestApi.Models.Utilities
 {
     /// <summary>
     /// Provides helper methods for integration tests.

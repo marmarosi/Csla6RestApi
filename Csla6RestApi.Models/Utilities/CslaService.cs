@@ -1,7 +1,7 @@
 ﻿using Csla;
 using Csla6RestApi.Dal;
 
-namespace Csla6RestApi.CslaExtensions
+namespace Csla6RestApi.Models.Utilities
 {
     /// <summary>
     /// Provides services for business objects.
@@ -33,7 +33,7 @@ namespace Csla6RestApi.CslaExtensions
         public CslaService(
             IDataPortalFactory factory,
             IChildDataPortalFactory childFactory,
-            IDeadLockDetector detector            )
+            IDeadLockDetector detector)
         {
             Factory = factory;
             ChildFactory = childFactory;
