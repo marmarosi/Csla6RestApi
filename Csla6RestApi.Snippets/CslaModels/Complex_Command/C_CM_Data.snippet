@@ -9,7 +9,26 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the $RootName$ list item data.
+    /// </summary>
+    public class $RootModel$ResultData
+    {
+        public string $RootModel$Code { get; set; }
+        public string $RootModel$Name { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the $RootName$ list item object.
+    /// </summary>
+    public class $RootModel$ResultDao : $RootModel$ResultData
+    { }
+
+    /// <summary>
+    /// Defines the data transfer object of the $RootName$ list item object.
+    /// </summary>
+    public class $RootModel$ResultDto : $RootModel$ResultData
+    { }]]>
             </Code>
             <Declarations>
                 <Literal>

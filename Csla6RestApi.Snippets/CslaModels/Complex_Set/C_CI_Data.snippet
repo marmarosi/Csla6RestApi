@@ -9,20 +9,69 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the editable $RootParam$ set $ChildName$ data.
+    /// </summary>
+    public class $RootModel$Set$ChildModel$Data
+    {
+        public string $ChildModel$Code { get; set; }
+        public string $ChildModel$Name { get; set; }
+        [JsonIgnore]
+        public string __$RootParam$Code; // for error messages
+    }
+
+    /// <summary>
+    /// Defines the data access object of the editable $RootParam$ set $ChildName$ object.
+    /// </summary>
+    public class $RootModel$Set$ChildModel$Dao : $RootModel$Set$ChildModel$Data
+    {
+        public long? $ChildModel$Key { get; set; }
+        public long? $RootModel$Key { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the editable $RootParam$ set $ChildName$ object.
+    /// </summary>
+    public class $RootModel$Set$ChildModel$Dto : $RootModel$Set$ChildModel$Data
+    {
+        public string $ChildModel$Id { get; set; }
+        public string $RootModel$Id { get; set; }
+
+        public $RootModel$Set$ChildModel$Dao ToDao()
+        {
+            return new $RootModel$Set$ChildModel$Dao
+            {
+                $ChildModel$Key = KeyHash.Decode(ID.$ChildModel$, $ChildModel$Id),
+                $RootModel$Key = KeyHash.Decode(ID.$RootModel$, $RootModel$Id),
+                $ChildModel$Code = $ChildModel$Code,
+                $ChildModel$Name = $ChildModel$Name,
+                __$RootParam$Code = __$RootParam$Code
+            };
+        }
+    }]]>
             </Code>
             <Declarations>
-                <Literal>
-                    <ID>RootModel</ID>
-                    <ToolTip>The name of the root model.</ToolTip>
-                    <Default>RootModel</Default>
-                </Literal>
-                <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
-                </Literal>
-            </Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+				<Literal>
+					<ID>RootModel</ID>
+					<ToolTip>The name of the root model.</ToolTip>
+					<Default>RootModel</Default>
+				</Literal>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

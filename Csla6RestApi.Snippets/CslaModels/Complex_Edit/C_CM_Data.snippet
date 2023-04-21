@@ -9,20 +9,61 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the editable $ChildName$ data.
+    /// </summary>
+    public class $ChildModel$Data
+    {
+        public string $ChildModel$Code { get; set; }
+        public string $ChildModel$Name { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the editable $ChildName$ object.
+    /// </summary>
+    public class $ChildModel$Dao : $ChildModel$Data
+    {
+        public long? $ChildModel$Key { get; set; }
+        public long? $ParentModel$Key { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the editable $ChildName$ object.
+    /// </summary>
+    public class $ChildModel$Dto : $ChildModel$Data
+    {
+        public string $ChildModel$Id { get; set; }
+        public string $ParentModel$Id { get; set; }
+
+        public $ChildModel$Dao ToDao()
+        {
+            return new $ChildModel$Dao
+            {
+                $ChildModel$Key = KeyHash.Decode(ID.$ChildModel$, $ChildModel$Id),
+                $ParentModel$Key = KeyHash.Decode(ID.$ParentModel$, $ParentModel$Id),
+                $ChildModel$Code = $ChildModel$Code,
+                $ChildModel$Name = $ChildModel$Name
+            };
+        }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
-                    <ID>RootModel</ID>
-                    <ToolTip>The name of the root model.</ToolTip>
-                    <Default>RootModel</Default>
+                    <ID>ParentModel</ID>
+                    <ToolTip>The name of the parent model.</ToolTip>
+                    <Default>ParentModel</Default>
                 </Literal>
-                <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
-                </Literal>
-            </Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

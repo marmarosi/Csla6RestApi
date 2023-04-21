@@ -9,7 +9,65 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the editable $RootName$ set item data.
+    /// </summary>
+    public class $RootModel$SetItemData
+    {
+        public string $RootModel$Code { get; set; }
+        public string $RootModel$Name { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the editable $RootName$ set item object.
+    /// </summary>
+    public class $RootModel$SetItemDao : $RootModel$SetItemData
+    {
+        public long? $RootModel$Key { get; set; }
+        public List<$RootModel$Set$ChildModel$Dao> $ChildModel$s { get; set; }
+
+        public $RootModel$SetItemDao()
+        {
+            $ChildModel$s = new List<$RootModel$Set$ChildModel$Dao>();
+        }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the editable $RootName$ set item object.
+    /// </summary>
+    public class $RootModel$SetItemDto : $RootModel$SetItemData
+    {
+        public string $RootModel$Id { get; set; }
+        public List<$RootModel$Set$ChildModel$Dto> $ChildModel$s { get; set; }
+
+        public $RootModel$SetItemDto()
+        {
+            $ChildModel$s = new List<$RootModel$Set$ChildModel$Dto>();
+        }
+
+        public $RootModel$SetItemDao ToDao()
+        {
+            return new $RootModel$SetItemDao
+            {
+                $RootModel$Key = KeyHash.Decode(ID.$RootModel$, $RootModel$Id),
+                $RootModel$Code = $RootModel$Code,
+                $RootModel$Name = $RootModel$Name,
+                $ChildModel$s = $ChildModel$sToDao(),
+                Timestamp = Timestamp
+            };
+        }
+
+        protected List<$RootModel$Set$ChildModel$Dao> $ChildModel$sToDao()
+        {
+            List<$RootModel$Set$ChildModel$Dao> list = new List<$RootModel$Set$ChildModel$Dao>();
+
+            foreach ($RootModel$Set$ChildModel$Dto $ChildParam$ in $ChildModel$s)
+                list.Add($ChildParam$.ToDao());
+
+            return list;
+        }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -22,7 +80,17 @@
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>RootName</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildParam</ID>
+					<ToolTip>The name of the child parameter.</ToolTip>
+					<Default>ChildParam</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

@@ -9,7 +9,15 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the editable $RootName$ set item object.
+    /// </summary>
+    public interface I$RootModel$SetItemDal
+    {
+        void Insert($RootModel$SetItemDao dao);
+        void Update($RootModel$SetItemDao dao);
+        void Delete($RootModel$SetItemCriteria criteria);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

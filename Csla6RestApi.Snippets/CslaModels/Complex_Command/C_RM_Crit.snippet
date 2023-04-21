@@ -9,7 +9,24 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the $CommandName$ command.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Criteria
+    {
+        public string $Parameter$ { get; set; }
+
+        public $RootModel$Criteria()
+        { }
+
+        public $RootModel$Criteria(
+            string $Parameter$
+            )
+        {
+            $Parameter$ = $Parameter$;
+        }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -18,11 +35,16 @@
                     <Default>RootModel</Default>
                 </Literal>
                 <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
+                    <ID>Parameter</ID>
+                    <ToolTip>The name of the parameter..</ToolTip>
+                    <Default>Parameter</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>CommandName</ID>
+					<ToolTip>The name of the command.</ToolTip>
+					<Default>CommandName</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

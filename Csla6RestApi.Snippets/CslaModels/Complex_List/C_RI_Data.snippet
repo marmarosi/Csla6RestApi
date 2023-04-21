@@ -9,7 +9,32 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the read-only $RootName$ list item data.
+    /// </summary>
+    public class $RootModel$ListItemData
+    {
+        public string $RootModel$Code { get; set; }
+        public string $RootModel$Name { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the read-only $RootName$ list item object.
+    /// </summary>
+    public class $RootModel$ListItemDao : $RootModel$ListItemData
+    {
+        public long? $RootModel$Key { get; set; }
+        public List<$ChildModel$InfoDao> $ChildModel$s { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the read-only $RootName$ list item object.
+    /// </summary>
+    public class $RootModel$ListItemDto : $RootModel$ListItemData
+    {
+        public string $RootModel$Id { get; set; }
+        public List<$ChildModel$InfoDto> $ChildModel$s { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -22,7 +47,12 @@
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>RootName</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

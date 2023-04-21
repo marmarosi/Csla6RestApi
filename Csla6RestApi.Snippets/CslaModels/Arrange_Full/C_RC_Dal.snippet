@@ -9,7 +9,13 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the read-only $RootName$ collection.
+    /// </summary>
+    public interface I$RootModel$ListDal
+    {
+        IPaginatedList<$RootModel$ListItemDao> Fetch($RootModel$ListCriteria criteria);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

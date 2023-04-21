@@ -9,18 +9,40 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the editable $ChildName$ object.
+    /// </summary>
+    [Serializable]
+    public class $ChildModel$Criteria
+    {
+        public long? $ChildModel$Key { get; set; }
+
+        public $ChildModel$Criteria()
+        { }
+
+        public $ChildModel$Criteria(
+            long? $ChildParam$Key
+            )
+        {
+            $ChildModel$Key = $ChildParam$Key;
+        }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
-                    <ID>RootModel</ID>
-                    <ToolTip>The name of the root model.</ToolTip>
-                    <Default>RootModel</Default>
+                    <ID>ChildModel</ID>
+                    <ToolTip>The name of the child model.</ToolTip>
+                    <Default>ChildModel</Default>
                 </Literal>
-                <Literal>
-                    <ID>RootName</ID>
+				<Literal>
+					<ID>ChildParam</ID>
+					<ToolTip>The name of the child parameter.</ToolTip>
+					<Default>ChildParam</Default>
+				</Literal>
+				<Literal>
+                    <ID>ChildName</ID>
                     <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
+                    <Default>ChildName</Default>
                 </Literal>
             </Declarations>
         </Snippet>

@@ -9,18 +9,54 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the editable $ChildName$ object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Set$ChildModel$Criteria
+    {
+        public long? $ChildModel$Key { get; set; }
+        [JsonIgnore]
+        public string __$RootParam$Code { get; set; } // for error messages
+        [JsonIgnore]
+        public string __$ChildParam$Code { get; set; } // for error messages
+
+        public $RootModel$Set$ChildModel$Criteria()
+        { }
+
+        public $RootModel$Set$ChildModel$Criteria(
+            long? $ChildName$Key
+            )
+        {
+            $ChildModel$Key = $ChildParam$Key;
+        }
+    }]]>
             </Code>
             <Declarations>
-                <Literal>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildParam</ID>
+					<ToolTip>The name of the child parameter.</ToolTip>
+					<Default>ChildParam</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+				<Literal>
                     <ID>RootModel</ID>
                     <ToolTip>The name of the root model.</ToolTip>
                     <Default>RootModel</Default>
                 </Literal>
                 <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
+                    <ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
                 </Literal>
             </Declarations>
         </Snippet>

@@ -9,7 +9,14 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the read-only $RootName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$ListCriteria : $RootModel$ListCriteria
+    {
+        public string $RootModel$Name { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
