@@ -9,7 +9,16 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the editable $RootName$ object.
+    /// </summary>
+    public interface I$RootModel$Dal : ITransactionalDal
+    {
+        $RootModel$Dao Fetch($RootModel$Criteria criteria);
+        void Insert($RootModel$Dao dao);
+        void Update($RootModel$Dao dao);
+        void Delete($RootModel$Criteria criteria);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

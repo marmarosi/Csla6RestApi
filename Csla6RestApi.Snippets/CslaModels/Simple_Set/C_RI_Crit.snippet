@@ -9,7 +9,21 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the editable $RootName$ set item object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$SetItemCriteria
+    {
+        public long? $RootModel$Key { get; set; }
+
+        public $RootModel$SetItemCriteria(
+            long? $RootParam$Key
+            )
+        {
+            $RootModel$Key = $RootParam$Key;
+        }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -22,7 +36,12 @@
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>RootName</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

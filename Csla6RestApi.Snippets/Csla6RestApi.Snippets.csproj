@@ -58,10 +58,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="CslaModels\SimpleView\C_RM_Dal.snippet">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
     <Content Include="CslaModels\Simple_View\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

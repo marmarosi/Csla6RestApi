@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Csla6RestApi.Snippets
 {
-    // $RootName$   $ChildName$
-    // $RootModel$  $ChildModel$  $ParentModel$
-    // $RootParam$  $ChildParam$
+    // $RootName$   $CommandName$   $ChildName$
+    // $RootModel$  $CommandModel$  $ChildModel$  $ParentModel$
+    // $RootParam$                  $ChildParam$
 
     
 }

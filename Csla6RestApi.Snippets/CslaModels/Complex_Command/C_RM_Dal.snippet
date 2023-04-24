@@ -12,20 +12,20 @@
                 <![CDATA[/// <summary>
     /// Defines the data access functions of the $CommandName$ command.
     /// </summary>
-    public interface I$RootModel$Dal
+    public interface I$CommandModel$Dal
     {
-        List<$RootModel$ResultDao> Execute($RootModel$Criteria criteria);
+        List<$CommandModel$ResultDao> Execute($CommandModel$Criteria criteria);
     }]]>
             </Code>
             <Declarations>
-                <Literal>
-                    <ID>RootModel</ID>
-                    <ToolTip>The name of the root model.</ToolTip>
-                    <Default>RootModel</Default>
-                </Literal>
+				<Literal>
+					<ID>CommandModel</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>CommandModel</Default>
+				</Literal>
 				<Literal>
 					<ID>CommandName</ID>
-					<ToolTip>The name of the command.</ToolTip>
+					<ToolTip>The command name in comments.</ToolTip>
 					<Default>CommandName</Default>
 				</Literal>
 			</Declarations>

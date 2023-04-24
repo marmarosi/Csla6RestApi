@@ -9,7 +9,13 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the $RootName$ command.
+    /// </summary>
+    public interface I$RootModel$Dal : ITransactionalDal
+    {
+        void Execute($RootModel$Dao dao);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

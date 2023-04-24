@@ -9,7 +9,14 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the editable $RootName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$SetCriteria
+    {
+        public string $RootModel$Name { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -22,7 +29,7 @@
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>RootName</Default>
                 </Literal>
-            </Declarations>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

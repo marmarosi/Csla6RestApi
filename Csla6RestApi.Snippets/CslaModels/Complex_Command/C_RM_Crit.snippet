@@ -13,37 +13,42 @@
     /// Represents the criteria of the $CommandName$ command.
     /// </summary>
     [Serializable]
-    public class $RootModel$Criteria
+    public class $CommandModel$Criteria
     {
         public string $Parameter$ { get; set; }
 
-        public $RootModel$Criteria()
+        public $CommandModel$Criteria()
         { }
 
-        public $RootModel$Criteria(
-            string $Parameter$
+        public $CommandModel$Criteria(
+            string $RootParam$Name
             )
         {
-            $Parameter$ = $Parameter$;
+            $RootModel$Name = $RootParam$Name;
         }
     }]]>
             </Code>
             <Declarations>
-                <Literal>
-                    <ID>RootModel</ID>
-                    <ToolTip>The name of the root model.</ToolTip>
-                    <Default>RootModel</Default>
-                </Literal>
-                <Literal>
-                    <ID>Parameter</ID>
-                    <ToolTip>The name of the parameter..</ToolTip>
-                    <Default>Parameter</Default>
-                </Literal>
+				<Literal>
+					<ID>CommandModel</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>CommandModel</Default>
+				</Literal>
 				<Literal>
 					<ID>CommandName</ID>
-					<ToolTip>The name of the command.</ToolTip>
+					<ToolTip>The command name in comments.</ToolTip>
 					<Default>CommandName</Default>
 				</Literal>
+				<Literal>
+					<ID>RootModel</ID>
+					<ToolTip>The name of the root model.</ToolTip>
+					<Default>RootModel</Default>
+				</Literal>
+				<Literal>
+                    <ID>RootParam</ID>
+                    <ToolTip>The name of the parameter..</ToolTip>
+                    <Default>RootParam</Default>
+                </Literal>
 			</Declarations>
         </Snippet>
     </CodeSnippet>

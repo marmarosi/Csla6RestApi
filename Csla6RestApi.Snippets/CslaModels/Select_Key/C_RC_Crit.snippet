@@ -2,14 +2,21 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-			<Title>Contract | Read-only choice (key) criteria</Title>
+			<Title>Contract | Read-only choice criteria</Title>
 			<Author>Mármarosi József</Author>
 			<Description>Defines the criteria of a read-only root collection.</Description>
 			<Shortcut>c6lk-rc-c</Shortcut>
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the read-only $RootName$ choice collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$ChoiceCriteria : ChoiceCriteria
+    {
+        public string $RootModel$Name { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

@@ -10,36 +10,41 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the $RootName$ list item data.
+    /// Defines the $CommandName$ list item data.
     /// </summary>
-    public class $RootModel$ResultData
+    public class $CommandModel$ResultData
     {
         public string $RootModel$Code { get; set; }
         public string $RootModel$Name { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the $RootName$ list item object.
+    /// Defines the data access object of the $CommandName$ list item object.
     /// </summary>
-    public class $RootModel$ResultDao : $RootModel$ResultData
+    public class $CommandModel$ResultDao : $CommandModel$ResultData
     { }
 
     /// <summary>
-    /// Defines the data transfer object of the $RootName$ list item object.
+    /// Defines the data transfer object of the $CommandName$ list item object.
     /// </summary>
-    public class $RootModel$ResultDto : $RootModel$ResultData
+    public class $CommandModel$ResultDto : $CommandModel$ResultData
     { }]]>
             </Code>
             <Declarations>
-                <Literal>
+				<Literal>
+					<ID>CommandModel</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>CommandModel</Default>
+				</Literal>
+				<Literal>
+					<ID>CommandName</ID>
+					<ToolTip>The command name in comments.</ToolTip>
+					<Default>CommandName</Default>
+				</Literal>
+				<Literal>
                     <ID>RootModel</ID>
                     <ToolTip>The name of the root model.</ToolTip>
                     <Default>RootModel</Default>
-                </Literal>
-                <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
                 </Literal>
             </Declarations>
         </Snippet>

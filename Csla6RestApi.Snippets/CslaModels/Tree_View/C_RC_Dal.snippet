@@ -9,7 +9,13 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the read-only $RootName$ tree object.
+    /// </summary>
+    public interface I$RootModel$TreeDal
+    {
+        List<$RootModel$NodeDao> Fetch($RootModel$TreeCriteria criteria);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

@@ -9,7 +9,38 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the read-only $RootName$ tree object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$TreeParams
+    {
+        public string RootId { get; set; }
+
+        public $RootModel$TreeParams(
+            string rootId
+            )
+        {
+            RootId = rootId;
+        }
+
+        public $RootModel$TreeCriteria Decode()
+        {
+            return new $RootModel$TreeCriteria
+            {
+                RootKey = KeyHash.Decode(ID.$RootModel$, RootId) ?? 0
+            };
+        }
+    }
+
+    /// <summary>
+    /// Represents the criteria of the read-only $RootName$ tree object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$TreeCriteria
+    {
+        public long RootKey { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

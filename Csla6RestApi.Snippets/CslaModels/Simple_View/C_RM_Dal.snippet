@@ -9,7 +9,13 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the read-only $RootName$ model.
+    /// </summary>
+    public interface I$RootModel$ViewDal
+    {
+        $RootModel$ViewDao Fetch($RootModel$ViewCriteria criteria);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

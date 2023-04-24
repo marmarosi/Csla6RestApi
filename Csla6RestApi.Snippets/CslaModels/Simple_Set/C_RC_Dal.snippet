@@ -9,7 +9,13 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the editable $RootName$ collection.
+    /// </summary>
+    public interface I$RootModel$SetDal : ITransactionalDal
+    {
+        List<$RootModel$SetItemDao> Fetch($RootModel$SetCriteria criteria);
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

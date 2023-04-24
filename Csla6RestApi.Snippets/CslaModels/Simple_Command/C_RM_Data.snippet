@@ -9,20 +9,62 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the data access object of the $CommandName$ command.
+    /// </summary>
+    public class $CommandModel$Data
+    {
+        public string $RootModel$Name { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the $CommandName$ command.
+    /// </summary>
+    public class $CommandModel$Dao : $CommandModel$Data
+    {
+        public long? $RootModel$Key { get; set; }
+
+        public $CommandModel$Dao(
+            long? $RootParam$Key,
+            string $RootParam$Name
+            )
+        {
+            $RootModel$Key = $RootParam$Key;
+            $RootModel$Name = $RootParam$Name;
+        }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the $CommandName$ command.
+    /// </summary>
+    [Serializable]
+    public class $CommandModel$Dto : $CommandModel$Data
+    {
+        public string $RootModel$Id { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
-                    <ID>RootModel</ID>
-                    <ToolTip>The name of the root model.</ToolTip>
-                    <Default>RootModel</Default>
+                    <ID>CommandModel</ID>
+                    <ToolTip>The name of the command model.</ToolTip>
+                    <Default>CommandModel</Default>
                 </Literal>
                 <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
+                    <ID>CommandName</ID>
+                    <ToolTip>The command name in comments.</ToolTip>
+                    <Default>CommandName</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>RootModel</ID>
+					<ToolTip>The name of the root model.</ToolTip>
+					<Default>RootModel</Default>
+				</Literal>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

@@ -9,7 +9,42 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the read-only $RootName$ object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Params
+    {
+        public string $RootModel$Id { get; set; }
+
+        public $RootModel$Params(
+            string $RootParam$Id
+            )
+        {
+            $RootModel$Id = $RootParam$Id;
+        }
+
+        public $RootModel$Criteria Decode()
+        {
+            return new $RootModel$Criteria(KeyHash.Decode(ID.$RootModel$, $RootModel$Id));
+        }
+    }
+
+    /// <summary>
+    /// Represents the criteria of the editable $RootName$ object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Criteria
+    {
+        public long? $RootModel$Key { get; set; }
+
+        public $RootModel$Criteria(
+            long? $RootParam$Key
+            )
+        {
+            $RootModel$Key = $RootParam$Key;
+        }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -22,7 +57,12 @@
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>RootName</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

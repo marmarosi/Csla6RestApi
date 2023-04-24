@@ -9,7 +9,31 @@
 		</Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Defines the editable $RootName$ data.
+    /// </summary>
+    public class $RootModel$Data
+    {
+        public string $RootModel$Code { get; set; }
+        public string $RootModel$Name { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the editable $RootName$ object.
+    /// </summary>
+    public class $RootModel$Dao : $RootModel$Data
+    {
+        public long? $RootModel$Key { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the editable $RootName$ object.
+    /// </summary>
+    public class $RootModel$Dto : $RootModel$Data
+    {
+        public string $RootModel$Id { get; set; }
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
