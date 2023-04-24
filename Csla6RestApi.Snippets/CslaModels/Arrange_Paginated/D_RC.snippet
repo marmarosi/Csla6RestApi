@@ -2,14 +2,78 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Contract | Read-only arranged list DAL interface</Title>
+            <Title>DAL | Read-only root collection</Title>
             <Author>Mármarosi József</Author>
-            <Description>Defines the DAL interface of a read-only root collection.</Description>
-            <Shortcut>c6af-rc-i</Shortcut>
+            <Description>Defines the data access of the read-only root collection.</Description>
+            <Shortcut>c6ap-rc-d</Shortcut>
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Implements the data access functions of the read-only $RootName$ collection.
+    /// </summary>
+    [DalImplementation]
+    public class $RootModel$ListDal : DalBase<SqlServerContext>, I$RootModel$ListDal
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates the data access object.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        public $RootModel$ListDal(
+            SqlServerContext dbContext
+            )
+        {
+            DbContext = dbContext;
+        }
+
+        #endregion Constructor
+
+        #region Fetch
+
+        /// <summary>
+        /// Gets the specified page of $RootName$s.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $RootName$ list.</param>
+        /// <returns>The requested page of the $RootName$ list.</returns>
+        public IPaginatedList<$RootModel$ListItemDao> Fetch(
+            $RootModel$ListCriteria criteria
+            )
+        {
+            // Filter the $RootName$s.
+            var query = DbContext.$RootModel$s
+                .Where(e =>
+                    criteria.$RootModel$Name == null || e.$RootModel$Name.Contains(criteria.$RootModel$Name)
+                );
+
+            // Get the requested page.
+            var list = query
+                .Select(e => new $RootModel$ListItemDao
+                {
+                    $RootModel$Key = e.$RootModel$Key,
+                    $RootModel$Code = e.$RootModel$Code,
+                    $RootModel$Name = e.$RootModel$Name
+                })
+                .OrderBy(o => o.$RootModel$Name)
+                .Skip(criteria.PageIndex * criteria.PageSize)
+                .Take(criteria.PageSize)
+                .AsNoTracking()
+                .ToList();
+
+            // Count the matching $RootName$s.
+            int totalCount = query.Count();
+
+            // Return the result.
+            return new PaginatedList<$RootModel$ListItemDao>
+            {
+                Data = list,
+                TotalCount = totalCount
+            };
+        }
+
+        #endregion GetList
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
