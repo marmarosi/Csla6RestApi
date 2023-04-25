@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Csla6RestApi.Snippets
 {
@@ -8,5 +8,4 @@ namespace Csla6RestApi.Snippets
     // $RootModel$  $CommandModel$  $ChildModel$  $ParentModel$
     // $RootParam$                  $ChildParam$
 
-    
 }

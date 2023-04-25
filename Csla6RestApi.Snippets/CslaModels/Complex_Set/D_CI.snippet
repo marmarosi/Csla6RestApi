@@ -2,27 +2,184 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Contract | Read-only arranged list DAL interface</Title>
-            <Author>Mármarosi József</Author>
-            <Description>Defines the DAL interface of a read-only root collection.</Description>
-            <Shortcut>c6af-rc-i</Shortcut>
+			<Title>DAL | Editable child model</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the data access of the editable child model.</Description>
+			<Shortcut>c6cs-ci-d</Shortcut>
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Implements the data access functions of the editable $ChildName$ object.
+    /// </summary>
+    [DalImplementation]
+    public class $RootModel$Set$ChildModel$Dal : DalBase<SqlServerContext>, I$RootModel$Set$ChildModel$Dal
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates the data access object.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        public $RootModel$Set$ChildModel$Dal(
+            SqlServerContext dbContext
+            )
+        {
+            DbContext = dbContext;
+        }
+
+        #endregion Constructor
+
+        #region Insert
+
+        /// <summary>
+        /// Creates a new $ChildName$ using the specified data.
+        /// </summary>
+        /// <param name="dao">The data of the $ChildName$.</param>
+        public void Insert(
+            $RootModel$Set$ChildModel$Dao dao
+            )
+        {
+            // Check unique $ChildName$ code.
+            var $ChildParam$ = DbContext.$ChildModel$s
+                .Where(e =>
+                    e.$RootModel$Key == dao.$RootModel$Key &&
+                    e.$ChildModel$Code == dao.$ChildModel$Code
+                )
+                .FirstOrDefault();
+            if ($ChildParam$ != null)
+                throw new DataExistException(DalText.$RootModel$Set$ChildModel$_$ChildModel$CodeExists
+                    .With(dao.__$RootParam$Code, dao.$ChildModel$Code));
+
+            // Create the new $ChildName$.
+            $ChildParam$ = new $ChildModel$
+            {
+                $RootModel$Key = dao.$RootModel$Key,
+                $ChildModel$Code = dao.$ChildModel$Code,
+                $ChildModel$Name = dao.$ChildModel$Name
+            };
+            DbContext.$ChildModel$s.Add($ChildParam$);
+
+            int count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new InsertFailedException(DalText.$RootModel$Set$ChildModel$_InsertFailed
+                    .With(dao.__$RootParam$Code, dao.$ChildModel$Code));
+
+            // Return new data.
+            dao.$ChildModel$Key = $ChildParam$.$ChildModel$Key;
+        }
+
+        #endregion Insert
+
+        #region Update
+
+        /// <summary>
+        /// Updates an existing $ChildName$ using the specified data.
+        /// </summary>
+        /// <param name="dao">The data of the $ChildName$.</param>
+        public void Update(
+            $RootModel$Set$ChildModel$Dao dao
+            )
+        {
+            // Get the specified $ChildName$.
+            var $ChildParam$ = DbContext.$ChildModel$s
+                .Where(e =>
+                    e.$ChildModel$Key == dao.$ChildModel$Key
+                )
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$RootModel$Set$ChildModel$_NotFound
+                    .With(dao.__$RootParam$Code, dao.$ChildModel$Code));
+
+            // Check unique $ChildName$ code.
+            if ($ChildParam$.$ChildModel$Code != dao.$ChildModel$Code)
+            {
+                int exist = DbContext.$ChildModel$s
+                    .Where(e =>
+                        e.$RootModel$Key == dao.$RootModel$Key &&
+                        e.$ChildModel$Code == dao.$ChildModel$Code &&
+                        e.$ChildModel$Key != $ChildParam$.$ChildModel$Key
+                    )
+                    .Count();
+                if (exist > 0)
+                    throw new DataExistException(DalText.$RootModel$Set$ChildModel$_$ChildModel$CodeExists
+                        .With(dao.__$RootParam$Code, dao.$ChildModel$Code));
+            }
+
+            // Update the $ChildName$.
+            $ChildParam$.$ChildModel$Code = dao.$ChildModel$Code;
+            $ChildParam$.$ChildModel$Name = dao.$ChildModel$Name;
+
+            int count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new UpdateFailedException(DalText.$RootModel$Set$ChildModel$_UpdateFailed
+                    .With(dao.__$RootParam$Code, dao.$ChildModel$Code));
+
+            // Return new data.
+        }
+
+        #endregion Update
+
+        #region Delete
+
+        /// <summary>
+        /// Deletes the specified $ChildName$.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $ChildName$.</param>
+        public void Delete(
+            $RootModel$Set$ChildModel$Criteria criteria
+            )
+        {
+            int count = 0;
+
+            // Get the specified $ChildName$.
+            var $ChildParam$ = DbContext.$ChildModel$s
+                .Where(e =>
+                    e.$ChildModel$Key == criteria.$ChildModel$Key
+                 )
+                .AsNoTracking()
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$RootModel$Set$ChildModel$_NotFound
+                    .With(criteria.__$RootParam$Code, criteria.__$ChildParam$Code));
+
+            // Delete the $ChildName$.
+            DbContext.$ChildModel$s.Remove($ChildParam$);
+
+            count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new DeleteFailedException(DalText.$RootModel$Set$ChildModel$_DeleteFailed
+                    .With(criteria.__$RootParam$Code, criteria.__$ChildParam$Code));
+        }
+
+        #endregion Delete
+    }]]>
             </Code>
             <Declarations>
-                <Literal>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildParam</ID>
+					<ToolTip>The name of the child parameter.</ToolTip>
+					<Default>ChildParam</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+				<Literal>
                     <ID>RootModel</ID>
                     <ToolTip>The name of the root model.</ToolTip>
                     <Default>RootModel</Default>
                 </Literal>
-                <Literal>
-                    <ID>RootName</ID>
-                    <ToolTip>The model name in comments.</ToolTip>
-                    <Default>RootName</Default>
-                </Literal>
-            </Declarations>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>
