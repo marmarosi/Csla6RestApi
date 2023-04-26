@@ -24,7 +24,7 @@
     public class $ChildModel$Dao : $ChildModel$Data
     {
         public long? $ChildModel$Key { get; set; }
-        public long? $ParentModel$Key { get; set; }
+        public long? $RootModel$Key { get; set; }
     }
 
     /// <summary>
@@ -33,14 +33,14 @@
     public class $ChildModel$Dto : $ChildModel$Data
     {
         public string $ChildModel$Id { get; set; }
-        public string $ParentModel$Id { get; set; }
+        public string $RootModel$Id { get; set; }
 
         public $ChildModel$Dao ToDao()
         {
             return new $ChildModel$Dao
             {
                 $ChildModel$Key = KeyHash.Decode(ID.$ChildModel$, $ChildModel$Id),
-                $ParentModel$Key = KeyHash.Decode(ID.$ParentModel$, $ParentModel$Id),
+                $RootModel$Key = KeyHash.Decode(ID.$RootModel$, $RootModel$Id),
                 $ChildModel$Code = $ChildModel$Code,
                 $ChildModel$Name = $ChildModel$Name
             };
@@ -49,9 +49,9 @@
             </Code>
             <Declarations>
                 <Literal>
-                    <ID>ParentModel</ID>
-                    <ToolTip>The name of the parent model.</ToolTip>
-                    <Default>ParentModel</Default>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
                 </Literal>
 				<Literal>
 					<ID>ChildModel</ID>
