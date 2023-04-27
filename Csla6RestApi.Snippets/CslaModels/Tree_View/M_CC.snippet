@@ -9,7 +9,45 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents a read-only $RootName$ node collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Nodes : ReadOnlyList<$RootModel$Nodes, $RootModel$Node>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$NodeList),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            List<$RootModel$NodeDao> list,
+            [Inject] IChildDataPortal<$RootModel$Node> childPortal
+            )
+        {
+            using (LoadListMode)
+            {
+                foreach (var item in list)
+                    Add(childPortal.FetchChild(item));
+            }
+        }
+
+        #endregion
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

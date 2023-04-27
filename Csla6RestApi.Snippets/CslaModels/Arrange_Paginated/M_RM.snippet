@@ -9,7 +9,93 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents a read-only $RootName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$List : ReadOnlyModel<$RootModel$List>
+    {
+        #region Properties
+
+        public static readonly PropertyInfo<$RootModel$ListItems> PlayersProperty = RegisterProperty<$RootModel$ListItems>(nameof(Data));
+        public $RootModel$ListItems Data
+        {
+            get => GetProperty(PlayersProperty);
+            private set => LoadProperty(PlayersProperty, value);
+        }
+
+        public static readonly PropertyInfo<int> TotalCountProperty = RegisterProperty<int>(c => c.TotalCount);
+        public int TotalCount
+        {
+            get => GetProperty(TotalCountProperty);
+            private set => LoadProperty(TotalCountProperty, value);
+        }
+
+        #endregion
+
+        #region Business Rules
+
+        //protected override void AddBusinessRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        new IsInRole(
+        //            AuthorizationActions.ReadProperty,
+        //            TotalCountProperty,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$List),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// Gets the specified read-only $RootName$ collection.
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="criteria">The criteria of the read-only $RootName$ list.</param>
+        /// <returns>The requested read-only $RootName$ list.</returns>
+        public static async Task<$RootModel$List> Get(
+            IDataPortalFactory factory,
+            $RootModel$ListCriteria criteria
+            )
+        {
+            return await factory.GetPortal<$RootModel$List>().FetchAsync(criteria);
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Fetch]
+        private void Fetch(
+            $RootModel$ListCriteria criteria,
+            [Inject] I$RootModel$ListDal dal,
+            [Inject] IChildDataPortal<$RootModel$ListItems> itemsPortal
+            )
+        {
+            // Load values from persistent storage.
+            IPaginatedList<$RootModel$ListItemDao> dao = dal.Fetch(criteria);
+            Data = itemsPortal.FetchChild(dao.Data);
+            TotalCount = dao.TotalCount;
+        }
+
+        #endregion
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

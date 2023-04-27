@@ -9,7 +9,43 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents a page of read-only $RootName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$ListItems : ReadOnlyList<$RootModel$ListItems, $RootModel$ListItem>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$ListItems),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            List<$RootModel$ListItemDao> list,
+            [Inject] IChildDataPortal<$RootModel$ListItem> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            foreach (var item in list)
+                Items.Add(itemPortal.FetchChild(item));
+        }
+
+        #endregion
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

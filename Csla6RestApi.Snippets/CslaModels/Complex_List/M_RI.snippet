@@ -9,7 +9,94 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents an item in a read-only $RootName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$ListItem : ReadOnlyModel<$RootModel$ListItem>
+    {
+        #region Properties
+
+        public static readonly PropertyInfo<long?> $RootModel$KeyProperty = RegisterProperty<long?>(nameof($RootModel$Key));
+        public long? $RootModel$Key
+        {
+            get => GetProperty($RootModel$KeyProperty);
+            private set => LoadProperty($RootModel$KeyProperty, value);
+        }
+
+        public static readonly PropertyInfo<long?> $RootModel$IdProperty = RegisterProperty<long?>(nameof($RootModel$Id), RelationshipTypes.PrivateField);
+        public string $RootModel$Id
+        {
+            get => KeyHash.Encode(ID.$RootModel$, $RootModel$Key);
+            private set => $RootModel$Key = KeyHash.Decode(ID.$RootModel$, value);
+        }
+
+        public static readonly PropertyInfo<string> $RootModel$CodeProperty = RegisterProperty<string>(nameof($RootModel$Code));
+        public string $RootModel$Code
+        {
+            get => GetProperty($RootModel$CodeProperty);
+            private set => LoadProperty($RootModel$CodeProperty, value);
+        }
+
+        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
+        public string $RootModel$Name
+        {
+            get => GetProperty($RootModel$NameProperty);
+            private set => LoadProperty($RootModel$NameProperty, value);
+        }
+
+        public static readonly PropertyInfo<$ChildModel$Infos> $ChildModel$sProperty = RegisterProperty<$ChildModel$Infos>(nameof($ChildModel$s));
+        public $ChildModel$Infos $ChildModel$s
+        {
+            get => ReadProperty($ChildModel$sProperty);
+            private set => LoadProperty($ChildModel$sProperty, value);
+        }
+
+        #endregion
+
+        #region Business Rules
+
+        //protected override void AddBusinessRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        new IsInRole(
+        //            AuthorizationActions.ReadProperty,
+        //            $RootModel$NameProperty,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$ListItem),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            $RootModel$ListItemDao dao,
+            [Inject] IChildDataPortal<$ChildModel$Infos> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            DataMapper.Map(dao, this, "$ChildModel$s");
+            $ChildModel$s = itemPortal.FetchChild(dao.$ChildModel$s);
+        }
+
+        #endregion
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
@@ -22,7 +109,12 @@
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>RootName</Default>
                 </Literal>
-            </Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+			</Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

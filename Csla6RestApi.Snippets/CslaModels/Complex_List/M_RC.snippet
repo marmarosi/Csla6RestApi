@@ -9,7 +9,66 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents a read-only $RootName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$List : ReadOnlyList<$RootModel$List, $RootModel$ListItem>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$List),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// Gets a list of $RootName$s.
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="criteria">The criteria of the $RootName$ list.</param>
+        /// <returns>The requested $RootName$ list.</returns>
+        public static async Task<$RootModel$List> Get(
+            IDataPortalFactory factory,
+            $RootModel$ListCriteria criteria
+            )
+        {
+            return await factory.GetPortal<$RootModel$List>().FetchAsync(criteria);
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Fetch]
+        private void Fetch(
+            $RootModel$ListCriteria criteria,
+            [Inject] I$RootModel$ListDal dal,
+            [Inject] IChildDataPortal<$RootModel$ListItem> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            using (LoadListMode)
+            {
+                List<$RootModel$ListItemDao> list = dal.Fetch(criteria);
+                foreach (var item in list)
+                    Add(itemPortal.FetchChild(item));
+            }
+        }
+
+        #endregion
+    }]]>
             </Code>
             <Declarations>
                 <Literal>

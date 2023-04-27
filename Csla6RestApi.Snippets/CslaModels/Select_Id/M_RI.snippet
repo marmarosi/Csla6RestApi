@@ -9,7 +9,66 @@
         </Header>
         <Snippet>
             <Code Language="CSharp">
-                <![CDATA[]]>
+                <![CDATA[/// <summary>
+    /// Represents a read-only $RootName$ choice collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Choice : ReadOnlyList<$RootModel$Choice, IdNameOption>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$Choice),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// Gets a choice of $RootName$ options that match the criteria.
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="criteria">The criteria of the $RootName$ choice.</param>
+        /// <returns>The requested $RootName$ choice instance.</returns>
+        public static async Task<$RootModel$Choice> Get(
+            IDataPortalFactory factory,
+            $RootModel$ChoiceCriteria criteria
+            )
+        {
+            return await factory.GetPortal<$RootModel$Choice>().FetchAsync(criteria);
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Fetch]
+        private void Fetch(
+            $RootModel$ChoiceCriteria criteria,
+            [Inject] I$RootModel$ChoiceDal dal,
+            [Inject] IChildDataPortal<IdNameOption> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            using (LoadListMode)
+            {
+                List<IdNameOptionDao> list = dal.Fetch(criteria);
+                foreach (var item in list)
+                    Add(itemPortal.FetchChild(item, ID.$RootModel$));
+            }
+        }
+
+        #endregion
+    }]]>
             </Code>
             <Declarations>
                 <Literal>
