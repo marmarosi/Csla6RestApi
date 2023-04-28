@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.0</Version>
+	<ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <Title>CSLA model extensions for CSLA 6 REST API models.</Title>
     <Authors>marmarosi</Authors>
