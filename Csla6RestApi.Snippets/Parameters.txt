@@ -1,0 +1,3 @@
+﻿    $RootName$   $CommandName$   $ChildName$
+    $RootModel$  $CommandModel$  $ChildModel$
+    $RootParam$                  $ChildParam$

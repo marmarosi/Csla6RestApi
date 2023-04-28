@@ -5,15 +5,15 @@
 			<Title>Model | Read-only child collection</Title>
 			<Author>Mármarosi József</Author>
 			<Description>Implements a read-only child collection.</Description>
-			<Shortcut>c6cc-cc</Shortcut>
+			<Shortcut>c6jv-cc</Shortcut>
         </Header>
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $ChildName$ collection.
+    /// Represents a read-only $RootName$-$ChildName$ collection.
     /// </summary>
     [Serializable]
-    public class $ChildModel$Results : ReadOnlyList<$ChildModel$Results, $ChildModel$Result>
+    public class $RootModel$$ChildModel$Views : ReadOnlyList<$RootModel$$ChildModel$Views, $RootModel$$ChildModel$View>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($ChildModel$List),
+        //        typeof($RootModel$$ChildModel$Views),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -35,8 +35,8 @@
 
         [FetchChild]
         private void Fetch(
-            List<$ChildModel$ResultDao> list,
-            [Inject] IChildDataPortal<$ChildModel$Result> itemPortal
+            List<$RootModel$$ChildModel$ViewDao> list,
+            [Inject] IChildDataPortal<$RootModel$$ChildModel$View> itemPortal
             )
         {
             // Load values from persistent storage.
@@ -48,6 +48,16 @@
     }]]>
             </Code>
             <Declarations>
+				<Literal>
+					<ID>RootModel</ID>
+					<ToolTip>The name of the root model.</ToolTip>
+					<Default>RootModel</Default>
+				</Literal>
+				<Literal>
+					<ID>RootName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>RootName</Default>
+				</Literal>
 				<Literal>
 					<ID>ChildModel</ID>
 					<ToolTip>The name of the child model.</ToolTip>

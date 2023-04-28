@@ -45,7 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Csla6RestApi.SnippetsPackage.cs" />
   </ItemGroup>
@@ -454,6 +453,25 @@
     <Content Include="CslaModels\Complex_Command\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="CslaModels\Junction_View\M_CC.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CslaModels\Junction_View\M_CI.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CslaModels\Junction_View\M_RM.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CslaModels\Junction_Edit\M_CC.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CslaModels\Junction_Edit\M_CI.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CslaModels\Junction_Edit\M_RM.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Parameters.txt" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
