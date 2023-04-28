@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Editable child collection</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a editable child collection.</Description>
+			<Shortcut>c6ce-cc</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents an editable $ChildName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $ChildModel$s : EditableList<$ChildModel$s, $ChildModel$, $ChildModel$Dto>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($ChildModel$s),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            List<$ChildModel$Dao> list,
+            [Inject] IChildDataPortal<$ChildModel$> itemPortal
+            )
+        {
+            foreach (var item in list)
+                Add(itemPortal.FetchChild(item));
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

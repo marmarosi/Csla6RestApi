@@ -1,7 +1,7 @@
 using Csla6RestApi.Dal;
 using System.ComponentModel.DataAnnotations;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Provides method to set error message properties.

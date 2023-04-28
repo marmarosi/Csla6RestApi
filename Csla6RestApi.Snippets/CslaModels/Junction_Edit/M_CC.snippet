@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Editable child collection</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a editable child collection.</Description>
+			<Shortcut>c6je-cc</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents an editable $RootName$-$ChildName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$$ChildModel$s : EditableList<$RootModel$$ChildModel$s, $RootModel$$ChildModel$, $RootModel$$ChildModel$Dto>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$$ChildModel$s),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            List<$RootModel$$ChildModel$Dao> list,
+            [Inject] IChildDataPortal<$RootModel$$ChildModel$> itemPortal
+            )
+        {
+            foreach (var item in list)
+                Add(itemPortal.FetchChild(item));
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>RootModel</ID>
+					<ToolTip>The name of the root model.</ToolTip>
+					<Default>RootModel</Default>
+				</Literal>
+				<Literal>
+					<ID>RootName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>RootName</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

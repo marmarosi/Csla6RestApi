@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Read-only child collection</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a read-only child collection.</Description>
+			<Shortcut>c6cc-cc</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents a read-only $ChildName$ collection.
+    /// </summary>
+    [Serializable]
+    public class $ChildModel$Results : ReadOnlyList<$ChildModel$Results, $ChildModel$Result>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($ChildModel$List),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            List<$ChildModel$ResultDao> list,
+            [Inject] IChildDataPortal<$ChildModel$Result> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            foreach (var item in list)
+                Items.Add(itemPortal.FetchChild(item));
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

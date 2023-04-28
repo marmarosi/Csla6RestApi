@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Contract | Editable root data objects</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the data objects of a editable root model.</Description>
+			<Shortcut>c6ce-rm-o</Shortcut>
+		</Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Defines the editable $RootName$ data.
+    /// </summary>
+    public class $RootModel$Data
+    {
+        public string $RootModel$Code { get; set; }
+        public string $RootModel$Name { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the editable $RootName$ object.
+    /// </summary>
+    public class $RootModel$Dao : $RootModel$Data
+    {
+        public long? $RootModel$Key { get; set; }
+        public List<$ChildModel$Dao> $ChildModel$s { get; set; }
+
+        public $RootModel$Dao()
+        {
+            $ChildModel$s = new List<$ChildModel$Dao>();
+        }
+    }
+
+    /// <summary>
+    /// Defines the data transfer object of the editable $RootName$ object.
+    /// </summary>
+    public class $RootModel$Dto : $RootModel$Data
+    {
+        public string $RootModel$Id { get; set; }
+        public List<$ChildModel$Dto> $ChildModel$s { get; set; }
+
+        public $RootModel$Dto()
+        {
+            $ChildModel$s = new List<$ChildModel$Dto>();
+        }
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+                <Literal>
+                    <ID>RootName</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>RootName</Default>
+                </Literal>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Provides an attribute that compares two properties of a model.

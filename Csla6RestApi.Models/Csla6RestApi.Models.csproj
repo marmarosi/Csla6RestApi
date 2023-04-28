@@ -2,9 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.0</Version>
+	<ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <Title>CSLA model extensions for CSLA 6 REST API models.</Title>
+    <Authors>marmarosi</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/marmarosi/Csla6RestApi</RepositoryUrl>
+    <PackageTags>CSLA; WebAPI; .NET Core</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>Provides CSLA model templates to quickly setup new models, data access and contracts for .NET Core 6 REST APIs. Provide data access templates for DB2, Firebird,
+MySQL, Oracle, PostgreSQL, SQLite and SQL Server databases.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Csla" Version="6.2.2" />

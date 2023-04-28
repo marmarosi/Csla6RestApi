@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>DAL | Command model</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements the data access of the command model.</Description>
+			<Shortcut>c6cc-rm-d</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Implements the data access functions of the $CommandName$ by player count command.
+    /// </summary>
+    [DalImplementation]
+    public class $CommandModel$Dal : DalBase<SqlServerContext>, I$CommandModel$Dal
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates the data access object.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        public $CommandModel$Dal(
+            SqlServerContext dbContext
+            )
+        {
+            DbContext = dbContext;
+        }
+
+        #endregion Constructor
+
+        #region Execute
+
+        /// <summary>
+        /// Counts the $RootName$s grouped by the number of their players.
+        /// </summary>
+        /// <param name="criteria">The criteria of the command.</param>
+        public List<$CommandModel$ResultDao> Execute(
+            $CommandModel$Criteria criteria
+            )
+        {
+            string $RootParam$Name = criteria.$RootModel$Name ?? "";
+
+            var counts = DbContext.$RootModel$s
+                .Include(e => e.Players)
+                .Where(e => $RootParam$Name == "" || e.$RootModel$Name.Contains($RootParam$Name))
+                .Select(e => new { e.$RootModel$Key, Count = e.Players.Count })
+                .AsNoTracking()
+                .ToList();
+
+            var list = counts
+                .GroupBy(
+                    e => e.Count,
+                    (key, grp) => new $CommandModel$ResultDao
+                    {
+                        ItemCount = key,
+                        CountOf$RootModel$s = grp.Count()
+                    })
+                .OrderByDescending(o => o.ItemCount)
+                .ToList();
+
+            if (list.Count == 0)
+                throw new CommandFailedException(DalText.$CommandModel$_CountFailed);
+
+            return list;
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>CommandModel</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>CommandModel</Default>
+				</Literal>
+				<Literal>
+					<ID>CommandName</ID>
+					<ToolTip>The command name in comments.</ToolTip>
+					<Default>CommandName</Default>
+				</Literal>
+				<Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+				<Literal>
+					<ID>RootName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>RootName</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

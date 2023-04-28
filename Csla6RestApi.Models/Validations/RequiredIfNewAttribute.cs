@@ -1,7 +1,7 @@
 using Csla.Core;
 using System.ComponentModel.DataAnnotations;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Specifies that a data field value is required only when the business object is new.

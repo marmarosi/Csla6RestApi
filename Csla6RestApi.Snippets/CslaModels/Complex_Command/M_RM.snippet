@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Command model</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a command model.</Description>
+			<Shortcut>c6cc-rm</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// 
+    /// </summary>
+    [Serializable]
+    public class $CommandModel$ : CommandBase<$CommandModel$>
+    {
+        #region Properties
+
+        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
+        public string $RootModel$Name
+        {
+            get => ReadProperty($RootModel$NameProperty);
+            private set => LoadProperty($RootModel$NameProperty, value);
+        }
+
+        public static readonly PropertyInfo<$CommandModel$Results> ResultsProperty = RegisterProperty<$CommandModel$Results>(nameof(Results));
+        public $CommandModel$Results Results
+        {
+            get => ReadProperty(ResultsProperty);
+            private set => LoadProperty(ResultsProperty, value);
+        }
+
+        #endregion
+
+        #region Business Rules
+
+        //private void Validate()
+        //{
+        //    if (string.IsNullOrEmpty($RootModel$Name))
+        //        throw new CommandException(ValidationText.$CommandModel$_$RootModel$Name_Required);
+        //}
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($CommandModel$),
+        //        new IsInRole(
+        //            AuthorizationActions.ExecuteMethod,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="criteria">The criteria of the command.</param>
+        /// <returns>The command instance.</returns>
+        public static async Task<$CommandModel$> Execute(
+            IDataPortalFactory factory,
+            $CommandModel$Criteria criteria
+            )
+        {
+            return await factory.GetPortal<$CommandModel$>().ExecuteAsync(criteria);
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Execute]
+        private void Execute(
+            $CommandModel$Criteria criteria,
+            [Inject] I$CommandModel$Dal dal,
+            [Inject] IChildDataPortal<$CommandModel$Results> resultPortal
+            )
+        {
+            // Execute the command.
+            $RootModel$Name = criteria.$RootModel$Name;
+            //Validate();
+            List<$CommandModel$ResultDao> list = dal.Execute(criteria);
+
+            // Set new data.
+            Results = resultPortal.FetchChild(list);
+        }
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>CommandModel</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>CommandModel</Default>
+				</Literal>
+				<Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

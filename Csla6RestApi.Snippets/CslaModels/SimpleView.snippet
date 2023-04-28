@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Simple View</Title>
+            <Author>Mármarosi József</Author>
+            <Description>Simple read-only root model.</Description>
+            <Shortcut>m6sv-rm</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[
+    /// <summary>
+    /// Represents a read-only $RootName$ object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$View : ReadOnlyModel<$RootModel$View>
+    {
+        #region Properties
+
+        public static readonly PropertyInfo<long?> $RootModel$KeyProperty = RegisterProperty<long?>(nameof($RootModel$Key));
+        public long? $RootModel$Key
+        {
+            get => GetProperty($RootModel$KeyProperty);
+            private set => LoadProperty($RootModel$KeyProperty, value);
+        }
+
+        public static readonly PropertyInfo<long?> $RootModel$IdProperty = RegisterProperty<long?>(nameof($RootModel$Id), RelationshipTypes.PrivateField);
+        public string $RootModel$Id
+        {
+            get => KeyHash.Encode(ID.$RootModel$, $RootModel$Key);
+            private set => $RootModel$Key = KeyHash.Decode(ID.$RootModel$, value);
+        }
+
+        public static readonly PropertyInfo<string> $RootModel$CodeProperty = RegisterProperty<string>(nameof($RootModel$Code));
+        public string $RootModel$Code
+        {
+            get => GetProperty($RootModel$CodeProperty);
+            private set => LoadProperty($RootModel$CodeProperty, value);
+        }
+
+        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
+        public string $RootModel$Name
+        {
+            get => GetProperty($RootModel$NameProperty);
+            private set => LoadProperty($RootModel$NameProperty, value);
+        }
+
+        #endregion
+
+        #region Business Rules
+
+        //protected override void AddBusinessRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        new IsInRole(
+        //            AuthorizationActions.ReadProperty,
+        //            $RootModel$NameProperty,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$View),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// Gets the specified $RootName$ details to display.
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="id">The identifier of the $RootName$.</param>
+        /// <returns>The requested $RootName$ view.</returns>
+        public static async Task<$RootModel$View> Get(
+            IDataPortalFactory factory,
+            string id
+            )
+        {
+            var criteria = new $RootModel$ViewParams(id);
+            return await factory.GetPortal<$RootModel$View>().FetchAsync(criteria.Decode());
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Fetch]
+        private void Fetch(
+            $RootModel$ViewCriteria criteria,
+            [Inject] I$RootModel$ViewDal dal
+            )
+        {
+            // Set values from data access object.
+            $RootModel$ViewDao dao = dal.Fetch(criteria);
+            DataMapper.Map(dao, this);
+        }
+
+        #endregion
+    }
+                ]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+                <Literal>
+                    <ID>RootName</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>RootName</Default>
+                </Literal>
+            </Declarations>
+            <Imports>
+                <Import>
+                    <Namespace>Csla</Namespace>
+                    <Namespace>Csla.Data</Namespace>
+                    <Namespace>Csla6RestApi.CslaExtensions.Models</Namespace>
+                    <Namespace>Csla6RestApi.Dal.Contracts</Namespace>
+                </Import>
+            </Imports>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,6 +1,6 @@
 using Csla.Rules;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Information about the failed validation to send to the client.

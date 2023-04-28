@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Contract | Editable child DAL interface</Title>
+            <Author>Mármarosi József</Author>
+            <Description>Defines the DAL interface of a editable child model.</Description>
+            <Shortcut>c6ce-cm-i</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the editable $ChildName$ object.
+    /// </summary>
+    public interface I$ChildModel$Dal
+    {
+        void Insert($ChildModel$Dao dao);
+        void Update($ChildModel$Dao dao);
+        void Delete($ChildModel$Criteria criteria);
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildName</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>ChildName</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

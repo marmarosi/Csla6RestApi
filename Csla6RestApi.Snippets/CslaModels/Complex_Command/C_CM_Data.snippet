@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Contract | Read-only child data objects</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the data objects of a read-only child model.</Description>
+			<Shortcut>c6cc-cm-o</Shortcut>
+		</Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Defines the $CommandName$ list item data.
+    /// </summary>
+    public class $CommandModel$ResultData
+    {
+        public string $RootModel$Code { get; set; }
+        public string $RootModel$Name { get; set; }
+    }
+
+    /// <summary>
+    /// Defines the data access object of the $CommandName$ list item object.
+    /// </summary>
+    public class $CommandModel$ResultDao : $CommandModel$ResultData
+    { }
+
+    /// <summary>
+    /// Defines the data transfer object of the $CommandName$ list item object.
+    /// </summary>
+    public class $CommandModel$ResultDto : $CommandModel$ResultData
+    { }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>CommandModel</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>CommandModel</Default>
+				</Literal>
+				<Literal>
+					<ID>CommandName</ID>
+					<ToolTip>The command name in comments.</ToolTip>
+					<Default>CommandName</Default>
+				</Literal>
+				<Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

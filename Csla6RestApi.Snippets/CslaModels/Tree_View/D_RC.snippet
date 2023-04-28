@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>DAL | Read-only root collection</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements the data access of the read-only root collection.</Description>
+            <Shortcut>c6tl-rc-d</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Implements the data access functions of the read-only $RootName$ tree.
+    /// </summary>
+    [DalImplementation]
+    public class $RootModel$TreeDal : DalBase<SqlServerContext>, I$RootModel$TreeDal
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates the data access object.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        public $RootModel$TreeDal(
+            SqlServerContext dbContext
+            )
+        {
+            DbContext = dbContext;
+        }
+
+        #endregion Constructor
+
+        #region Fetch
+
+        private List<$RootModel$NodeDao> All$RootModel$s { get; set; }
+
+        /// <summary>
+        /// Gets the specified $RootName$ tree.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $RootName$ tree.</param>
+        /// <returns>The requested $RootName$ tree.</returns>
+        public List<$RootModel$NodeDao> Fetch(
+            $RootModel$TreeCriteria criteria
+            )
+        {
+            var tree = new List<$RootModel$NodeDao>();
+
+            // Get all sub$RootName$s of the root foolder.
+            All$RootModel$s = DbContext.$RootModel$s
+                .Where(e =>
+                    e.RootKey == criteria.RootKey
+                )
+                .Select(e => new $RootModel$NodeDao
+                {
+                    $RootModel$Key = e.$RootModel$Key,
+                    ParentKey = e.ParentKey,
+                    $RootModel$Order = e.$RootModel$Order,
+                    $RootModel$Name = e.$RootModel$Name
+                })
+                .AsNoTracking()
+                .ToList();
+
+            // Populate the tree.
+            PopulateLevel(1, null, tree);
+
+            // Return the result.
+            return tree;
+        }
+
+        private void PopulateLevel(
+            int level,
+            long? parentKey,
+            List<$RootModel$NodeDao> parentChildren
+            )
+        {
+            // Get the $RootName$s of the level.
+            var $RootParam$s = All$RootModel$s
+                .Where(o => o.ParentKey == parentKey)
+                .OrderBy(o => o.$RootModel$Order)
+                .ToList();
+
+            foreach ($RootModel$NodeDao $RootParam$ in $RootParam$s)
+            {
+                // Create $RootName$ node.
+                $RootModel$NodeDao $RootParam$Node = new $RootModel$NodeDao
+                {
+                    $RootModel$Key = $RootParam$.$RootModel$Key,
+                    ParentKey = $RootParam$.ParentKey,
+                    $RootModel$Order = $RootParam$.$RootModel$Order,
+                    $RootModel$Name = $RootParam$.$RootModel$Name,
+                    Level = level,
+                    Children = new List<$RootModel$NodeDao>()
+                };
+
+                // Add $RootName$ to the parent's children.
+                parentChildren.Add($RootParam$Node);
+
+                // Get the sub$RootName$s of this $RootName$.
+                PopulateLevel(
+                    level + 1,
+                    $RootParam$.$RootModel$Key,
+                    $RootParam$Node.Children
+                    );
+            }
+        }
+
+        #endregion GetList
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+				<Literal>
+                    <ID>RootName</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>RootName</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

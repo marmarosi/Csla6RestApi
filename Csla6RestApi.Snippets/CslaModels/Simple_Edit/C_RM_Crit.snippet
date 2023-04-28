@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Contract | Editable root criteria</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the criteria of a editable root model.</Description>
+			<Shortcut>c6se-rm-c</Shortcut>
+		</Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the read-only $RootName$ object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Params
+    {
+        public string $RootModel$Id { get; set; }
+
+        public $RootModel$Params(
+            string $RootParam$Id
+            )
+        {
+            $RootModel$Id = $RootParam$Id;
+        }
+
+        public $RootModel$Criteria Decode()
+        {
+            return new $RootModel$Criteria(KeyHash.Decode(ID.$RootModel$, $RootModel$Id));
+        }
+    }
+
+    /// <summary>
+    /// Represents the criteria of the editable $RootName$ object.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Criteria
+    {
+        public long? $RootModel$Key { get; set; }
+
+        public $RootModel$Criteria(
+            long? $RootParam$Key
+            )
+        {
+            $RootModel$Key = $RootParam$Key;
+        }
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+                <Literal>
+                    <ID>RootName</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>RootName</Default>
+                </Literal>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

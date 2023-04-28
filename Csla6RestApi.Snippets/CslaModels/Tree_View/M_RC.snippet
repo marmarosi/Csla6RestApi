@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Read-only root collection</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a read-only root collection.</Description>
+			<Shortcut>c6tl-rc</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents a read-only $RootName$ tree.
+    /// </summary>
+    [Serializable]
+    public class $RootModel$Tree : ReadOnlyList<$RootModel$Tree, $RootModel$Node>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($RootModel$Tree),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// Gets the specified read-only $RootName$ tree.
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="criteria">The criteria of the read-only $RootName$ tree.</param>
+        /// <returns>The requested read-only $RootName$ tree.</returns>
+        public static async Task<$RootModel$Tree> Get(
+            IDataPortalFactory factory,
+            string rootId
+            )
+        {
+            var criteria = new $RootModel$TreeParams(rootId);
+            return await factory.GetPortal<$RootModel$Tree>().FetchAsync(criteria.Decode());
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Fetch]
+        private void Fetch(
+            $RootModel$TreeCriteria criteria,
+            [Inject] I$RootModel$TreeDal dal,
+            [Inject] IChildDataPortal<$RootModel$Node> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            using (LoadListMode)
+            {
+                List<$RootModel$NodeDao> list = dal.Fetch(criteria);
+                foreach (var item in list)
+                    Add(itemPortal.FetchChild(item));
+            }
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+                <Literal>
+                    <ID>RootName</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>RootName</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

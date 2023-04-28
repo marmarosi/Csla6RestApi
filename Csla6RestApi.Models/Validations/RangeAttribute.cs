@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Csla6RestApi.CslaExtensions.Validations
+namespace Csla6RestApi.Models.Validations
 {
     /// <summary>
     /// Specifies the numeric range constraints for the value of a data field.

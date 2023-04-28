@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>DAL | Editable root set item</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements the data access of the editable root set item.</Description>
+			<Shortcut>c6ss-ri-d</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Implements the data access functions of the editable $RootName$ set item object.
+    /// </summary>
+    [DalImplementation]
+    public class $RootModel$SetItemDal : DalBase<SqlServerContext>, I$RootModel$SetItemDal
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates the data access object.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        public $RootModel$SetItemDal(
+            SqlServerContext dbContext
+            )
+        {
+            DbContext = dbContext;
+        }
+
+        #endregion Constructor
+
+        #region Insert
+
+        /// <summary>
+        /// Creates a new $RootName$ using the specified data.
+        /// </summary>
+        /// <param name="dao">The data of the $RootName$.</param>
+        public void Insert(
+            $RootModel$SetItemDao dao
+            )
+        {
+            // Check unique $RootName$ code.
+            var $RootParam$ = DbContext.$RootModel$s
+                .Where(e =>
+                    e.$RootModel$Code == dao.$RootModel$Code
+                )
+                .FirstOrDefault();
+            if ($RootParam$ != null)
+                throw new DataExistException(DalText.$RootModel$SetItem_$RootModel$CodeExists.With(dao.$RootModel$Code));
+
+            // Create the new $RootName$.
+            $RootParam$ = new $RootModel$
+            {
+                $RootModel$Code = dao.$RootModel$Code,
+                $RootModel$Name = dao.$RootModel$Name
+            };
+            DbContext.$RootModel$s.Add($RootParam$);
+
+            int count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new InsertFailedException(DalText.$RootModel$SetItem_InsertFailed.With($RootParam$.$RootModel$Code));
+
+            // Return new data.
+            dao.$RootModel$Key = $RootParam$.$RootModel$Key;
+            dao.Timestamp = $RootParam$.Timestamp;
+        }
+
+        #endregion Insert
+
+        #region Update
+
+        /// <summary>
+        /// Updates an existing $RootName$ using the specified data.
+        /// </summary>
+        /// <param name="dao">The data of the $RootName$.</param>
+        public void Update(
+            $RootModel$SetItemDao dao
+            )
+        {
+            // Get the specified $RootName$.
+            var $RootParam$ = DbContext.$RootModel$s
+                .Where(e =>
+                    e.$RootModel$Key == dao.$RootModel$Key
+                )
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$RootModel$SetItem_NotFound.With(dao.$RootModel$Code));
+            if ($RootParam$.Timestamp != dao.Timestamp)
+                throw new ConcurrencyException(DalText.$RootModel$SetItem_Concurrency.With(dao.$RootModel$Code));
+
+            // Check unique $RootName$ code.
+            if ($RootParam$.$RootModel$Code != dao.$RootModel$Code)
+            {
+                int exist = DbContext.$RootModel$s
+                    .Where(e =>
+                        e.$RootModel$Code == dao.$RootModel$Code &&
+                        e.$RootModel$Key != $RootParam$.$RootModel$Key
+                    )
+                    .Count();
+                if (exist > 0)
+                    throw new DataExistException(DalText.$RootModel$SetItem_$RootModel$CodeExists.With(dao.$RootModel$Code));
+            }
+
+            // Update the $RootName$.
+            $RootParam$.$RootModel$Code = dao.$RootModel$Code;
+            $RootParam$.$RootModel$Name = dao.$RootModel$Name;
+
+            int count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new UpdateFailedException(DalText.$RootModel$SetItem_UpdateFailed.With($RootParam$.$RootModel$Code));
+
+            // Return new data.
+            dao.Timestamp = $RootParam$.Timestamp;
+        }
+
+        #endregion Update
+
+        #region Delete
+
+        /// <summary>
+        /// Deletes the specified $RootName$.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $RootName$.</param>
+        public void Delete(
+            $RootModel$SetItemCriteria criteria
+            )
+        {
+            int count = 0;
+
+            // Get the specified $RootName$.
+            var $RootParam$ = DbContext.$RootModel$s
+                .Where(e =>
+                    e.$RootModel$Key == criteria.$RootModel$Key
+                 )
+                .AsNoTracking()
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$RootModel$SetItem_NotFoundKey);
+
+            // Check references.
+            //int dependents = 0;
+
+            //dependents = DbContext.Others.Count(e => e.$RootModel$Key == criteria.$RootModel$Key);
+            //if (dependents > 0)
+            //    throw new DeleteFailedException(DalText.$RootModel$SetItem_Delete_Others);
+
+            // Delete references.
+            //var $ChildParam$s = DbContext.$ChildModel$s
+            //    .Where(e => e.$RootModel$Key == criteria.$RootModel$Key)
+            //    .ToList();
+            //foreach (var $ChildParam$ in $ChildParam$s)
+            //    DbContext.$ChildModel$s.Remove($ChildParam$);
+
+            //count = DbContext.SaveChanges();
+            //if (count != $ChildParam$s.Count)
+            //    throw new DeleteFailedException(DalText.$RootModel$SetItem_Delete_$ChildModel$s.With($RootParam$.$RootModel$Code));
+
+            // Delete the $RootName$.
+            DbContext.$RootModel$s.Remove($RootParam$);
+
+            count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new DeleteFailedException(DalText.$RootModel$SetItem_DeleteFailed.With($RootParam$.$RootModel$Code));
+        }
+
+        #endregion Delete
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>RootModel</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>RootModel</Default>
+                </Literal>
+				<Literal>
+					<ID>RootParam</ID>
+					<ToolTip>The name of the root parameter.</ToolTip>
+					<Default>RootParam</Default>
+				</Literal>
+				<Literal>
+                    <ID>RootName</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>RootName</Default>
+                </Literal>
+				<Literal>
+					<ID>ChildModel</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>ChildModel</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildParam</ID>
+					<ToolTip>The name of the child parameter.</ToolTip>
+					<Default>ChildParam</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -2,7 +2,7 @@ using Csla6RestApi.Dal;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Csla6RestApi.CslaExtensions
+namespace Csla6RestApi.Models
 {
     /// <summary>
     /// Represents an error occurred on the backend.
