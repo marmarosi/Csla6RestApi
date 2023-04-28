@@ -4,7 +4,25 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <Title>CSLA data excess extensions for CSLA 6 REST API models.</Title>
+    <Authors>marmarosi</Authors>
+    <Description>Provides data access extensions for CSLA REST API models. See Csla6RestApi project.</Description>
+    <PackageTags>CSLA; WebAPI; .NET Core</PackageTags>
+    <RepositoryUrl>https://github.com/marmarosi/Csla6RestApi</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Hashids.net" Version="1.7.0" />
