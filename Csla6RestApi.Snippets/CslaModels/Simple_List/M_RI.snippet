@@ -10,39 +10,39 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an item in a read-only $RootName$ collection.
+    /// Represents an item in a read-only $root_name$ collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$ListItem : ReadOnlyModel<$RootModel$ListItem>
+    public class $ROOT_MODEL$ListItem : ReadOnlyModel<$ROOT_MODEL$ListItem>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $RootModel$KeyProperty = RegisterProperty<long?>(nameof($RootModel$Key));
-        public long? $RootModel$Key
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$KeyProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Key));
+        public long? $ROOT_MODEL$Key
         {
-            get => GetProperty($RootModel$KeyProperty);
-            private set => LoadProperty($RootModel$KeyProperty, value);
+            get => GetProperty($ROOT_MODEL$KeyProperty);
+            private set => LoadProperty($ROOT_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<long?> $RootModel$IdProperty = RegisterProperty<long?>(nameof($RootModel$Id), RelationshipTypes.PrivateField);
-        public string $RootModel$Id
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$IdProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Id), RelationshipTypes.PrivateField);
+        public string $ROOT_MODEL$Id
         {
-            get => KeyHash.Encode(ID.$RootModel$, $RootModel$Key);
-            private set => $RootModel$Key = KeyHash.Decode(ID.$RootModel$, value);
+            get => KeyHash.Encode(ID.$ROOT_MODEL$, $ROOT_MODEL$Key);
+            private set => $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$CodeProperty = RegisterProperty<string>(nameof($RootModel$Code));
-        public string $RootModel$Code
+        public static readonly PropertyInfo<string> $ROOT_MODEL$CodeProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Code));
+        public string $ROOT_MODEL$Code
         {
-            get => GetProperty($RootModel$CodeProperty);
-            private set => LoadProperty($RootModel$CodeProperty, value);
+            get => GetProperty($ROOT_MODEL$CodeProperty);
+            private set => LoadProperty($ROOT_MODEL$CodeProperty, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
-        public string $RootModel$Name
+        public static readonly PropertyInfo<string> $ROOT_MODEL$NameProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Name));
+        public string $ROOT_MODEL$Name
         {
-            get => GetProperty($RootModel$NameProperty);
-            private set => LoadProperty($RootModel$NameProperty, value);
+            get => GetProperty($ROOT_MODEL$NameProperty);
+            private set => LoadProperty($ROOT_MODEL$NameProperty, value);
         }
 
         #endregion
@@ -55,7 +55,7 @@
         //    BusinessRules.AddRule(
         //        new IsInRole(
         //            AuthorizationActions.ReadProperty,
-        //            $RootModel$NameProperty,
+        //            $ROOT_MODEL$NameProperty,
         //            "Manager"
         //            )
         //        );
@@ -65,7 +65,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$View),
+        //        typeof($ROOT_MODEL$View),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -79,7 +79,7 @@
 
         [FetchChild]
         protected void Fetch(
-            $RootModel$ListItemDao dao
+            $ROOT_MODEL$ListItemDao dao
             )
         {
             // Set values from data access object.

@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the read-only $RootName$ collection.
+    /// Implements the data access functions of the read-only $root_name$ collection.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$ListDal : DalBase<SqlServerContext>, I$RootModel$ListDal
+    public class $ROOT_MODEL$ListDal : DalBase<SqlServerContext>, I$ROOT_MODEL$ListDal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$ListDal(
+        public $ROOT_MODEL$ListDal(
             SqlServerContext dbContext
             )
         {
@@ -33,39 +33,39 @@
         #region Fetch
 
         /// <summary>
-        /// Gets the specified $RootName$s.
+        /// Gets the specified $root_name$s.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$ list.</param>
-        /// <returns>The requested $RootName$ list.</returns>
-        public List<$RootModel$ListItemDao> Fetch(
-            $RootModel$ListCriteria criteria
+        /// <param name="criteria">The criteria of the $root_name$ list.</param>
+        /// <returns>The requested $root_name$ list.</returns>
+        public List<$ROOT_MODEL$ListItemDao> Fetch(
+            $ROOT_MODEL$ListCriteria criteria
             )
         {
-            // Filter the $RootName$s.
-            var query = DbContext.$RootModel$s
+            // Filter the $root_name$s.
+            var query = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    criteria.$RootModel$Name == null || e.$RootModel$Name.Contains(criteria.$RootModel$Name)
+                    criteria.$ROOT_MODEL$Name == null || e.$ROOT_MODEL$Name.Contains(criteria.$ROOT_MODEL$Name)
                 )
-                .Select(e => new $RootModel$ListItemDao
+                .Select(e => new $ROOT_MODEL$ListItemDao
                 {
-                    $RootModel$Key = e.$RootModel$Key,
-                    $RootModel$Code = e.$RootModel$Code,
-                    $RootModel$Name = e.$RootModel$Name
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
+                    $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name
                 });
 
             // Sort the items.
             switch (criteria.SortBy)
             {
-                case $RootModel$ListSortBy.$RootModel$Code:
+                case $ROOT_MODEL$ListSortBy.$ROOT_MODEL$Code:
                     query = criteria.SortDirection == SortDirection.Ascending
-                        ? query.OrderBy(e => e.$RootModel$Code)
-                        : query.OrderByDescending(e => e.$RootModel$Code);
+                        ? query.OrderBy(e => e.$ROOT_MODEL$Code)
+                        : query.OrderByDescending(e => e.$ROOT_MODEL$Code);
                     break;
-                //case $RootModel$ListSortBy.$RootModel$Name:
+                //case $ROOT_MODEL$ListSortBy.$ROOT_MODEL$Name:
                 default:
                     query = criteria.SortDirection == SortDirection.Ascending
-                        ? query.OrderBy(e => e.$RootModel$Name)
-                        : query.OrderByDescending(e => e.$RootModel$Name);
+                        ? query.OrderBy(e => e.$ROOT_MODEL$Name)
+                        : query.OrderByDescending(e => e.$ROOT_MODEL$Name);
                     break;
             }
 

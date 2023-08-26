@@ -10,15 +10,15 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $RootName$ collection.
+    /// Represents a read-only $root_name$ collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$List : ReadOnlyModel<$RootModel$List>
+    public class $ROOT_MODEL$List : ReadOnlyModel<$ROOT_MODEL$List>
     {
         #region Properties
 
-        public static readonly PropertyInfo<$RootModel$ListItems> PlayersProperty = RegisterProperty<$RootModel$ListItems>(nameof(Data));
-        public $RootModel$ListItems Data
+        public static readonly PropertyInfo<$ROOT_MODEL$ListItems> PlayersProperty = RegisterProperty<$ROOT_MODEL$ListItems>(nameof(Data));
+        public $ROOT_MODEL$ListItems Data
         {
             get => GetProperty(PlayersProperty);
             private set => LoadProperty(PlayersProperty, value);
@@ -51,7 +51,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$List),
+        //        typeof($ROOT_MODEL$List),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -64,17 +64,17 @@
         #region Factory Methods
 
         /// <summary>
-        /// Gets the specified read-only $RootName$ collection.
+        /// Gets the specified read-only $root_name$ collection.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="criteria">The criteria of the read-only $RootName$ list.</param>
-        /// <returns>The requested read-only $RootName$ list.</returns>
-        public static async Task<$RootModel$List> Get(
+        /// <param name="criteria">The criteria of the read-only $root_name$ list.</param>
+        /// <returns>The requested read-only $root_name$ list.</returns>
+        public static async Task<$ROOT_MODEL$List> Get(
             IDataPortalFactory factory,
-            $RootModel$ListCriteria criteria
+            $ROOT_MODEL$ListCriteria criteria
             )
         {
-            return await factory.GetPortal<$RootModel$List>().FetchAsync(criteria);
+            return await factory.GetPortal<$ROOT_MODEL$List>().FetchAsync(criteria);
         }
 
         #endregion
@@ -83,13 +83,13 @@
 
         [Fetch]
         private void Fetch(
-            $RootModel$ListCriteria criteria,
-            [Inject] I$RootModel$ListDal dal,
-            [Inject] IChildDataPortal<$RootModel$ListItems> itemsPortal
+            $ROOT_MODEL$ListCriteria criteria,
+            [Inject] I$ROOT_MODEL$ListDal dal,
+            [Inject] IChildDataPortal<$ROOT_MODEL$ListItems> itemsPortal
             )
         {
             // Load values from persistent storage.
-            IPaginatedList<$RootModel$ListItemDao> dao = dal.Fetch(criteria);
+            IPaginatedList<$ROOT_MODEL$ListItemDao> dao = dal.Fetch(criteria);
             Data = itemsPortal.FetchChild(dao.Data);
             TotalCount = dao.TotalCount;
         }

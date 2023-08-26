@@ -10,39 +10,39 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an item in a read-only $ChildName$ collection.
+    /// Represents an item in a read-only $child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $ChildModel$View : ReadOnlyModel<$ChildModel$View>
+    public class $CHILD_MODEL$View : ReadOnlyModel<$CHILD_MODEL$View>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $ChildModel$KeyProperty = RegisterProperty<long?>(nameof($ChildModel$Key));
-        public long? $ChildModel$Key
+        public static readonly PropertyInfo<long?> $CHILD_MODEL$KeyProperty = RegisterProperty<long?>(nameof($CHILD_MODEL$Key));
+        public long? $CHILD_MODEL$Key
         {
-            get => GetProperty($ChildModel$KeyProperty);
-            private set => LoadProperty($ChildModel$KeyProperty, value);
+            get => GetProperty($CHILD_MODEL$KeyProperty);
+            private set => LoadProperty($CHILD_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<long?> $ChildModel$IdProperty = RegisterProperty<long?>(nameof($ChildModel$Id), RelationshipTypes.PrivateField);
-        public string $ChildModel$Id
+        public static readonly PropertyInfo<long?> $CHILD_MODEL$IdProperty = RegisterProperty<long?>(nameof($CHILD_MODEL$Id), RelationshipTypes.PrivateField);
+        public string $CHILD_MODEL$Id
         {
-            get => KeyHash.Encode(ID.$ChildModel$, $ChildModel$Key);
-            private set => $ChildModel$Key = KeyHash.Decode(ID.$ChildModel$, value);
+            get => KeyHash.Encode(ID.$CHILD_MODEL$, $CHILD_MODEL$Key);
+            private set => $CHILD_MODEL$Key = KeyHash.Decode(ID.$CHILD_MODEL$, value);
         }
 
-        public static readonly PropertyInfo<string> $ChildModel$CodeProperty = RegisterProperty<string>(nameof($ChildModel$Code));
-        public string $ChildModel$Code
+        public static readonly PropertyInfo<string> $CHILD_MODEL$CodeProperty = RegisterProperty<string>(nameof($CHILD_MODEL$Code));
+        public string $CHILD_MODEL$Code
         {
-            get => GetProperty($ChildModel$CodeProperty);
-            private set => LoadProperty($ChildModel$CodeProperty, value);
+            get => GetProperty($CHILD_MODEL$CodeProperty);
+            private set => LoadProperty($CHILD_MODEL$CodeProperty, value);
         }
 
-        public static readonly PropertyInfo<string> $ChildModel$NameProperty = RegisterProperty<string>(nameof($ChildModel$Name));
-        public string $ChildModel$Name
+        public static readonly PropertyInfo<string> $CHILD_MODEL$NameProperty = RegisterProperty<string>(nameof($CHILD_MODEL$Name));
+        public string $CHILD_MODEL$Name
         {
-            get => GetProperty($ChildModel$NameProperty);
-            private set => LoadProperty($ChildModel$NameProperty, value);
+            get => GetProperty($CHILD_MODEL$NameProperty);
+            private set => LoadProperty($CHILD_MODEL$NameProperty, value);
         }
 
         #endregion
@@ -55,7 +55,7 @@
         //    BusinessRules.AddRule(
         //        new IsInRole(
         //            AuthorizationActions.ReadProperty,
-        //            $ChildModel$NameProperty,
+        //            $CHILD_MODEL$NameProperty,
         //            "Manager"
         //            )
         //        );
@@ -65,7 +65,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($ChildModel$View),
+        //        typeof($CHILD_MODEL$View),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -79,7 +79,7 @@
 
         [FetchChild]
         private void Fetch(
-            $ChildModel$ViewDao dao
+            $CHILD_MODEL$ViewDao dao
             )
         {
             // Load values from persistent storage.

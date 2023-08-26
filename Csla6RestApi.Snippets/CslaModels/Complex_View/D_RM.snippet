@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the read-only $RootName$ object.
+    /// Implements the data access functions of the read-only $root_name$ object.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$ViewDal : DalBase<SqlServerContext>, I$RootModel$ViewDal
+    public class $ROOT_MODEL$ViewDal : DalBase<SqlServerContext>, I$ROOT_MODEL$ViewDal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$ViewDal(
+        public $ROOT_MODEL$ViewDal(
             SqlServerContext dbContext
             )
         {
@@ -33,38 +33,38 @@
         #region Fetch
 
         /// <summary>
-        /// Gets the specified $RootName$ view.
+        /// Gets the specified $root_name$ view.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$.</param>
-        /// <returns>The requested $RootName$ view.</returns>
-        public $RootModel$ViewDao Fetch(
-            $RootModel$ViewCriteria criteria
+        /// <param name="criteria">The criteria of the $root_name$.</param>
+        /// <returns>The requested $root_name$ view.</returns>
+        public $ROOT_MODEL$ViewDao Fetch(
+            $ROOT_MODEL$ViewCriteria criteria
             )
         {
-            // Get the specified $RootName$.
-            var $RootParam$ = DbContext.$RootModel$s
-                .Include(e => e.$ChildModel$s)
+            // Get the specified $root_name$.
+            var $RootParam$ = DbContext.$ROOT_MODEL$s
+                .Include(e => e.$CHILD_MODEL$s)
                 .Where(e =>
-                    e.$RootModel$Key == criteria.$RootModel$Key
+                    e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
                  )
-                .Select(e => new $RootModel$ViewDao
+                .Select(e => new $ROOT_MODEL$ViewDao
                 {
-                    $RootModel$Key = e.$RootModel$Key,
-                    $RootModel$Code = e.$RootModel$Code,
-                    $RootModel$Name = e.$RootModel$Name,
-                    $ChildModel$s = e.$ChildModel$s
-                        .Select(p => new $ChildModel$ViewDao
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
+                    $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name,
+                    $CHILD_MODEL$s = e.$CHILD_MODEL$s
+                        .Select(p => new $CHILD_MODEL$ViewDao
                         {
-                            $ChildModel$Key = p.$ChildModel$Key,
-                            $ChildModel$Code = p.$ChildModel$Code,
-                            $ChildModel$Name = p.$ChildModel$Name
+                            $CHILD_MODEL$Key = p.$CHILD_MODEL$Key,
+                            $CHILD_MODEL$Code = p.$CHILD_MODEL$Code,
+                            $CHILD_MODEL$Name = p.$CHILD_MODEL$Name
                         })
-                    .OrderBy(p => p.$ChildModel$Name)
+                    .OrderBy(p => p.$CHILD_MODEL$Name)
                     .ToList()
                 })
                 .AsNoTracking()
                 .FirstOrDefault()
-                ?? throw new DataNotFoundException(DalText.$RootModel$_NotFound);
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
 
             return $RootParam$;
         }

@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the read-only $RootName$ choice collection.
+    /// Implements the data access functions of the read-only $root_name$ choice collection.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$ChoiceDal : DalBase<SqlServerContext>, I$RootModel$ChoiceDal
+    public class $ROOT_MODEL$ChoiceDal : DalBase<SqlServerContext>, I$ROOT_MODEL$ChoiceDal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$ChoiceDal(
+        public $ROOT_MODEL$ChoiceDal(
             SqlServerContext dbContext
             )
         {
@@ -33,22 +33,22 @@
         #region Fetch
 
         /// <summary>
-        /// Gets the choice of the $RootName$s.
+        /// Gets the choice of the $root_name$s.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$ choice.</param>
-        /// <returns>The data transfer object of the requested $RootName$ choice.</returns>
+        /// <param name="criteria">The criteria of the $root_name$ choice.</param>
+        /// <returns>The data transfer object of the requested $root_name$ choice.</returns>
         public List<CodeNameOptionDao> Fetch(
-            $RootModel$ChoiceCriteria criteria
+            $ROOT_MODEL$ChoiceCriteria criteria
             )
         {
-            var choice = DbContext.$RootModel$s
+            var choice = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    criteria.$RootModel$Name == null || e.$RootModel$Name.Contains(criteria.$RootModel$Name)
+                    criteria.$ROOT_MODEL$Name == null || e.$ROOT_MODEL$Name.Contains(criteria.$ROOT_MODEL$Name)
                 )
                 .Select(e => new CodeNameOptionDao
                 {
-                    Code = e.$RootModel$Code,
-                    Name = e.$RootModel$Name
+                    Code = e.$ROOT_MODEL$Code,
+                    Name = e.$ROOT_MODEL$Name
                 })
                 .OrderBy(o => o.Name)
                 .AsNoTracking()

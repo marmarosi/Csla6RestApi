@@ -10,36 +10,36 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents the criteria of the read-only $RootName$ object.
+    /// Represents the criteria of the read-only $root_name$ object.
     /// </summary>
     [Serializable]
-    public class $RootModel$ViewParams
+    public class $ROOT_MODEL$ViewParams
     {
-        public string $RootModel$Id { get; set; }
+        public string $ROOT_MODEL$Id { get; set; }
 
-        public $RootModel$ViewParams(
+        public $ROOT_MODEL$ViewParams(
             string $RootParam$Id
             )
         {
-            $RootModel$Id = $RootParam$Id;
+            $ROOT_MODEL$Id = $RootParam$Id;
         }
 
-        public $RootModel$ViewCriteria Decode()
+        public $ROOT_MODEL$ViewCriteria Decode()
         {
-            return new $RootModel$ViewCriteria
+            return new $ROOT_MODEL$ViewCriteria
             {
-                $RootModel$Key = KeyHash.Decode(ID.$RootModel$, $RootModel$Id) ?? 0
+                $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, $ROOT_MODEL$Id) ?? 0
             };
         }
     }
 
     /// <summary>
-    /// Represents the criteria of the read-only $RootName$ object.
+    /// Represents the criteria of the read-only $root_name$ object.
     /// </summary>
     [Serializable]
-    public class $RootModel$ViewCriteria
+    public class $ROOT_MODEL$ViewCriteria
     {
-        public long $RootModel$Key { get; set; }
+        public long $ROOT_MODEL$Key { get; set; }
     }]]>
             </Code>
             <Declarations>

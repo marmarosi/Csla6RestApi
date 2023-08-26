@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the $CommandName$ by player count command.
+    /// Implements the data access functions of the $command_name$ by player count command.
     /// </summary>
     [DalImplementation]
-    public class $CommandModel$Dal : DalBase<SqlServerContext>, I$CommandModel$Dal
+    public class $COMMAND_MODEL$Dal : DalBase<SqlServerContext>, I$COMMAND_MODEL$Dal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $CommandModel$Dal(
+        public $COMMAND_MODEL$Dal(
             SqlServerContext dbContext
             )
         {
@@ -33,35 +33,35 @@
         #region Execute
 
         /// <summary>
-        /// Counts the $RootName$s grouped by the number of their players.
+        /// Counts the $root_name$s grouped by the number of their players.
         /// </summary>
         /// <param name="criteria">The criteria of the command.</param>
-        public List<$CommandModel$ResultDao> Execute(
-            $CommandModel$Criteria criteria
+        public List<$COMMAND_MODEL$ResultDao> Execute(
+            $COMMAND_MODEL$Criteria criteria
             )
         {
-            string $RootParam$Name = criteria.$RootModel$Name ?? "";
+            string $RootParam$Name = criteria.$ROOT_MODEL$Name ?? "";
 
-            var counts = DbContext.$RootModel$s
+            var counts = DbContext.$ROOT_MODEL$s
                 .Include(e => e.Players)
-                .Where(e => $RootParam$Name == "" || e.$RootModel$Name.Contains($RootParam$Name))
-                .Select(e => new { e.$RootModel$Key, Count = e.Players.Count })
+                .Where(e => $RootParam$Name == "" || e.$ROOT_MODEL$Name.Contains($RootParam$Name))
+                .Select(e => new { e.$ROOT_MODEL$Key, Count = e.Players.Count })
                 .AsNoTracking()
                 .ToList();
 
             var list = counts
                 .GroupBy(
                     e => e.Count,
-                    (key, grp) => new $CommandModel$ResultDao
+                    (key, grp) => new $COMMAND_MODEL$ResultDao
                     {
                         ItemCount = key,
-                        CountOf$RootModel$s = grp.Count()
+                        CountOf$ROOT_MODEL$s = grp.Count()
                     })
                 .OrderByDescending(o => o.ItemCount)
                 .ToList();
 
             if (list.Count == 0)
-                throw new CommandFailedException(DalText.$CommandModel$_CountFailed);
+                throw new CommandFailedException(DalText.$COMMAND_MODEL$_CountFailed);
 
             return list;
         }

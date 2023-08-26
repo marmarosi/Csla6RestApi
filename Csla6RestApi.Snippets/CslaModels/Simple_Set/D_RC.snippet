@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the editable $RootName$ collection.
+    /// Implements the data access functions of the editable $root_name$ collection.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$SetDal : DalBase<SqlServerContext>, I$RootModel$SetDal
+    public class $ROOT_MODEL$SetDal : DalBase<SqlServerContext>, I$ROOT_MODEL$SetDal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$SetDal(
+        public $ROOT_MODEL$SetDal(
             SqlServerContext dbContext
             )
         {
@@ -33,27 +33,27 @@
         #region Fetch
 
         /// <summary>
-        /// Gets the specified $RootName$ set.
+        /// Gets the specified $root_name$ set.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$ set.</param>
-        /// <returns>The requested $RootName$ set.</returns>
-        public List<$RootModel$SetItemDao> Fetch(
-            $RootModel$SetCriteria criteria
+        /// <param name="criteria">The criteria of the $root_name$ set.</param>
+        /// <returns>The requested $root_name$ set.</returns>
+        public List<$ROOT_MODEL$SetItemDao> Fetch(
+            $ROOT_MODEL$SetCriteria criteria
             )
         {
-            // Get the specified $RootName$ set.
-            var list = DbContext.$RootModel$s
+            // Get the specified $root_name$ set.
+            var list = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    criteria.$RootModel$Name == null || e.$RootModel$Name.Contains(criteria.$RootModel$Name)
+                    criteria.$ROOT_MODEL$Name == null || e.$ROOT_MODEL$Name.Contains(criteria.$ROOT_MODEL$Name)
                 )
-                .Select(e => new $RootModel$SetItemDao
+                .Select(e => new $ROOT_MODEL$SetItemDao
                 {
-                    $RootModel$Key = e.$RootModel$Key,
-                    $RootModel$Code = e.$RootModel$Code,
-                    $RootModel$Name = e.$RootModel$Name,
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
+                    $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name,
                     Timestamp = e.Timestamp
                 })
-                .OrderBy(o => o.$RootModel$Name)
+                .OrderBy(o => o.$ROOT_MODEL$Name)
                 .AsNoTracking()
                 .ToList();
 

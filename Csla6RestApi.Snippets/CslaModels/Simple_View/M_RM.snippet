@@ -10,39 +10,39 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $RootName$ object.
+    /// Represents a read-only $root_name$ object.
     /// </summary>
     [Serializable]
-    public class $RootModel$View : ReadOnlyModel<$RootModel$View>
+    public class $ROOT_MODEL$View : ReadOnlyModel<$ROOT_MODEL$View>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $RootModel$KeyProperty = RegisterProperty<long?>(nameof($RootModel$Key));
-        public long? $RootModel$Key
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$KeyProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Key));
+        public long? $ROOT_MODEL$Key
         {
-            get => GetProperty($RootModel$KeyProperty);
-            private set => LoadProperty($RootModel$KeyProperty, value);
+            get => GetProperty($ROOT_MODEL$KeyProperty);
+            private set => LoadProperty($ROOT_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<long?> $RootModel$IdProperty = RegisterProperty<long?>(nameof($RootModel$Id), RelationshipTypes.PrivateField);
-        public string $RootModel$Id
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$IdProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Id), RelationshipTypes.PrivateField);
+        public string $ROOT_MODEL$Id
         {
-            get => KeyHash.Encode(ID.$RootModel$, $RootModel$Key);
-            private set => $RootModel$Key = KeyHash.Decode(ID.$RootModel$, value);
+            get => KeyHash.Encode(ID.$ROOT_MODEL$, $ROOT_MODEL$Key);
+            private set => $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$CodeProperty = RegisterProperty<string>(nameof($RootModel$Code));
-        public string $RootModel$Code
+        public static readonly PropertyInfo<string> $ROOT_MODEL$CodeProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Code));
+        public string $ROOT_MODEL$Code
         {
-            get => GetProperty($RootModel$CodeProperty);
-            private set => LoadProperty($RootModel$CodeProperty, value);
+            get => GetProperty($ROOT_MODEL$CodeProperty);
+            private set => LoadProperty($ROOT_MODEL$CodeProperty, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
-        public string $RootModel$Name
+        public static readonly PropertyInfo<string> $ROOT_MODEL$NameProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Name));
+        public string $ROOT_MODEL$Name
         {
-            get => GetProperty($RootModel$NameProperty);
-            private set => LoadProperty($RootModel$NameProperty, value);
+            get => GetProperty($ROOT_MODEL$NameProperty);
+            private set => LoadProperty($ROOT_MODEL$NameProperty, value);
         }
 
         #endregion
@@ -55,7 +55,7 @@
         //    BusinessRules.AddRule(
         //        new IsInRole(
         //            AuthorizationActions.ReadProperty,
-        //            $RootModel$NameProperty,
+        //            $ROOT_MODEL$NameProperty,
         //            "Manager"
         //            )
         //        );
@@ -65,7 +65,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$View),
+        //        typeof($ROOT_MODEL$View),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -78,18 +78,18 @@
         #region Factory Methods
 
         /// <summary>
-        /// Gets the specified $RootName$ details to display.
+        /// Gets the specified $root_name$ details to display.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="id">The identifier of the $RootName$.</param>
-        /// <returns>The requested $RootName$ view.</returns>
-        public static async Task<$RootModel$View> Get(
+        /// <param name="id">The identifier of the $root_name$.</param>
+        /// <returns>The requested $root_name$ view.</returns>
+        public static async Task<$ROOT_MODEL$View> Get(
             IDataPortalFactory factory,
             string id
             )
         {
-            var criteria = new $RootModel$ViewParams(id);
-            return await factory.GetPortal<$RootModel$View>().FetchAsync(criteria.Decode());
+            var criteria = new $ROOT_MODEL$ViewParams(id);
+            return await factory.GetPortal<$ROOT_MODEL$View>().FetchAsync(criteria.Decode());
         }
 
         #endregion
@@ -98,12 +98,12 @@
 
         [Fetch]
         private void Fetch(
-            $RootModel$ViewCriteria criteria,
-            [Inject] I$RootModel$ViewDal dal
+            $ROOT_MODEL$ViewCriteria criteria,
+            [Inject] I$ROOT_MODEL$ViewDal dal
             )
         {
             // Set values from data access object.
-            $RootModel$ViewDao dao = dal.Fetch(criteria);
+            $ROOT_MODEL$ViewDao dao = dal.Fetch(criteria);
             DataMapper.Map(dao, this);
         }
 

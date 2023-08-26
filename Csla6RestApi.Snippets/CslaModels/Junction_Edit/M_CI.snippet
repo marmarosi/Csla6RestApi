@@ -10,33 +10,33 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an editable $RootName$-$ChildName$ object.
+    /// Represents an editable $root_name$-$child_name$ object.
     /// </summary>
     [Serializable]
-    [ValidationResourceType(typeof(ValidationText), ObjectName = "$RootModel$$ChildModel$")]
-    public class $RootModel$$ChildModel$ : EditableModel<$RootModel$$ChildModel$, $RootModel$$ChildModel$Dto>
+    [ValidationResourceType(typeof(ValidationText), ObjectName = "$ROOT_MODEL$$CHILD_MODEL$")]
+    public class $ROOT_MODEL$$CHILD_MODEL$ : EditableModel<$ROOT_MODEL$$CHILD_MODEL$, $ROOT_MODEL$$CHILD_MODEL$Dto>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $ChildModel$KeyProperty = RegisterProperty<long?>(nameof($ChildModel$Key));
-        public long? $ChildModel$Key
+        public static readonly PropertyInfo<long?> $CHILD_MODEL$KeyProperty = RegisterProperty<long?>(nameof($CHILD_MODEL$Key));
+        public long? $CHILD_MODEL$Key
         {
-            get => GetProperty($ChildModel$KeyProperty);
-            private set => LoadProperty($ChildModel$KeyProperty, value);
+            get => GetProperty($CHILD_MODEL$KeyProperty);
+            private set => LoadProperty($CHILD_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<long?> $ChildModel$IdProperty = RegisterProperty<long?>(nameof($ChildModel$Id), RelationshipTypes.PrivateField);
-        public string $ChildModel$Id
+        public static readonly PropertyInfo<long?> $CHILD_MODEL$IdProperty = RegisterProperty<long?>(nameof($CHILD_MODEL$Id), RelationshipTypes.PrivateField);
+        public string $CHILD_MODEL$Id
         {
-            get => KeyHash.Encode(ID.$ChildModel$, $ChildModel$Key);
-            set => $ChildModel$Key = KeyHash.Decode(ID.$ChildModel$, value);
+            get => KeyHash.Encode(ID.$CHILD_MODEL$, $CHILD_MODEL$Key);
+            set => $CHILD_MODEL$Key = KeyHash.Decode(ID.$CHILD_MODEL$, value);
         }
 
-        public static readonly PropertyInfo<string> $ChildModel$NameProperty = RegisterProperty<string>(nameof($ChildModel$Name));
-        public string $ChildModel$Name
+        public static readonly PropertyInfo<string> $CHILD_MODEL$NameProperty = RegisterProperty<string>(nameof($CHILD_MODEL$Name));
+        public string $CHILD_MODEL$Name
         {
-            get => GetProperty($ChildModel$NameProperty);
-            private set => LoadProperty($ChildModel$NameProperty, value);
+            get => GetProperty($CHILD_MODEL$NameProperty);
+            private set => LoadProperty($CHILD_MODEL$NameProperty, value);
         }
 
         #endregion
@@ -50,13 +50,13 @@
             base.AddBusinessRules();
 
             //// Add validation rules.
-            BusinessRules.AddRule(new Unique$ChildModel$Ids($ChildModel$IdProperty));
+            BusinessRules.AddRule(new Unique$CHILD_MODEL$Ids($CHILD_MODEL$IdProperty));
 
             //// Add authorization rules.
             //BusinessRules.AddRule(
             //    new IsInRole(
             //        AuthorizationActions.WriteProperty,
-            //        $ChildModel$NameProperty,
+            //        $CHILD_MODEL$NameProperty,
             //        "Manager"
             //        )
             //    );
@@ -66,7 +66,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$$ChildModel$),
+        //        typeof($ROOT_MODEL$$CHILD_MODEL$),
         //        new IsInRole(
         //            AuthorizationActions.EditObject,
         //            "Manager"
@@ -74,10 +74,10 @@
         //        );
         //}
 
-        private sealed class Unique$ChildModel$Ids : BusinessRule
+        private sealed class Unique$CHILD_MODEL$Ids : BusinessRule
         {
             // Add additional parameters to your rule to the constructor.
-            public Unique$ChildModel$Ids(
+            public Unique$CHILD_MODEL$Ids(
                 IPropertyInfo primaryProperty
                 )
               : base(primaryProperty)
@@ -95,14 +95,14 @@
                 IRuleContext context
                 )
             {
-                $RootModel$$ChildModel$ target = ($RootModel$$ChildModel$)context.Target;
+                $ROOT_MODEL$$CHILD_MODEL$ target = ($ROOT_MODEL$$CHILD_MODEL$)context.Target;
                 if (target.Parent == null)
                     return;
 
-                $RootModel$ $RootParam$ = ($RootModel$)target.Parent.Parent;
-                var count = $RootParam$.$ChildModel$s.Count(gp => gp.$ChildModel$Id == target.$ChildModel$Id);
+                $ROOT_MODEL$ $RootParam$ = ($ROOT_MODEL$)target.Parent.Parent;
+                var count = $RootParam$.$CHILD_MODEL$s.Count(gp => gp.$CHILD_MODEL$Id == target.$CHILD_MODEL$Id);
                 if (count > 1)
-                    context.AddErrorResult(ValidationText.$RootModel$$ChildModel$_$ChildModel$Id_NotUnique);
+                    context.AddErrorResult(ValidationText.$ROOT_MODEL$$CHILD_MODEL$_$CHILD_MODEL$Id_NotUnique);
             }
         }
 
@@ -116,7 +116,7 @@
         /// <param name="dto">The data transfer object.</param>
         /// <param name="childFactory">The child data portal factory.</param>
         public override void SetValuesOnBuild(
-            $RootModel$$ChildModel$Dto dto,
+            $ROOT_MODEL$$CHILD_MODEL$Dto dto,
             IChildDataPortalFactory childFactory
             )
         {
@@ -132,43 +132,43 @@
         private void Create()
         {
             // Set values from data transfer object.
-            //LoadProperty($ChildModel$NameProperty, "");
+            //LoadProperty($CHILD_MODEL$NameProperty, "");
             //BusinessRules.CheckRules();
         }
 
         [FetchChild]
         private void Fetch(
-            $RootModel$$ChildModel$Dao dao
+            $ROOT_MODEL$$CHILD_MODEL$Dao dao
             )
         {
             // Load values from persistent storage.
             using (BypassPropertyChecks)
-                DataMapper.Map(dao, this, "$RootModel$Key");
+                DataMapper.Map(dao, this, "$ROOT_MODEL$Key");
         }
 
         [InsertChild]
         private void Insert(
-            $RootModel$ parent,
-            [Inject] I$RootModel$$ChildModel$Dal dal
+            $ROOT_MODEL$ parent,
+            [Inject] I$ROOT_MODEL$$CHILD_MODEL$Dal dal
             )
         {
             // Insert values into persistent storage.
             using (BypassPropertyChecks)
             {
-                var dao = Copy.PropertiesFrom(this).ToNew<$RootModel$$ChildModel$Dao>();
-                dao.$RootModel$Key = parent.$RootModel$Key;
+                var dao = Copy.PropertiesFrom(this).ToNew<$ROOT_MODEL$$CHILD_MODEL$Dao>();
+                dao.$ROOT_MODEL$Key = parent.$ROOT_MODEL$Key;
                 dal.Insert(dao);
 
                 // Set new data.
-                $ChildModel$Key = dao.$ChildModel$Key;
+                $CHILD_MODEL$Key = dao.$CHILD_MODEL$Key;
             }
             //FieldManager.UpdateChildren(this);
         }
 
         [UpdateChild]
         private void Update(
-            $RootModel$ parent,
-            [Inject] I$RootModel$$ChildModel$Dal dal
+            $ROOT_MODEL$ parent,
+            [Inject] I$ROOT_MODEL$$CHILD_MODEL$Dal dal
             )
         {
             // Update values in persistent storage.
@@ -177,8 +177,8 @@
 
         [DeleteSelfChild]
         private void Child_DeleteSelf(
-            $RootModel$ parent,
-            [Inject] I$RootModel$$ChildModel$Dal dal
+            $ROOT_MODEL$ parent,
+            [Inject] I$ROOT_MODEL$$CHILD_MODEL$Dal dal
             )
         {
             // Delete values from persistent storage.
@@ -186,8 +186,8 @@
             //Items.Clear();
             //FieldManager.UpdateChildren(this);
 
-            $RootModel$$ChildModel$Dao dao = Copy.PropertiesFrom(this).Omit("$ChildModel$Id").ToNew<$RootModel$$ChildModel$Dao>();
-            dao.$RootModel$Key = parent.$RootModel$Key;
+            $ROOT_MODEL$$CHILD_MODEL$Dao dao = Copy.PropertiesFrom(this).Omit("$CHILD_MODEL$Id").ToNew<$ROOT_MODEL$$CHILD_MODEL$Dao>();
+            dao.$ROOT_MODEL$Key = parent.$ROOT_MODEL$Key;
             dal.Delete(dao);
         }
 

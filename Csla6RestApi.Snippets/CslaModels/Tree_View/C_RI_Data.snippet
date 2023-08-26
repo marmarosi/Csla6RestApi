@@ -10,33 +10,33 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the read-only $RootName$ node data.
+    /// Defines the read-only $root_name$ node data.
     /// </summary>
-    public class $RootModel$NodeData
+    public class $ROOT_MODEL$NodeData
     {
-        public int? $RootModel$Order { get; set; }
-        public string $RootModel$Name { get; set; }
+        public int? $ROOT_MODEL$Order { get; set; }
+        public string $ROOT_MODEL$Name { get; set; }
         public int? Level { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the read-only $RootName$ node object.
+    /// Defines the data access object of the read-only $root_name$ node object.
     /// </summary>
-    public class $RootModel$NodeDao : $RootModel$NodeData
+    public class $ROOT_MODEL$NodeDao : $ROOT_MODEL$NodeData
     {
-        public long? $RootModel$Key { get; set; }
+        public long? $ROOT_MODEL$Key { get; set; }
         public long? ParentKey { get; set; }
-        public List<$RootModel$NodeDao> Children { get; set; }
+        public List<$ROOT_MODEL$NodeDao> Children { get; set; }
     }
 
     /// <summary>
-    /// Defines the data transfer object of the read-only $RootName$ node object.
+    /// Defines the data transfer object of the read-only $root_name$ node object.
     /// </summary>
-    public class $RootModel$NodeDto : $RootModel$NodeData
+    public class $ROOT_MODEL$NodeDto : $ROOT_MODEL$NodeData
     {
-        public string $RootModel$Id { get; set; }
+        public string $ROOT_MODEL$Id { get; set; }
         public string ParentId { get; set; }
-        public List<$RootModel$NodeDto> Children { get; set; }
+        public List<$ROOT_MODEL$NodeDto> Children { get; set; }
     }]]>
             </Code>
             <Declarations>

@@ -13,19 +13,19 @@
     /// 
     /// </summary>
     [Serializable]
-    public class $CommandModel$ : CommandBase<$CommandModel$>
+    public class $COMMAND_MODEL$ : CommandBase<$COMMAND_MODEL$>
     {
         #region Properties
 
-        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
-        public string $RootModel$Name
+        public static readonly PropertyInfo<string> $ROOT_MODEL$NameProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Name));
+        public string $ROOT_MODEL$Name
         {
-            get => ReadProperty($RootModel$NameProperty);
-            private set => LoadProperty($RootModel$NameProperty, value);
+            get => ReadProperty($ROOT_MODEL$NameProperty);
+            private set => LoadProperty($ROOT_MODEL$NameProperty, value);
         }
 
-        public static readonly PropertyInfo<$CommandModel$Results> ResultsProperty = RegisterProperty<$CommandModel$Results>(nameof(Results));
-        public $CommandModel$Results Results
+        public static readonly PropertyInfo<$COMMAND_MODEL$Results> ResultsProperty = RegisterProperty<$COMMAND_MODEL$Results>(nameof(Results));
+        public $COMMAND_MODEL$Results Results
         {
             get => ReadProperty(ResultsProperty);
             private set => LoadProperty(ResultsProperty, value);
@@ -37,15 +37,15 @@
 
         //private void Validate()
         //{
-        //    if (string.IsNullOrEmpty($RootModel$Name))
-        //        throw new CommandException(ValidationText.$CommandModel$_$RootModel$Name_Required);
+        //    if (string.IsNullOrEmpty($ROOT_MODEL$Name))
+        //        throw new CommandException(ValidationText.$COMMAND_MODEL$_$ROOT_MODEL$Name_Required);
         //}
 
         //private static void AddObjectAuthorizationRules()
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($CommandModel$),
+        //        typeof($COMMAND_MODEL$),
         //        new IsInRole(
         //            AuthorizationActions.ExecuteMethod,
         //            "Manager"
@@ -63,12 +63,12 @@
         /// <param name="factory">The data portal factory.</param>
         /// <param name="criteria">The criteria of the command.</param>
         /// <returns>The command instance.</returns>
-        public static async Task<$CommandModel$> Execute(
+        public static async Task<$COMMAND_MODEL$> Execute(
             IDataPortalFactory factory,
-            $CommandModel$Criteria criteria
+            $COMMAND_MODEL$Criteria criteria
             )
         {
-            return await factory.GetPortal<$CommandModel$>().ExecuteAsync(criteria);
+            return await factory.GetPortal<$COMMAND_MODEL$>().ExecuteAsync(criteria);
         }
 
         #endregion
@@ -77,15 +77,15 @@
 
         [Execute]
         private void Execute(
-            $CommandModel$Criteria criteria,
-            [Inject] I$CommandModel$Dal dal,
-            [Inject] IChildDataPortal<$CommandModel$Results> resultPortal
+            $COMMAND_MODEL$Criteria criteria,
+            [Inject] I$COMMAND_MODEL$Dal dal,
+            [Inject] IChildDataPortal<$COMMAND_MODEL$Results> resultPortal
             )
         {
             // Execute the command.
-            $RootModel$Name = criteria.$RootModel$Name;
+            $ROOT_MODEL$Name = criteria.$ROOT_MODEL$Name;
             //Validate();
-            List<$CommandModel$ResultDao> list = dal.Execute(criteria);
+            List<$COMMAND_MODEL$ResultDao> list = dal.Execute(criteria);
 
             // Set new data.
             Results = resultPortal.FetchChild(list);

@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $RootName$ node collection.
+    /// Represents a read-only $root_name$ node collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$Nodes : ReadOnlyList<$RootModel$Nodes, $RootModel$Node>
+    public class $ROOT_MODEL$Nodes : ReadOnlyList<$ROOT_MODEL$Nodes, $ROOT_MODEL$Node>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$NodeList),
+        //        typeof($ROOT_MODEL$NodeList),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -35,8 +35,8 @@
 
         [FetchChild]
         private void Fetch(
-            List<$RootModel$NodeDao> list,
-            [Inject] IChildDataPortal<$RootModel$Node> childPortal
+            List<$ROOT_MODEL$NodeDao> list,
+            [Inject] IChildDataPortal<$ROOT_MODEL$Node> childPortal
             )
         {
             using (LoadListMode)

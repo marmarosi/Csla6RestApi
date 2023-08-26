@@ -10,51 +10,51 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an editable $RootName$ object.
+    /// Represents an editable $root_name$ object.
     /// </summary>
     [Serializable]
-    [ValidationResourceType(typeof(ValidationText), ObjectName = "$RootModel$SetItem")]
-    public class $RootModel$SetItem : EditableModel<$RootModel$SetItem, $RootModel$SetItemDto>
+    [ValidationResourceType(typeof(ValidationText), ObjectName = "$ROOT_MODEL$SetItem")]
+    public class $ROOT_MODEL$SetItem : EditableModel<$ROOT_MODEL$SetItem, $ROOT_MODEL$SetItemDto>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $RootModel$KeyProperty = RegisterProperty<long?>(nameof($RootModel$Key));
-        public long? $RootModel$Key
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$KeyProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Key));
+        public long? $ROOT_MODEL$Key
         {
-            get => GetProperty($RootModel$KeyProperty);
-            private set => SetProperty($RootModel$KeyProperty, value);
+            get => GetProperty($ROOT_MODEL$KeyProperty);
+            private set => SetProperty($ROOT_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<long?> $RootModel$IdProperty = RegisterProperty<long?>(nameof($RootModel$Id), RelationshipTypes.PrivateField);
-        public string $RootModel$Id
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$IdProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Id), RelationshipTypes.PrivateField);
+        public string $ROOT_MODEL$Id
         {
-            get => KeyHash.Encode(ID.$RootModel$, $RootModel$Key);
-            set => $RootModel$Key = KeyHash.Decode(ID.$RootModel$, value);
+            get => KeyHash.Encode(ID.$ROOT_MODEL$, $ROOT_MODEL$Key);
+            set => $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$CodeProperty = RegisterProperty<string>(nameof($RootModel$Code));
+        public static readonly PropertyInfo<string> $ROOT_MODEL$CodeProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Code));
         [Required]
         [MaxLength(10)]
-        public string $RootModel$Code
+        public string $ROOT_MODEL$Code
         {
-            get => GetProperty($RootModel$CodeProperty);
-            set => SetProperty($RootModel$CodeProperty, value);
+            get => GetProperty($ROOT_MODEL$CodeProperty);
+            set => SetProperty($ROOT_MODEL$CodeProperty, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
+        public static readonly PropertyInfo<string> $ROOT_MODEL$NameProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Name));
         [Required]
         [MaxLength(100)]
-        public string $RootModel$Name
+        public string $ROOT_MODEL$Name
         {
-            get => GetProperty($RootModel$NameProperty);
-            set => SetProperty($RootModel$NameProperty, value);
+            get => GetProperty($ROOT_MODEL$NameProperty);
+            set => SetProperty($ROOT_MODEL$NameProperty, value);
         }
 
-        public static readonly PropertyInfo<$RootModel$Set$ChildModel$s> $ChildModel$sProperty = RegisterProperty<$RootModel$Set$ChildModel$s>(nameof($ChildModel$s));
-        public $RootModel$Set$ChildModel$s $ChildModel$s
+        public static readonly PropertyInfo<$ROOT_MODEL$Set$CHILD_MODEL$s> $CHILD_MODEL$sProperty = RegisterProperty<$ROOT_MODEL$Set$CHILD_MODEL$s>(nameof($CHILD_MODEL$s));
+        public $ROOT_MODEL$Set$CHILD_MODEL$s $CHILD_MODEL$s
         {
-            get => GetProperty($ChildModel$sProperty);
-            private set => LoadProperty($ChildModel$sProperty, value);
+            get => GetProperty($CHILD_MODEL$sProperty);
+            private set => LoadProperty($CHILD_MODEL$sProperty, value);
         }
 
         public static readonly PropertyInfo<DateTimeOffset?> TimestampProperty = RegisterProperty<DateTimeOffset?>(nameof(Timestamp));
@@ -75,12 +75,12 @@
         //    base.AddBusinessRules();
 
         //    // Add validation rules.
-        //    BusinessRules.AddRule(new Required($RootModel$NameProperty));
+        //    BusinessRules.AddRule(new Required($ROOT_MODEL$NameProperty));
 
         //    // Add authorization rules.
         //    BusinessRules.AddRule(new IsInRole(
         //        AuthorizationActions.ReadProperty,
-        //        $RootModel$NameProperty,
+        //        $ROOT_MODEL$NameProperty,
         //        "Manager"
         //        ));
         //}
@@ -89,7 +89,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$SetItem),
+        //        typeof($ROOT_MODEL$SetItem),
         //        new IsInRole(
         //            AuthorizationActions.EditObject,
         //            "Manager"
@@ -107,13 +107,13 @@
         /// <param name="dto">The data transfer object.</param>
         /// <param name="childFactory">The child data portal factory.</param>
         public override void SetValuesOnBuild(
-            $RootModel$SetItemDto dto,
+            $ROOT_MODEL$SetItemDto dto,
             IChildDataPortalFactory childFactory
             )
         {
-            DataMapper.Map(dto, this, "$ChildModel$s");
+            DataMapper.Map(dto, this, "$CHILD_MODEL$s");
             BusinessRules.CheckRules();
-            $ChildModel$s.SetValuesById(dto.$ChildModel$s, "$ChildModel$Id", childFactory);
+            $CHILD_MODEL$s.SetValuesById(dto.$CHILD_MODEL$s, "$CHILD_MODEL$Id", childFactory);
         }
 
         #endregion
@@ -122,42 +122,42 @@
 
         [CreateChild]
         private void Create(
-            [Inject] IChildDataPortal<$RootModel$Set$ChildModel$s> itemsPortal
+            [Inject] IChildDataPortal<$ROOT_MODEL$Set$CHILD_MODEL$s> itemsPortal
             )
         {
             // Set values from data transfer object.
-            $ChildModel$s = itemsPortal.CreateChild();
-            //LoadProperty($RootModel$CodeProperty, "");
+            $CHILD_MODEL$s = itemsPortal.CreateChild();
+            //LoadProperty($ROOT_MODEL$CodeProperty, "");
             //BusinessRules.CheckRules();
         }
 
         [FetchChild]
         private void Fetch(
-            $RootModel$SetItemDao dao,
-            [Inject] IChildDataPortal<$RootModel$Set$ChildModel$s> itemsPortal
+            $ROOT_MODEL$SetItemDao dao,
+            [Inject] IChildDataPortal<$ROOT_MODEL$Set$CHILD_MODEL$s> itemsPortal
             )
         {
             // Set values from data access object.
             using (BypassPropertyChecks)
             {
-                DataMapper.Map(dao, this, "$ChildModel$s");
-                $ChildModel$s = itemsPortal.FetchChild(dao.$ChildModel$s);
+                DataMapper.Map(dao, this, "$CHILD_MODEL$s");
+                $CHILD_MODEL$s = itemsPortal.FetchChild(dao.$CHILD_MODEL$s);
             }
         }
 
         [InsertChild]
         private void Insert(
-            [Inject] I$RootModel$SetItemDal dal
+            [Inject] I$ROOT_MODEL$SetItemDal dal
             )
         {
             // Insert values into persistent storage.
             using (BypassPropertyChecks)
             {
-                var dao = Copy.PropertiesFrom(this).Omit("$ChildModel$s").ToNew<$RootModel$SetItemDao>();
+                var dao = Copy.PropertiesFrom(this).Omit("$CHILD_MODEL$s").ToNew<$ROOT_MODEL$SetItemDao>();
                 dal.Insert(dao);
 
                 // Set new data.
-                $RootModel$Key = dao.$RootModel$Key;
+                $ROOT_MODEL$Key = dao.$ROOT_MODEL$Key;
                 Timestamp = dao.Timestamp;
             }
             FieldManager.UpdateChildren(this);
@@ -165,7 +165,7 @@
 
         [UpdateChild]
         private void Update(
-            [Inject] I$RootModel$SetItemDal dal
+            [Inject] I$ROOT_MODEL$SetItemDal dal
             )
         {
             // Update values in persistent storage.
@@ -173,7 +173,7 @@
             {
                 using (BypassPropertyChecks)
                 {
-                    var dao = Copy.PropertiesFrom(this).Omit("$ChildModel$s").ToNew<$RootModel$SetItemDao>();
+                    var dao = Copy.PropertiesFrom(this).Omit("$CHILD_MODEL$s").ToNew<$ROOT_MODEL$SetItemDao>();
                     dal.Update(dao);
 
                     // Set new data.
@@ -185,16 +185,16 @@
 
         [DeleteSelfChild]
         private void DeleteSelf(
-            [Inject] I$RootModel$SetItemDal dal
+            [Inject] I$ROOT_MODEL$SetItemDal dal
             )
         {
             // Delete values from persistent storage.
-            if ($RootModel$Key.HasValue)
+            if ($ROOT_MODEL$Key.HasValue)
             {
-                $ChildModel$s.Clear();
+                $CHILD_MODEL$s.Clear();
                 FieldManager.UpdateChildren(this);
 
-                var criteria = new $RootModel$SetItemCriteria($RootModel$Key);
+                var criteria = new $ROOT_MODEL$SetItemCriteria($ROOT_MODEL$Key);
                 dal.Delete(criteria);
             }
         }

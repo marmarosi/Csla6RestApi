@@ -10,25 +10,25 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents the criteria of the editable $ChildName$ object.
+    /// Represents the criteria of the editable $child_name$ object.
     /// </summary>
     [Serializable]
-    public class $RootModel$Set$ChildModel$Criteria
+    public class $ROOT_MODEL$Set$CHILD_MODEL$Criteria
     {
-        public long? $ChildModel$Key { get; set; }
+        public long? $CHILD_MODEL$Key { get; set; }
         [JsonIgnore]
         public string __$RootParam$Code { get; set; } // for error messages
         [JsonIgnore]
         public string __$ChildParam$Code { get; set; } // for error messages
 
-        public $RootModel$Set$ChildModel$Criteria()
+        public $ROOT_MODEL$Set$CHILD_MODEL$Criteria()
         { }
 
-        public $RootModel$Set$ChildModel$Criteria(
-            long? $ChildName$Key
+        public $ROOT_MODEL$Set$CHILD_MODEL$Criteria(
+            long? $child_name$Key
             )
         {
-            $ChildModel$Key = $ChildParam$Key;
+            $CHILD_MODEL$Key = $ChildParam$Key;
         }
     }]]>
             </Code>

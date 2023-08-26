@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the editable $RootName$ object.
+    /// Implements the data access functions of the editable $root_name$ object.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$Dal : DalBase<SqlServerContext>, I$RootModel$Dal
+    public class $ROOT_MODEL$Dal : DalBase<SqlServerContext>, I$ROOT_MODEL$Dal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$Dal(
+        public $ROOT_MODEL$Dal(
             SqlServerContext dbContext
             )
         {
@@ -33,29 +33,29 @@
         #region Fetch
 
         /// <summary>
-        /// Gets the specified $RootName$.
+        /// Gets the specified $root_name$.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$.</param>
-        /// <returns>The requested $RootName$.</returns>
-        public $RootModel$Dao Fetch(
-            $RootModel$Criteria criteria
+        /// <param name="criteria">The criteria of the $root_name$.</param>
+        /// <returns>The requested $root_name$.</returns>
+        public $ROOT_MODEL$Dao Fetch(
+            $ROOT_MODEL$Criteria criteria
             )
         {
-            // Get the specified $RootName$.
-            var $RootParam$ = DbContext.$RootModel$s
+            // Get the specified $root_name$.
+            var $RootParam$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    e.$RootModel$Key == criteria.$RootModel$Key
+                    e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
                  )
-                .Select(e => new $RootModel$Dao
+                .Select(e => new $ROOT_MODEL$Dao
                 {
-                    $RootModel$Key = e.$RootModel$Key,
-                    $RootModel$Code = e.$RootModel$Code,
-                    $RootModel$Name = e.$RootModel$Name,
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
+                    $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name,
                     Timestamp = e.Timestamp
                 })
                 .AsNoTracking()
                 .FirstOrDefault()
-                ?? throw new DataNotFoundException(DalText.$RootModel$_NotFound);
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
 
             return $RootParam$;
         }
@@ -65,36 +65,36 @@
         #region Insert
 
         /// <summary>
-        /// Creates a new $RootName$ using the specified data.
+        /// Creates a new $root_name$ using the specified data.
         /// </summary>
-        /// <param name="dao">The data of the $RootName$.</param>
+        /// <param name="dao">The data of the $root_name$.</param>
         public void Insert(
-            $RootModel$Dao dao
+            $ROOT_MODEL$Dao dao
             )
         {
-            // Check unique $RootName$ code.
-            var $RootParam$ = DbContext.$RootModel$s
+            // Check unique $root_name$ code.
+            var $RootParam$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    e.$RootModel$Code == dao.$RootModel$Code
+                    e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code
                 )
                 .FirstOrDefault();
             if ($RootParam$ != null)
-                throw new DataExistException(DalText.$RootModel$_$RootModel$CodeExists.With(dao.$RootModel$Code));
+                throw new DataExistException(DalText.$ROOT_MODEL$_$ROOT_MODEL$CodeExists.With(dao.$ROOT_MODEL$Code));
 
-            // Create the new $RootName$.
-            $RootParam$ = new $RootModel$
+            // Create the new $root_name$.
+            $RootParam$ = new $ROOT_MODEL$
             {
-                $RootModel$Code = dao.$RootModel$Code,
-                $RootModel$Name = dao.$RootModel$Name
+                $ROOT_MODEL$Code = dao.$ROOT_MODEL$Code,
+                $ROOT_MODEL$Name = dao.$ROOT_MODEL$Name
             };
-            DbContext.$RootModel$s.Add($RootParam$);
+            DbContext.$ROOT_MODEL$s.Add($RootParam$);
 
             int count = DbContext.SaveChanges();
             if (count == 0)
-                throw new InsertFailedException(DalText.$RootModel$_InsertFailed);
+                throw new InsertFailedException(DalText.$ROOT_MODEL$_InsertFailed);
 
             // Return new data.
-            dao.$RootModel$Key = $RootParam$.$RootModel$Key;
+            dao.$ROOT_MODEL$Key = $RootParam$.$ROOT_MODEL$Key;
             dao.Timestamp = $RootParam$.Timestamp;
         }
 
@@ -103,40 +103,40 @@
         #region Update
 
         /// <summary>
-        /// Updates an existing $RootName$ using the specified data.
+        /// Updates an existing $root_name$ using the specified data.
         /// </summary>
-        /// <param name="dao">The data of the $RootName$.</param>
+        /// <param name="dao">The data of the $root_name$.</param>
         public void Update(
-            $RootModel$Dao dao
+            $ROOT_MODEL$Dao dao
             )
         {
-            // Get the specified $RootName$.
-            var $RootParam$ = DbContext.$RootModel$s
+            // Get the specified $root_name$.
+            var $RootParam$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    e.$RootModel$Key == dao.$RootModel$Key
+                    e.$ROOT_MODEL$Key == dao.$ROOT_MODEL$Key
                 )
                 .FirstOrDefault()
-                ?? throw new DataNotFoundException(DalText.$RootModel$_NotFound);
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
             if ($RootParam$.Timestamp != dao.Timestamp)
-                throw new ConcurrencyException(DalText.$RootModel$_Concurrency);
+                throw new ConcurrencyException(DalText.$ROOT_MODEL$_Concurrency);
 
-            // Check unique $RootName$ code.
-            if ($RootParam$.$RootModel$Code != dao.$RootModel$Code)
+            // Check unique $root_name$ code.
+            if ($RootParam$.$ROOT_MODEL$Code != dao.$ROOT_MODEL$Code)
             {
-                int exist = DbContext.$RootModel$s
-                    .Where(e => e.$RootModel$Code == dao.$RootModel$Code && e.$RootModel$Key != $RootName$.$RootModel$Key)
+                int exist = DbContext.$ROOT_MODEL$s
+                    .Where(e => e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code && e.$ROOT_MODEL$Key != $root_name$.$ROOT_MODEL$Key)
                     .Count();
                 if (exist > 0)
-                    throw new DataExistException(DalText.$RootModel$_$RootModel$CodeExists.With(dao.$RootModel$Code));
+                    throw new DataExistException(DalText.$ROOT_MODEL$_$ROOT_MODEL$CodeExists.With(dao.$ROOT_MODEL$Code));
             }
 
-            // Update the $RootName$.
-            $RootParam$.$RootModel$Code = dao.$RootModel$Code;
-            $RootParam$.$RootModel$Name = dao.$RootModel$Name;
+            // Update the $root_name$.
+            $RootParam$.$ROOT_MODEL$Code = dao.$ROOT_MODEL$Code;
+            $RootParam$.$ROOT_MODEL$Name = dao.$ROOT_MODEL$Name;
 
             int count = DbContext.SaveChanges();
             if (count == 0)
-                throw new UpdateFailedException(DalText.$RootModel$_UpdateFailed);
+                throw new UpdateFailedException(DalText.$ROOT_MODEL$_UpdateFailed);
 
             // Return new data.
             dao.Timestamp = $RootParam$.Timestamp;
@@ -147,48 +147,48 @@
         #region Delete
 
         /// <summary>
-        /// Deletes the specified $RootName$.
+        /// Deletes the specified $root_name$.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$.</param>
+        /// <param name="criteria">The criteria of the $root_name$.</param>
         public void Delete(
-            $RootModel$Criteria criteria
+            $ROOT_MODEL$Criteria criteria
             )
         {
             int count = 0;
 
-            // Get the specified $RootName$.
-            var $RootParam$ = DbContext.$RootModel$s
+            // Get the specified $root_name$.
+            var $RootParam$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
-                    e.$RootModel$Key == criteria.$RootModel$Key
+                    e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
                  )
                 .AsNoTracking()
                 .FirstOrDefault()
-                ?? throw new DataNotFoundException(DalText.$RootModel$_NotFound);
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
 
             // Check references.
             //int dependents = 0;
 
-            //dependents = DbContext.Others.Count(e => e.$RootModel$Key == criteria.$RootModel$Key);
+            //dependents = DbContext.Others.Count(e => e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key);
             //if (dependents > 0)
-            //    throw new DeleteFailedException(DalText.$RootModel$_Delete_Others);
+            //    throw new DeleteFailedException(DalText.$ROOT_MODEL$_Delete_Others);
 
             // Delete references.
-            //var $ChildParam$s = DbContext.$ChildModel$s
-            //    .Where(e => e.$RootModel$Key == criteria.$RootModel$Key)
+            //var $ChildParam$s = DbContext.$CHILD_MODEL$s
+            //    .Where(e => e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key)
             //    .ToList();
             //foreach (var $ChildParam$ in $ChildParam$s)
-            //    DbContext.$ChildModel$s.Remove($ChildParam$);
+            //    DbContext.$CHILD_MODEL$s.Remove($ChildParam$);
 
             //count = DbContext.SaveChanges();
             //if (count != $ChildParam$s.Count)
-            //    throw new DeleteFailedException(DalText.$RootModel$_Delete_$ChildModel$s);
+            //    throw new DeleteFailedException(DalText.$ROOT_MODEL$_Delete_$CHILD_MODEL$s);
 
-            // Delete the $RootName$.
-            DbContext.$RootModel$s.Remove($RootParam$);
+            // Delete the $root_name$.
+            DbContext.$ROOT_MODEL$s.Remove($RootParam$);
 
             count = DbContext.SaveChanges();
             if (count == 0)
-                throw new DeleteFailedException(DalText.$RootModel$_DeleteFailed);
+                throw new DeleteFailedException(DalText.$ROOT_MODEL$_DeleteFailed);
         }
 
         #endregion Delete

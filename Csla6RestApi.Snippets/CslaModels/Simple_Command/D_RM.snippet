@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the $CommandName$ command.
+    /// Implements the data access functions of the $command_name$ command.
     /// </summary>
     [DalImplementation]
-    public class $CommandModel$Dal : DalBase<SqlServerContext>, I$CommandModel$Dal
+    public class $COMMAND_MODEL$Dal : DalBase<SqlServerContext>, I$COMMAND_MODEL$Dal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $CommandModel$Dal(
+        public $COMMAND_MODEL$Dal(
             SqlServerContext dbContext
             )
         {
@@ -33,25 +33,25 @@
         #region Execute
 
         /// <summary>
-        /// Sets the new name of the specified $RootName$.
+        /// Sets the new name of the specified $root_name$.
         /// </summary>
         /// <param name="dao">The data of the command.</param>
         public void Execute(
-            $CommandModel$Dao dao
+            $COMMAND_MODEL$Dao dao
             )
         {
-            // Get the specified $RootName$.
-            var $RootParam$ = DbContext.$RootModel$s
-                .Where(e => e.$RootModel$Key == dao.$RootModel$Key)
+            // Get the specified $root_name$.
+            var $RootParam$ = DbContext.$ROOT_MODEL$s
+                .Where(e => e.$ROOT_MODEL$Key == dao.$ROOT_MODEL$Key)
                 .FirstOrDefault()
-                ?? throw new DataNotFoundException(DalText.$CommandModel$_NotFound);
+                ?? throw new DataNotFoundException(DalText.$COMMAND_MODEL$_NotFound);
 
-            // Update the $RootName$.
-            $RootParam$.$RootModel$Name = dao.$RootModel$Name;
+            // Update the $root_name$.
+            $RootParam$.$ROOT_MODEL$Name = dao.$ROOT_MODEL$Name;
 
             int count = DbContext.SaveChanges();
             if (count == 0)
-                throw new CommandFailedException(DalText.$CommandModel$_RenameFailed);
+                throw new CommandFailedException(DalText.$COMMAND_MODEL$_RenameFailed);
         }
 
         #endregion

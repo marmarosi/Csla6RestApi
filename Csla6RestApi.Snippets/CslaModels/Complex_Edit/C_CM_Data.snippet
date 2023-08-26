@@ -10,39 +10,39 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the editable $ChildName$ data.
+    /// Defines the editable $child_name$ data.
     /// </summary>
-    public class $ChildModel$Data
+    public class $CHILD_MODEL$Data
     {
-        public string $ChildModel$Code { get; set; }
-        public string $ChildModel$Name { get; set; }
+        public string $CHILD_MODEL$Code { get; set; }
+        public string $CHILD_MODEL$Name { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the editable $ChildName$ object.
+    /// Defines the data access object of the editable $child_name$ object.
     /// </summary>
-    public class $ChildModel$Dao : $ChildModel$Data
+    public class $CHILD_MODEL$Dao : $CHILD_MODEL$Data
     {
-        public long? $ChildModel$Key { get; set; }
-        public long? $RootModel$Key { get; set; }
+        public long? $CHILD_MODEL$Key { get; set; }
+        public long? $ROOT_MODEL$Key { get; set; }
     }
 
     /// <summary>
-    /// Defines the data transfer object of the editable $ChildName$ object.
+    /// Defines the data transfer object of the editable $child_name$ object.
     /// </summary>
-    public class $ChildModel$Dto : $ChildModel$Data
+    public class $CHILD_MODEL$Dto : $CHILD_MODEL$Data
     {
-        public string $ChildModel$Id { get; set; }
-        public string $RootModel$Id { get; set; }
+        public string $CHILD_MODEL$Id { get; set; }
+        public string $ROOT_MODEL$Id { get; set; }
 
-        public $ChildModel$Dao ToDao()
+        public $CHILD_MODEL$Dao ToDao()
         {
-            return new $ChildModel$Dao
+            return new $CHILD_MODEL$Dao
             {
-                $ChildModel$Key = KeyHash.Decode(ID.$ChildModel$, $ChildModel$Id),
-                $RootModel$Key = KeyHash.Decode(ID.$RootModel$, $RootModel$Id),
-                $ChildModel$Code = $ChildModel$Code,
-                $ChildModel$Name = $ChildModel$Name
+                $CHILD_MODEL$Key = KeyHash.Decode(ID.$CHILD_MODEL$, $CHILD_MODEL$Id),
+                $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, $ROOT_MODEL$Id),
+                $CHILD_MODEL$Code = $CHILD_MODEL$Code,
+                $CHILD_MODEL$Name = $CHILD_MODEL$Name
             };
         }
     }]]>

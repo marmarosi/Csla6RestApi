@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the read-only $RootName$ tree.
+    /// Implements the data access functions of the read-only $root_name$ tree.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$TreeDal : DalBase<SqlServerContext>, I$RootModel$TreeDal
+    public class $ROOT_MODEL$TreeDal : DalBase<SqlServerContext>, I$ROOT_MODEL$TreeDal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$TreeDal(
+        public $ROOT_MODEL$TreeDal(
             SqlServerContext dbContext
             )
         {
@@ -32,30 +32,30 @@
 
         #region Fetch
 
-        private List<$RootModel$NodeDao> All$RootModel$s { get; set; }
+        private List<$ROOT_MODEL$NodeDao> All$ROOT_MODEL$s { get; set; }
 
         /// <summary>
-        /// Gets the specified $RootName$ tree.
+        /// Gets the specified $root_name$ tree.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$ tree.</param>
-        /// <returns>The requested $RootName$ tree.</returns>
-        public List<$RootModel$NodeDao> Fetch(
-            $RootModel$TreeCriteria criteria
+        /// <param name="criteria">The criteria of the $root_name$ tree.</param>
+        /// <returns>The requested $root_name$ tree.</returns>
+        public List<$ROOT_MODEL$NodeDao> Fetch(
+            $ROOT_MODEL$TreeCriteria criteria
             )
         {
-            var tree = new List<$RootModel$NodeDao>();
+            var tree = new List<$ROOT_MODEL$NodeDao>();
 
-            // Get all sub$RootName$s of the root foolder.
-            All$RootModel$s = DbContext.$RootModel$s
+            // Get all sub$root_name$s of the root foolder.
+            All$ROOT_MODEL$s = DbContext.$ROOT_MODEL$s
                 .Where(e =>
                     e.RootKey == criteria.RootKey
                 )
-                .Select(e => new $RootModel$NodeDao
+                .Select(e => new $ROOT_MODEL$NodeDao
                 {
-                    $RootModel$Key = e.$RootModel$Key,
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
                     ParentKey = e.ParentKey,
-                    $RootModel$Order = e.$RootModel$Order,
-                    $RootModel$Name = e.$RootModel$Name
+                    $ROOT_MODEL$Order = e.$ROOT_MODEL$Order,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name
                 })
                 .AsNoTracking()
                 .ToList();
@@ -70,35 +70,35 @@
         private void PopulateLevel(
             int level,
             long? parentKey,
-            List<$RootModel$NodeDao> parentChildren
+            List<$ROOT_MODEL$NodeDao> parentChildren
             )
         {
-            // Get the $RootName$s of the level.
-            var $RootParam$s = All$RootModel$s
+            // Get the $root_name$s of the level.
+            var $RootParam$s = All$ROOT_MODEL$s
                 .Where(o => o.ParentKey == parentKey)
-                .OrderBy(o => o.$RootModel$Order)
+                .OrderBy(o => o.$ROOT_MODEL$Order)
                 .ToList();
 
-            foreach ($RootModel$NodeDao $RootParam$ in $RootParam$s)
+            foreach ($ROOT_MODEL$NodeDao $RootParam$ in $RootParam$s)
             {
-                // Create $RootName$ node.
-                $RootModel$NodeDao $RootParam$Node = new $RootModel$NodeDao
+                // Create $root_name$ node.
+                $ROOT_MODEL$NodeDao $RootParam$Node = new $ROOT_MODEL$NodeDao
                 {
-                    $RootModel$Key = $RootParam$.$RootModel$Key,
+                    $ROOT_MODEL$Key = $RootParam$.$ROOT_MODEL$Key,
                     ParentKey = $RootParam$.ParentKey,
-                    $RootModel$Order = $RootParam$.$RootModel$Order,
-                    $RootModel$Name = $RootParam$.$RootModel$Name,
+                    $ROOT_MODEL$Order = $RootParam$.$ROOT_MODEL$Order,
+                    $ROOT_MODEL$Name = $RootParam$.$ROOT_MODEL$Name,
                     Level = level,
-                    Children = new List<$RootModel$NodeDao>()
+                    Children = new List<$ROOT_MODEL$NodeDao>()
                 };
 
-                // Add $RootName$ to the parent's children.
+                // Add $root_name$ to the parent's children.
                 parentChildren.Add($RootParam$Node);
 
-                // Get the sub$RootName$s of this $RootName$.
+                // Get the sub$root_name$s of this $root_name$.
                 PopulateLevel(
                     level + 1,
-                    $RootParam$.$RootModel$Key,
+                    $RootParam$.$ROOT_MODEL$Key,
                     $RootParam$Node.Children
                     );
             }

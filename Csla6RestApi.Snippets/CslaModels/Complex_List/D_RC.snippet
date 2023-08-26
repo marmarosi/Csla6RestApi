@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Implements the data access functions of the read-only $RootName$ collection.
+    /// Implements the data access functions of the read-only $root_name$ collection.
     /// </summary>
     [DalImplementation]
-    public class $RootModel$ListDal : DalBase<SqlServerContext>, I$RootModel$ListDal
+    public class $ROOT_MODEL$ListDal : DalBase<SqlServerContext>, I$ROOT_MODEL$ListDal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $RootModel$ListDal(
+        public $ROOT_MODEL$ListDal(
             SqlServerContext dbContext
             )
         {
@@ -33,34 +33,34 @@
         #region Fetch
 
         /// <summary>
-        /// Gets the specified $RootName$s.
+        /// Gets the specified $root_name$s.
         /// </summary>
-        /// <param name="criteria">The criteria of the $RootName$ list.</param>
-        /// <returns>The requested $RootName$ items.</returns>
-        public List<$RootModel$ListItemDao> Fetch(
-            $RootModel$ListCriteria criteria
+        /// <param name="criteria">The criteria of the $root_name$ list.</param>
+        /// <returns>The requested $root_name$ items.</returns>
+        public List<$ROOT_MODEL$ListItemDao> Fetch(
+            $ROOT_MODEL$ListCriteria criteria
             )
         {
-            var list = DbContext.$RootModel$s
-                .Include(e => e.$ChildModel$s)
+            var list = DbContext.$ROOT_MODEL$s
+                .Include(e => e.$CHILD_MODEL$s)
                 .Where(e =>
-                    criteria.$RootModel$Name == null || e.$RootModel$Name.Contains(criteria.$RootModel$Name)
+                    criteria.$ROOT_MODEL$Name == null || e.$ROOT_MODEL$Name.Contains(criteria.$ROOT_MODEL$Name)
                 )
-                .Select(e => new $RootModel$ListItemDao
+                .Select(e => new $ROOT_MODEL$ListItemDao
                 {
-                    $RootModel$Key = e.$RootModel$Key,
-                    $RootModel$Code = e.$RootModel$Code,
-                    $RootModel$Name = e.$RootModel$Name,
-                    $ChildModel$s = e.$ChildModel$s.Select(i => new $ChildModel$InfoDao
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
+                    $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name,
+                    $CHILD_MODEL$s = e.$CHILD_MODEL$s.Select(i => new $CHILD_MODEL$InfoDao
                     {
-                        $ChildModel$Key = i.$ChildModel$Key,
-                        $ChildModel$Code = i.$ChildModel$Code,
-                        $ChildModel$Name = i.$ChildModel$Name
+                        $CHILD_MODEL$Key = i.$CHILD_MODEL$Key,
+                        $CHILD_MODEL$Code = i.$CHILD_MODEL$Code,
+                        $CHILD_MODEL$Name = i.$CHILD_MODEL$Name
                     })
-                    .OrderBy(io => io.$ChildModel$Name)
+                    .OrderBy(io => io.$CHILD_MODEL$Name)
                     .ToList()
                 })
-                .OrderBy(o => o.$RootModel$Name)
+                .OrderBy(o => o.$ROOT_MODEL$Name)
                 .AsNoTracking()
                 .ToList();
 

@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an editable $RootName$ collection.
+    /// Represents an editable $root_name$ collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$Set : EditableList<$RootModel$Set, $RootModel$SetItem, $RootModel$SetItemDto>
+    public class $ROOT_MODEL$Set : EditableList<$ROOT_MODEL$Set, $ROOT_MODEL$SetItem, $ROOT_MODEL$SetItemDto>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$Set),
+        //        typeof($ROOT_MODEL$Set),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -34,36 +34,36 @@
         #region Factory Methods
 
         /// <summary>
-        /// Gets the specified $RootName$ set to edit.
+        /// Gets the specified $root_name$ set to edit.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="criteria">The criteria of the $RootName$ set.</param>
-        /// <returns>The requested $RootName$ set.</returns>
-        public static async Task<$RootModel$Set> Get(
+        /// <param name="criteria">The criteria of the $root_name$ set.</param>
+        /// <returns>The requested $root_name$ set.</returns>
+        public static async Task<$ROOT_MODEL$Set> Get(
             IDataPortalFactory factory,
-            $RootModel$SetCriteria criteria
+            $ROOT_MODEL$SetCriteria criteria
             )
         {
-            return await factory.GetPortal<$RootModel$Set>().FetchAsync(criteria);
+            return await factory.GetPortal<$ROOT_MODEL$Set>().FetchAsync(criteria);
         }
 
         /// <summary>
-        /// Rebuilds an editable $RootName$ instance from the data transfer object.
+        /// Rebuilds an editable $root_name$ instance from the data transfer object.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
         /// <param name="childFactory">The child data portal factory.</param>
-        /// <param name="criteria">The criteria of the $RootName$ set.</param>
-        /// <param name="list">The data transer objects of the $RootName$ set.</param>
-        /// <returns>The $RootName$ set built.</returns>
-        public static async Task<$RootModel$Set> Build(
+        /// <param name="criteria">The criteria of the $root_name$ set.</param>
+        /// <param name="list">The data transer objects of the $root_name$ set.</param>
+        /// <returns>The $root_name$ set built.</returns>
+        public static async Task<$ROOT_MODEL$Set> Build(
             IDataPortalFactory factory,
             IChildDataPortalFactory childFactory,
-            $RootModel$SetCriteria criteria,
-            List<$RootModel$SetItemDto> list
+            $ROOT_MODEL$SetCriteria criteria,
+            List<$ROOT_MODEL$SetItemDto> list
             )
         {
-            var set = await factory.GetPortal<$RootModel$Set>().FetchAsync(criteria);
-            set.SetValuesById(list, "$RootModel$Id", childFactory);
+            var set = await factory.GetPortal<$ROOT_MODEL$Set>().FetchAsync(criteria);
+            set.SetValuesById(list, "$ROOT_MODEL$Id", childFactory);
             return set;
         }
 
@@ -80,23 +80,23 @@
 
         [Fetch]
         private void Fetch(
-            $RootModel$SetCriteria criteria,
-            [Inject] I$RootModel$SetDal dal,
-            [Inject] IChildDataPortal<$RootModel$SetItem> itemPortal
+            $ROOT_MODEL$SetCriteria criteria,
+            [Inject] I$ROOT_MODEL$SetDal dal,
+            [Inject] IChildDataPortal<$ROOT_MODEL$SetItem> itemPortal
             )
         {
             // Load values from persistent storage.
             using (LoadListMode)
             {
-                List<$RootModel$SetItemDao> list = dal.Fetch(criteria);
-                foreach ($RootModel$SetItemDao item in list)
+                List<$ROOT_MODEL$SetItemDao> list = dal.Fetch(criteria);
+                foreach ($ROOT_MODEL$SetItemDao item in list)
                     Add(itemPortal.FetchChild(item));
             }
         }
 
         [Update]
         protected void Update(
-            [Inject] I$RootModel$SetDal dal
+            [Inject] I$ROOT_MODEL$SetDal dal
             )
         {
             // Update values in persistent storage.

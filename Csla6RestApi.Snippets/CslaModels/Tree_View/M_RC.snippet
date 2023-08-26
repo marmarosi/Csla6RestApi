@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $RootName$ tree.
+    /// Represents a read-only $root_name$ tree.
     /// </summary>
     [Serializable]
-    public class $RootModel$Tree : ReadOnlyList<$RootModel$Tree, $RootModel$Node>
+    public class $ROOT_MODEL$Tree : ReadOnlyList<$ROOT_MODEL$Tree, $ROOT_MODEL$Node>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$Tree),
+        //        typeof($ROOT_MODEL$Tree),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -34,18 +34,18 @@
         #region Factory Methods
 
         /// <summary>
-        /// Gets the specified read-only $RootName$ tree.
+        /// Gets the specified read-only $root_name$ tree.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="criteria">The criteria of the read-only $RootName$ tree.</param>
-        /// <returns>The requested read-only $RootName$ tree.</returns>
-        public static async Task<$RootModel$Tree> Get(
+        /// <param name="criteria">The criteria of the read-only $root_name$ tree.</param>
+        /// <returns>The requested read-only $root_name$ tree.</returns>
+        public static async Task<$ROOT_MODEL$Tree> Get(
             IDataPortalFactory factory,
             string rootId
             )
         {
-            var criteria = new $RootModel$TreeParams(rootId);
-            return await factory.GetPortal<$RootModel$Tree>().FetchAsync(criteria.Decode());
+            var criteria = new $ROOT_MODEL$TreeParams(rootId);
+            return await factory.GetPortal<$ROOT_MODEL$Tree>().FetchAsync(criteria.Decode());
         }
 
         #endregion
@@ -54,15 +54,15 @@
 
         [Fetch]
         private void Fetch(
-            $RootModel$TreeCriteria criteria,
-            [Inject] I$RootModel$TreeDal dal,
-            [Inject] IChildDataPortal<$RootModel$Node> itemPortal
+            $ROOT_MODEL$TreeCriteria criteria,
+            [Inject] I$ROOT_MODEL$TreeDal dal,
+            [Inject] IChildDataPortal<$ROOT_MODEL$Node> itemPortal
             )
         {
             // Load values from persistent storage.
             using (LoadListMode)
             {
-                List<$RootModel$NodeDao> list = dal.Fetch(criteria);
+                List<$ROOT_MODEL$NodeDao> list = dal.Fetch(criteria);
                 foreach (var item in list)
                     Add(itemPortal.FetchChild(item));
             }

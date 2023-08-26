@@ -10,39 +10,39 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the editable $RootName$-$ChildName$ data.
+    /// Defines the editable $root_name$-$child_name$ data.
     /// </summary>
-    public class $RootModel$$ChildModel$Data
+    public class $ROOT_MODEL$$CHILD_MODEL$Data
     {
-        public string $ChildModel$Name { get; set; }
+        public string $CHILD_MODEL$Name { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the editable $RootName$-$ChildName$ object.
+    /// Defines the data access object of the editable $root_name$-$child_name$ object.
     /// </summary>
-    public class $RootModel$$ChildModel$Dao : $RootModel$$ChildModel$Data
+    public class $ROOT_MODEL$$CHILD_MODEL$Dao : $ROOT_MODEL$$CHILD_MODEL$Data
     {
-        public long? $ChildModel$Key { get; set; }
-        public long? $RootModel$Key { get; set; }
+        public long? $CHILD_MODEL$Key { get; set; }
+        public long? $ROOT_MODEL$Key { get; set; }
     }
 
     /// <summary>
-    /// Defines the data transfer object of the editable $RootName$-$ChildName$ object.
+    /// Defines the data transfer object of the editable $root_name$-$child_name$ object.
     /// </summary>
-    public class $RootModel$$ChildModel$Dto : $RootModel$$ChildModel$Data
+    public class $ROOT_MODEL$$CHILD_MODEL$Dto : $ROOT_MODEL$$CHILD_MODEL$Data
     {
-        public string $ChildModel$Id { get; set; }
+        public string $CHILD_MODEL$Id { get; set; }
 
-        public $RootModel$$ChildModel$Dto()
+        public $ROOT_MODEL$$CHILD_MODEL$Dto()
         { }
 
-        public $RootModel$$ChildModel$Dto(
+        public $ROOT_MODEL$$CHILD_MODEL$Dto(
             string $ChildParam$Id,
             string $ChildParam$Name
             )
         {
-            $ChildModel$Id = $ChildParam$Id;
-            $ChildModel$Name = $ChildParam$Name;
+            $CHILD_MODEL$Id = $ChildParam$Id;
+            $CHILD_MODEL$Name = $ChildParam$Name;
         }
     }]]>
             </Code>

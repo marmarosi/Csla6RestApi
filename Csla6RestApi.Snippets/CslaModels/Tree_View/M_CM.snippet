@@ -10,25 +10,25 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an item in a read-only $RootName$ tree.
+    /// Represents an item in a read-only $root_name$ tree.
     /// </summary>
     [Serializable]
-    public class $RootModel$Node : ReadOnlyModel<$RootModel$Node>
+    public class $ROOT_MODEL$Node : ReadOnlyModel<$ROOT_MODEL$Node>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $RootModel$KeyProperty = RegisterProperty<long?>(nameof($RootModel$Key));
-        public long? $RootModel$Key
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$KeyProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Key));
+        public long? $ROOT_MODEL$Key
         {
-            get => GetProperty($RootModel$KeyProperty);
-            private set => LoadProperty($RootModel$KeyProperty, value);
+            get => GetProperty($ROOT_MODEL$KeyProperty);
+            private set => LoadProperty($ROOT_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<long?> $RootModel$IdProperty = RegisterProperty<long?>(nameof($RootModel$Id), RelationshipTypes.PrivateField);
-        public string $RootModel$Id
+        public static readonly PropertyInfo<long?> $ROOT_MODEL$IdProperty = RegisterProperty<long?>(nameof($ROOT_MODEL$Id), RelationshipTypes.PrivateField);
+        public string $ROOT_MODEL$Id
         {
-            get => KeyHash.Encode(ID.$RootModel$, $RootModel$Key);
-            private set => $RootModel$Key = KeyHash.Decode(ID.$RootModel$, value);
+            get => KeyHash.Encode(ID.$ROOT_MODEL$, $ROOT_MODEL$Key);
+            private set => $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, value);
         }
 
         public static readonly PropertyInfo<long?> ParentKeyProperty = RegisterProperty<long?>(nameof(ParentKey));
@@ -41,15 +41,15 @@
         public static readonly PropertyInfo<long?> ParentIdProperty = RegisterProperty<long?>(nameof(ParentId), RelationshipTypes.PrivateField);
         public string ParentId
         {
-            get => KeyHash.Encode(ID.$RootModel$, ParentKey);
-            private set => ParentKey = KeyHash.Decode(ID.$RootModel$, value);
+            get => KeyHash.Encode(ID.$ROOT_MODEL$, ParentKey);
+            private set => ParentKey = KeyHash.Decode(ID.$ROOT_MODEL$, value);
         }
 
-        public static readonly PropertyInfo<string> $RootModel$NameProperty = RegisterProperty<string>(nameof($RootModel$Name));
-        public string $RootModel$Name
+        public static readonly PropertyInfo<string> $ROOT_MODEL$NameProperty = RegisterProperty<string>(nameof($ROOT_MODEL$Name));
+        public string $ROOT_MODEL$Name
         {
-            get => GetProperty($RootModel$NameProperty);
-            private set => LoadProperty($RootModel$NameProperty, value);
+            get => GetProperty($ROOT_MODEL$NameProperty);
+            private set => LoadProperty($ROOT_MODEL$NameProperty, value);
         }
 
         public static readonly PropertyInfo<int?> LevelProperty = RegisterProperty<int?>(nameof(Level));
@@ -59,8 +59,8 @@
             private set => LoadProperty(LevelProperty, value);
         }
 
-        public static readonly PropertyInfo<$RootModel$Nodes> ChildrenProperty = RegisterProperty<$RootModel$Nodes>(nameof(Children));
-        public $RootModel$Nodes Children
+        public static readonly PropertyInfo<$ROOT_MODEL$Nodes> ChildrenProperty = RegisterProperty<$ROOT_MODEL$Nodes>(nameof(Children));
+        public $ROOT_MODEL$Nodes Children
         {
             get => GetProperty(ChildrenProperty);
             private set => LoadProperty(ChildrenProperty, value);
@@ -76,7 +76,7 @@
         //    BusinessRules.AddRule(
         //        new IsInRole(
         //            AuthorizationActions.ReadProperty,
-        //            $RootModel$NameProperty,
+        //            $ROOT_MODEL$NameProperty,
         //            "Manager"
         //            )
         //        );
@@ -86,7 +86,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$Node),
+        //        typeof($ROOT_MODEL$Node),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -98,9 +98,9 @@
 
         #region Factory Methods
 
-        //internal static $RootModel$Node Fetch($RootModel$NodeDao dao)
+        //internal static $ROOT_MODEL$Node Fetch($ROOT_MODEL$NodeDao dao)
         //{
-        //    return DataPortal.FetchChild<$RootModel$Node>(dao);
+        //    return DataPortal.FetchChild<$ROOT_MODEL$Node>(dao);
         //}
 
         #endregion
@@ -109,12 +109,12 @@
 
         [FetchChild]
         private void Fetch(
-            $RootModel$NodeDao dao,
-            [Inject] IChildDataPortal<$RootModel$Nodes> itemsPortal
+            $ROOT_MODEL$NodeDao dao,
+            [Inject] IChildDataPortal<$ROOT_MODEL$Nodes> itemsPortal
             )
         {
             // Load values from persistent storage.
-            DataMapper.Map(dao, this, "Children", "$RootModel$Order");
+            DataMapper.Map(dao, this, "Children", "$ROOT_MODEL$Order");
             Children = itemsPortal.FetchChild(dao.Children);
         }
 

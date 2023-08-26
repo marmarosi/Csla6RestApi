@@ -10,30 +10,30 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the read-only $RootName$ data.
+    /// Defines the read-only $root_name$ data.
     /// </summary>
-    public class $RootModel$ViewData
+    public class $ROOT_MODEL$ViewData
     {
-        public string $RootModel$Code { get; set; }
-        public string $RootModel$Name { get; set; }
+        public string $ROOT_MODEL$Code { get; set; }
+        public string $ROOT_MODEL$Name { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the read-only $RootName$ object.
+    /// Defines the data access object of the read-only $root_name$ object.
     /// </summary>
-    public class $RootModel$ViewDao : $RootModel$ViewData
+    public class $ROOT_MODEL$ViewDao : $ROOT_MODEL$ViewData
     {
-        public long? $RootModel$Key { get; set; }
-        public List<$ChildModel$ViewDao> $ChildModel$s { get; set; }
+        public long? $ROOT_MODEL$Key { get; set; }
+        public List<$CHILD_MODEL$ViewDao> $CHILD_MODEL$s { get; set; }
     }
 
     /// <summary>
-    /// Defines the data transfer object of the read-only $RootName$ object.
+    /// Defines the data transfer object of the read-only $root_name$ object.
     /// </summary>
-    public class $RootModel$ViewDto : $RootModel$ViewData
+    public class $ROOT_MODEL$ViewDto : $ROOT_MODEL$ViewData
     {
-        public string $RootModel$Id { get; set; }
-        public List<$ChildModel$ViewDto> $ChildModel$s { get; set; }
+        public string $ROOT_MODEL$Id { get; set; }
+        public List<$CHILD_MODEL$ViewDto> $CHILD_MODEL$s { get; set; }
     }]]>
             </Code>
             <Declarations>

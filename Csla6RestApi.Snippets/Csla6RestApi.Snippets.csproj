@@ -45,15 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Csla6RestApi.SnippetsPackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CslaModels\CslaModels.pkgdef">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="CslaModels\SimpleView.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -129,7 +126,7 @@
     <Content Include="CslaModels\Complex_Edit\C_CM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_M_Dal.snippet">
+    <Content Include="CslaModels\Complex_Edit\C_CM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CslaModels\Complex_Edit\C_CM_Data.snippet">

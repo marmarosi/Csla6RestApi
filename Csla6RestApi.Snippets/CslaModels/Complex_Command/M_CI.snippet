@@ -10,25 +10,25 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an item in a read-only $ChildName$ collection.
+    /// Represents an item in a read-only $child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $ChildModel$Result : ReadOnlyModel<$ChildModel$Result>
+    public class $CHILD_MODEL$Result : ReadOnlyModel<$CHILD_MODEL$Result>
     {
         #region Properties
 
-        public static readonly PropertyInfo<long?> $ChildModel$KeyProperty = RegisterProperty<long?>(nameof($ChildModel$Key));
-        public long? $ChildModel$Key
+        public static readonly PropertyInfo<long?> $CHILD_MODEL$KeyProperty = RegisterProperty<long?>(nameof($CHILD_MODEL$Key));
+        public long? $CHILD_MODEL$Key
         {
-            get => GetProperty($ChildModel$KeyProperty);
-            private set => LoadProperty($ChildModel$KeyProperty, value);
+            get => GetProperty($CHILD_MODEL$KeyProperty);
+            private set => LoadProperty($CHILD_MODEL$KeyProperty, value);
         }
 
-        public static readonly PropertyInfo<string> $ChildModel$NameProperty = RegisterProperty<string>(nameof($ChildModel$Name));
-        public string $ChildModel$Name
+        public static readonly PropertyInfo<string> $CHILD_MODEL$NameProperty = RegisterProperty<string>(nameof($CHILD_MODEL$Name));
+        public string $CHILD_MODEL$Name
         {
-            get => GetProperty($ChildModel$NameProperty);
-            private set => LoadProperty($ChildModel$NameProperty, value);
+            get => GetProperty($CHILD_MODEL$NameProperty);
+            private set => LoadProperty($CHILD_MODEL$NameProperty, value);
         }
 
         #endregion
@@ -51,7 +51,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($ChildModel$ListItem),
+        //        typeof($CHILD_MODEL$ListItem),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -65,7 +65,7 @@
 
         [FetchChild]
         private void Fetch(
-            $ChildModel$ResultDao dao
+            $CHILD_MODEL$ResultDao dao
             )
         {
             // Load values from persistent storage.

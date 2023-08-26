@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $ChildName$ info collection.
+    /// Represents a read-only $child_name$ info collection.
     /// </summary>
     [Serializable]
-    public class $ChildModel$Infos : ReadOnlyList<$ChildModel$Infos, $ChildModel$Info>
+    public class $CHILD_MODEL$Infos : ReadOnlyList<$CHILD_MODEL$Infos, $CHILD_MODEL$Info>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($ChildModel$Infos),
+        //        typeof($CHILD_MODEL$Infos),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -35,8 +35,8 @@
 
         [FetchChild]
         private void Fetch(
-            List<$ChildModel$InfoDao> list,
-            [Inject] IChildDataPortal<$ChildModel$Info> itemPortal
+            List<$CHILD_MODEL$InfoDao> list,
+            [Inject] IChildDataPortal<$CHILD_MODEL$Info> itemPortal
             )
         {
             // Load values from persistent storage.

@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $RootName$ choice collection.
+    /// Represents a read-only $root_name$ choice collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$Choice : ReadOnlyList<$RootModel$Choice, IdNameOption>
+    public class $ROOT_MODEL$Choice : ReadOnlyList<$ROOT_MODEL$Choice, IdNameOption>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$Choice),
+        //        typeof($ROOT_MODEL$Choice),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -34,17 +34,17 @@
         #region Factory Methods
 
         /// <summary>
-        /// Gets a choice of $RootName$ options that match the criteria.
+        /// Gets a choice of $root_name$ options that match the criteria.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="criteria">The criteria of the $RootName$ choice.</param>
-        /// <returns>The requested $RootName$ choice instance.</returns>
-        public static async Task<$RootModel$Choice> Get(
+        /// <param name="criteria">The criteria of the $root_name$ choice.</param>
+        /// <returns>The requested $root_name$ choice instance.</returns>
+        public static async Task<$ROOT_MODEL$Choice> Get(
             IDataPortalFactory factory,
-            $RootModel$ChoiceCriteria criteria
+            $ROOT_MODEL$ChoiceCriteria criteria
             )
         {
-            return await factory.GetPortal<$RootModel$Choice>().FetchAsync(criteria);
+            return await factory.GetPortal<$ROOT_MODEL$Choice>().FetchAsync(criteria);
         }
 
         #endregion
@@ -53,8 +53,8 @@
 
         [Fetch]
         private void Fetch(
-            $RootModel$ChoiceCriteria criteria,
-            [Inject] I$RootModel$ChoiceDal dal,
+            $ROOT_MODEL$ChoiceCriteria criteria,
+            [Inject] I$ROOT_MODEL$ChoiceDal dal,
             [Inject] IChildDataPortal<IdNameOption> itemPortal
             )
         {
@@ -63,7 +63,7 @@
             {
                 List<IdNameOptionDao> list = dal.Fetch(criteria);
                 foreach (var item in list)
-                    Add(itemPortal.FetchChild(item, ID.$RootModel$));
+                    Add(itemPortal.FetchChild(item, ID.$ROOT_MODEL$));
             }
         }
 

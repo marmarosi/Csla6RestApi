@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents an editable $ChildName$ collection.
+    /// Represents an editable $child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$Set$ChildModel$s : EditableList<$RootModel$Set$ChildModel$s, $RootModel$Set$ChildModel$, $RootModel$Set$ChildModel$Dto>
+    public class $ROOT_MODEL$Set$CHILD_MODEL$s : EditableList<$ROOT_MODEL$Set$CHILD_MODEL$s, $ROOT_MODEL$Set$CHILD_MODEL$, $ROOT_MODEL$Set$CHILD_MODEL$Dto>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$Set$ChildModel$s),
+        //        typeof($ROOT_MODEL$Set$CHILD_MODEL$s),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -35,8 +35,8 @@
 
         [FetchChild]
         private void Fetch(
-            List<$RootModel$Set$ChildModel$Dao> list,
-            [Inject] IChildDataPortal<$RootModel$Set$ChildModel$> childPortal
+            List<$ROOT_MODEL$Set$CHILD_MODEL$Dao> list,
+            [Inject] IChildDataPortal<$ROOT_MODEL$Set$CHILD_MODEL$> childPortal
             )
         {
             foreach (var item in list)

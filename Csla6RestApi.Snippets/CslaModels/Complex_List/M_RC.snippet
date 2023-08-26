@@ -10,10 +10,10 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents a read-only $RootName$ collection.
+    /// Represents a read-only $root_name$ collection.
     /// </summary>
     [Serializable]
-    public class $RootModel$List : ReadOnlyList<$RootModel$List, $RootModel$ListItem>
+    public class $ROOT_MODEL$List : ReadOnlyList<$ROOT_MODEL$List, $ROOT_MODEL$ListItem>
     {
         #region Business Rules
 
@@ -21,7 +21,7 @@
         //{
         //    // Add authorization rules.
         //    BusinessRules.AddRule(
-        //        typeof($RootModel$List),
+        //        typeof($ROOT_MODEL$List),
         //        new IsInRole(
         //            AuthorizationActions.GetObject,
         //            "Manager"
@@ -34,17 +34,17 @@
         #region Factory Methods
 
         /// <summary>
-        /// Gets a list of $RootName$s.
+        /// Gets a list of $root_name$s.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="criteria">The criteria of the $RootName$ list.</param>
-        /// <returns>The requested $RootName$ list.</returns>
-        public static async Task<$RootModel$List> Get(
+        /// <param name="criteria">The criteria of the $root_name$ list.</param>
+        /// <returns>The requested $root_name$ list.</returns>
+        public static async Task<$ROOT_MODEL$List> Get(
             IDataPortalFactory factory,
-            $RootModel$ListCriteria criteria
+            $ROOT_MODEL$ListCriteria criteria
             )
         {
-            return await factory.GetPortal<$RootModel$List>().FetchAsync(criteria);
+            return await factory.GetPortal<$ROOT_MODEL$List>().FetchAsync(criteria);
         }
 
         #endregion
@@ -53,15 +53,15 @@
 
         [Fetch]
         private void Fetch(
-            $RootModel$ListCriteria criteria,
-            [Inject] I$RootModel$ListDal dal,
-            [Inject] IChildDataPortal<$RootModel$ListItem> itemPortal
+            $ROOT_MODEL$ListCriteria criteria,
+            [Inject] I$ROOT_MODEL$ListDal dal,
+            [Inject] IChildDataPortal<$ROOT_MODEL$ListItem> itemPortal
             )
         {
             // Load values from persistent storage.
             using (LoadListMode)
             {
-                List<$RootModel$ListItemDao> list = dal.Fetch(criteria);
+                List<$ROOT_MODEL$ListItemDao> list = dal.Fetch(criteria);
                 foreach (var item in list)
                     Add(itemPortal.FetchChild(item));
             }

@@ -10,44 +10,44 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Represents the criteria of the editable $RootName$ object.
+    /// Represents the criteria of the editable $root_name$ object.
     /// </summary>
     [Serializable]
-    public class $RootModel$Params
+    public class $ROOT_MODEL$Params
     {
-        public string $RootModel$Id { get; set; }
+        public string $ROOT_MODEL$Id { get; set; }
 
-        public $RootModel$Params(
+        public $ROOT_MODEL$Params(
             string $RootParam$Id
             )
         {
-            $RootModel$Id = $RootParam$Id;
+            $ROOT_MODEL$Id = $RootParam$Id;
         }
 
-        public $RootModel$Criteria Decode()
+        public $ROOT_MODEL$Criteria Decode()
         {
-            return new $RootModel$Criteria
+            return new $ROOT_MODEL$Criteria
             {
-                $RootModel$Key = KeyHash.Decode(ID.$RootModel$, $RootModel$Id) ?? 0
+                $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, $ROOT_MODEL$Id) ?? 0
             };
         }
     }
 
     /// <summary>
-    /// Represents the criteria of the editable $RootName$ object.
+    /// Represents the criteria of the editable $root_name$ object.
     /// </summary>
     [Serializable]
-    public class $RootModel$Criteria
+    public class $ROOT_MODEL$Criteria
     {
-        public long? $RootModel$Key { get; set; }
+        public long? $ROOT_MODEL$Key { get; set; }
 
-        public $RootModel$Criteria() { }
+        public $ROOT_MODEL$Criteria() { }
 
-        public $RootModel$Criteria(
+        public $ROOT_MODEL$Criteria(
             long? $RootParam$Key
             )
         {
-            $RootModel$Key = $RootParam$Key;
+            $ROOT_MODEL$Key = $RootParam$Key;
         }
     }]]>
             </Code>
