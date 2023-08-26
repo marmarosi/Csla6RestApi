@@ -13,7 +13,7 @@
     /// Implements the data access functions of the $command_name$ by player count command.
     /// </summary>
     [DalImplementation]
-    public class $COMMAND_MODEL$Dal : DalBase<SqlServerContext>, I$COMMAND_MODEL$Dal
+    public class $COMMAND_MODEL$Dal : DalBase<$DB_CONTEXT$>, I$COMMAND_MODEL$Dal
     {
         #region Constructor
 
@@ -22,7 +22,7 @@
         /// </summary>
         /// <param name="context">The database context.</param>
         public $COMMAND_MODEL$Dal(
-            SqlServerContext dbContext
+            $DB_CONTEXT$ dbContext
             )
         {
             DbContext = dbContext;
@@ -70,7 +70,12 @@
     }]]>
             </Code>
             <Declarations>
-				<Literal>
+                <Literal>
+                    <ID>DB_CONTEXT</ID>
+                    <ToolTip>The name of the database context.</ToolTip>
+                    <Default>DB_CONTEXT</Default>
+                </Literal>
+                <Literal>
 					<ID>COMMAND_MODEL</ID>
 					<ToolTip>The name of the command model.</ToolTip>
 					<Default>COMMAND_MODEL</Default>

@@ -13,7 +13,7 @@
     /// Implements the data access functions of the editable $root_name$ collection.
     /// </summary>
     [DalImplementation]
-    public class $ROOT_MODEL$SetDal : DalBase<SqlServerContext>, I$ROOT_MODEL$SetDal
+    public class $ROOT_MODEL$SetDal : DalBase<$DB_CONTEXT$>, I$ROOT_MODEL$SetDal
     {
         #region Constructor
 
@@ -22,7 +22,7 @@
         /// </summary>
         /// <param name="context">The database context.</param>
         public $ROOT_MODEL$SetDal(
-            SqlServerContext dbContext
+            $DB_CONTEXT$ dbContext
             )
         {
             DbContext = dbContext;
@@ -74,6 +74,11 @@
     }]]>
             </Code>
             <Declarations>
+                <Literal>
+                    <ID>DB_CONTEXT</ID>
+                    <ToolTip>The name of the database context.</ToolTip>
+                    <Default>DB_CONTEXT</Default>
+                </Literal>
                 <Literal>
                     <ID>ROOT_MODEL</ID>
                     <ToolTip>The name of the root model.</ToolTip>
