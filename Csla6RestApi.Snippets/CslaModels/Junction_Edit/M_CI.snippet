@@ -99,8 +99,8 @@
                 if (target.Parent == null)
                     return;
 
-                $ROOT_MODEL$ $RootParam$ = ($ROOT_MODEL$)target.Parent.Parent;
-                var count = $RootParam$.$CHILD_MODEL$s.Count(gp => gp.$CHILD_MODEL$Id == target.$CHILD_MODEL$Id);
+                $ROOT_MODEL$ $root_model$ = ($ROOT_MODEL$)target.Parent.Parent;
+                var count = $root_model$.$CHILD_MODEL$s.Count(gp => gp.$CHILD_MODEL$Id == target.$CHILD_MODEL$Id);
                 if (count > 1)
                     context.AddErrorResult(ValidationText.$ROOT_MODEL$$CHILD_MODEL$_$CHILD_MODEL$Id_NotUnique);
             }
@@ -201,9 +201,9 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
 				<Literal>
 					<ID>root_name</ID>

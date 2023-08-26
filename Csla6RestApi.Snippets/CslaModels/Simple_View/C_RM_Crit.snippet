@@ -18,10 +18,10 @@
         public string $ROOT_MODEL$Id { get; set; }
 
         public $ROOT_MODEL$ViewParams(
-            string $RootParam$Id
+            string $root_model$Id
             )
         {
-            $ROOT_MODEL$Id = $RootParam$Id;
+            $ROOT_MODEL$Id = $root_model$Id;
         }
 
         public $ROOT_MODEL$ViewCriteria Decode()
@@ -49,15 +49,15 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
                 <Literal>
+                    <ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
+                </Literal>
+                <Literal>
                     <ID>root_name</ID>
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>root_name</Default>
                 </Literal>
-				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
-				</Literal>
 			</Declarations>
         </Snippet>
     </CodeSnippet>

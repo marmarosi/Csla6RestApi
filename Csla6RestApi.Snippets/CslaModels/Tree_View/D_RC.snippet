@@ -74,32 +74,32 @@
             )
         {
             // Get the $root_name$s of the level.
-            var $RootParam$s = All$ROOT_MODEL$s
+            var $root_model$s = All$ROOT_MODEL$s
                 .Where(o => o.ParentKey == parentKey)
                 .OrderBy(o => o.$ROOT_MODEL$Order)
                 .ToList();
 
-            foreach ($ROOT_MODEL$NodeDao $RootParam$ in $RootParam$s)
+            foreach ($ROOT_MODEL$NodeDao $root_model$ in $root_model$s)
             {
                 // Create $root_name$ node.
-                $ROOT_MODEL$NodeDao $RootParam$Node = new $ROOT_MODEL$NodeDao
+                $ROOT_MODEL$NodeDao $root_model$Node = new $ROOT_MODEL$NodeDao
                 {
-                    $ROOT_MODEL$Key = $RootParam$.$ROOT_MODEL$Key,
-                    ParentKey = $RootParam$.ParentKey,
-                    $ROOT_MODEL$Order = $RootParam$.$ROOT_MODEL$Order,
-                    $ROOT_MODEL$Name = $RootParam$.$ROOT_MODEL$Name,
+                    $ROOT_MODEL$Key = $root_model$.$ROOT_MODEL$Key,
+                    ParentKey = $root_model$.ParentKey,
+                    $ROOT_MODEL$Order = $root_model$.$ROOT_MODEL$Order,
+                    $ROOT_MODEL$Name = $root_model$.$ROOT_MODEL$Name,
                     Level = level,
                     Children = new List<$ROOT_MODEL$NodeDao>()
                 };
 
                 // Add $root_name$ to the parent's children.
-                parentChildren.Add($RootParam$Node);
+                parentChildren.Add($root_model$Node);
 
                 // Get the sub$root_name$s of this $root_name$.
                 PopulateLevel(
                     level + 1,
-                    $RootParam$.$ROOT_MODEL$Key,
-                    $RootParam$Node.Children
+                    $root_model$.$ROOT_MODEL$Key,
+                    $root_model$Node.Children
                     );
             }
         }
@@ -114,9 +114,9 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+					<ToolTip>The root model variable.</ToolTip>
+					<Default>root_model</Default>
 				</Literal>
 				<Literal>
                     <ID>root_name</ID>

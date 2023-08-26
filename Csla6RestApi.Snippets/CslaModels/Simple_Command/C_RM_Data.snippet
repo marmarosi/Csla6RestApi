@@ -25,12 +25,12 @@
         public long? $ROOT_MODEL$Key { get; set; }
 
         public $COMMAND_MODEL$Dao(
-            long? $RootParam$Key,
-            string $RootParam$Name
+            long? $root_model$Key,
+            string $root_model$Name
             )
         {
-            $ROOT_MODEL$Key = $RootParam$Key;
-            $ROOT_MODEL$Name = $RootParam$Name;
+            $ROOT_MODEL$Key = $root_model$Key;
+            $ROOT_MODEL$Name = $root_model$Name;
         }
     }
 
@@ -60,9 +60,9 @@
 					<Default>ROOT_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
 			</Declarations>
         </Snippet>

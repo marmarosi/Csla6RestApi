@@ -62,8 +62,8 @@
         {
             List<$ROOT_MODEL$Set$CHILD_MODEL$Dao> list = new List<$ROOT_MODEL$Set$CHILD_MODEL$Dao>();
 
-            foreach ($ROOT_MODEL$Set$CHILD_MODEL$Dto $ChildParam$ in $CHILD_MODEL$s)
-                list.Add($ChildParam$.ToDao());
+            foreach ($ROOT_MODEL$Set$CHILD_MODEL$Dto $child_model$ in $CHILD_MODEL$s)
+                list.Add($child_model$.ToDao());
 
             return list;
         }
@@ -86,9 +86,9 @@
 					<Default>CHILD_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>ChildParam</ID>
-					<ToolTip>The name of the child parameter.</ToolTip>
-					<Default>ChildParam</Default>
+					<ID>child_model</ID>
+                    <ToolTip>The child model variable.</ToolTip>
+                    <Default>child_model</Default>
 				</Literal>
 			</Declarations>
         </Snippet>

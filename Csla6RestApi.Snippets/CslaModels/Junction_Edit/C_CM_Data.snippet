@@ -37,12 +37,12 @@
         { }
 
         public $ROOT_MODEL$$CHILD_MODEL$Dto(
-            string $ChildParam$Id,
-            string $ChildParam$Name
+            string $child_model$Id,
+            string $child_model$Name
             )
         {
-            $CHILD_MODEL$Id = $ChildParam$Id;
-            $CHILD_MODEL$Name = $ChildParam$Name;
+            $CHILD_MODEL$Id = $child_model$Id;
+            $CHILD_MODEL$Name = $child_model$Name;
         }
     }]]>
             </Code>
@@ -63,9 +63,9 @@
 					<Default>CHILD_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>ChildParam</ID>
-					<ToolTip>The name of the child parameter.</ToolTip>
-					<Default>ChildParam</Default>
+					<ID>child_model</ID>
+                    <ToolTip>The child model variable.</ToolTip>
+                    <Default>child_model</Default>
 				</Literal>
 				<Literal>
 					<ID>child_name</ID>

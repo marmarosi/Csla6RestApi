@@ -41,32 +41,32 @@
             )
         {
             // Check unique $root_name$-$child_name$.
-            var $RootParam$$CHILD_MODEL$ = DbContext.$ROOT_MODEL$$CHILD_MODEL$s
+            var $root_model$$CHILD_MODEL$ = DbContext.$ROOT_MODEL$$CHILD_MODEL$s
                 .Where(e =>
                     e.$ROOT_MODEL$Key == dao.$ROOT_MODEL$Key &&
                     e.$CHILD_MODEL$Key == dao.$CHILD_MODEL$Key
                 )
                 .AsNoTracking()
                 .FirstOrDefault();
-            if ($RootParam$$CHILD_MODEL$ != null)
+            if ($root_model$$CHILD_MODEL$ != null)
                 throw new DataExistException(DalText.$ROOT_MODEL$$CHILD_MODEL$_Exists.With(dao.$CHILD_MODEL$Name));
 
             // Create the new $root_name$-$child_name$.
-            $CHILD_MODEL$ $ChildParam$ = DbContext.$CHILD_MODEL$s.Find(dao.$CHILD_MODEL$Key)
+            $CHILD_MODEL$ $child_model$ = DbContext.$CHILD_MODEL$s.Find(dao.$CHILD_MODEL$Key)
                 ?? throw new DataExistException(DalText.$ROOT_MODEL$$CHILD_MODEL$_NotFound.With(dao.$CHILD_MODEL$Name));
-            $RootParam$$CHILD_MODEL$ = new $ROOT_MODEL$$CHILD_MODEL$
+            $root_model$$CHILD_MODEL$ = new $ROOT_MODEL$$CHILD_MODEL$
             {
                 $ROOT_MODEL$Key = dao.$ROOT_MODEL$Key,
                 $CHILD_MODEL$Key = dao.$CHILD_MODEL$Key
             };
-            DbContext.$ROOT_MODEL$$CHILD_MODEL$s.Add($RootParam$$CHILD_MODEL$);
+            DbContext.$ROOT_MODEL$$CHILD_MODEL$s.Add($root_model$$CHILD_MODEL$);
 
             int count = DbContext.SaveChanges();
             if (count == 0)
                 throw new InsertFailedException(DalText.$ROOT_MODEL$$CHILD_MODEL$_InsertFailed.With(dao.$CHILD_MODEL$Name));
 
             // Return new data.
-            dao.$CHILD_MODEL$Name = $ChildParam$.$CHILD_MODEL$Name;
+            dao.$CHILD_MODEL$Name = $child_model$.$CHILD_MODEL$Name;
         }
 
         #endregion Insert
@@ -82,7 +82,7 @@
             )
         {
             // Get the specified $root_name$-$child_name$.
-            $ROOT_MODEL$$CHILD_MODEL$ $RootParam$$CHILD_MODEL$ = DbContext.$ROOT_MODEL$$CHILD_MODEL$s
+            $ROOT_MODEL$$CHILD_MODEL$ $root_model$$CHILD_MODEL$ = DbContext.$ROOT_MODEL$$CHILD_MODEL$s
                 .Where(e =>
                     e.$ROOT_MODEL$Key == dao.$ROOT_MODEL$Key &&
                     e.$CHILD_MODEL$Key == dao.$CHILD_MODEL$Key
@@ -92,7 +92,7 @@
                 ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$$CHILD_MODEL$_NotFound.With(dao.$CHILD_MODEL$Name));
 
             // Delete the $root_name$-$child_name$.
-            DbContext.$ROOT_MODEL$$CHILD_MODEL$s.Remove($RootParam$$CHILD_MODEL$);
+            DbContext.$ROOT_MODEL$$CHILD_MODEL$s.Remove($root_model$$CHILD_MODEL$);
 
             int count = DbContext.SaveChanges();
             if (count == 0)
@@ -109,9 +109,9 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
 				<Literal>
                     <ID>root_name</ID>
@@ -124,9 +124,9 @@
 					<Default>CHILD_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>ChildParam</ID>
-					<ToolTip>The name of the child parameter.</ToolTip>
-					<Default>ChildParam</Default>
+					<ID>child_model</ID>
+					<ToolTip>The child model variable.</ToolTip>
+					<Default>child_model</Default>
 				</Literal>
 				<Literal>
 					<ID>child_name</ID>

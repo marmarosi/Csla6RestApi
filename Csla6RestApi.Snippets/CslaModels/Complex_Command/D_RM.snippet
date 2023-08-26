@@ -40,11 +40,11 @@
             $COMMAND_MODEL$Criteria criteria
             )
         {
-            string $RootParam$Name = criteria.$ROOT_MODEL$Name ?? "";
+            string $root_model$Name = criteria.$ROOT_MODEL$Name ?? "";
 
             var counts = DbContext.$ROOT_MODEL$s
                 .Include(e => e.Players)
-                .Where(e => $RootParam$Name == "" || e.$ROOT_MODEL$Name.Contains($RootParam$Name))
+                .Where(e => $root_model$Name == "" || e.$ROOT_MODEL$Name.Contains($root_model$Name))
                 .Select(e => new { e.$ROOT_MODEL$Key, Count = e.Players.Count })
                 .AsNoTracking()
                 .ToList();
@@ -86,9 +86,9 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
 				<Literal>
 					<ID>root_name</ID>

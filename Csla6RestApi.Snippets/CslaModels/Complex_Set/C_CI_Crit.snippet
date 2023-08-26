@@ -17,9 +17,9 @@
     {
         public long? $CHILD_MODEL$Key { get; set; }
         [JsonIgnore]
-        public string __$RootParam$Code { get; set; } // for error messages
+        public string __$root_model$Code { get; set; } // for error messages
         [JsonIgnore]
-        public string __$ChildParam$Code { get; set; } // for error messages
+        public string __$child_model$Code { get; set; } // for error messages
 
         public $ROOT_MODEL$Set$CHILD_MODEL$Criteria()
         { }
@@ -28,7 +28,7 @@
             long? $child_name$Key
             )
         {
-            $CHILD_MODEL$Key = $ChildParam$Key;
+            $CHILD_MODEL$Key = $child_model$Key;
         }
     }]]>
             </Code>
@@ -39,9 +39,9 @@
 					<Default>CHILD_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>ChildParam</ID>
-					<ToolTip>The name of the child parameter.</ToolTip>
-					<Default>ChildParam</Default>
+					<ID>child_model</ID>
+                    <ToolTip>The child model variable.</ToolTip>
+                    <Default>child_model</Default>
 				</Literal>
 				<Literal>
 					<ID>child_name</ID>
@@ -54,9 +54,9 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
                 <Literal>
-                    <ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+                    <ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
                 </Literal>
             </Declarations>
         </Snippet>

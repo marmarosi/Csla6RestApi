@@ -42,7 +42,7 @@
             )
         {
             // Get the specified $root_name$.
-            var $RootParam$ = DbContext.$ROOT_MODEL$s
+            var $root_model$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
                     e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
                  )
@@ -63,7 +63,7 @@
                 .FirstOrDefault()
                 ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
 
-            return $RootParam$;
+            return $root_model$;
         }
 
         #endregion Fetch
@@ -79,29 +79,29 @@
             )
         {
             // Check unique $root_name$ code.
-            var $RootParam$ = DbContext.$ROOT_MODEL$s
+            var $root_model$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
                     e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code
                 )
                 .FirstOrDefault();
-            if ($RootParam$ != null)
+            if ($root_model$ != null)
                 throw new DataExistException(DalText.$ROOT_MODEL$_$ROOT_MODEL$CodeExists.With(dao.$ROOT_MODEL$Code));
 
             // Create the new $root_name$.
-            $RootParam$ = new $ROOT_MODEL$
+            $root_model$ = new $ROOT_MODEL$
             {
                 $ROOT_MODEL$Code = dao.$ROOT_MODEL$Code,
                 $ROOT_MODEL$Name = dao.$ROOT_MODEL$Name
             };
-            DbContext.$ROOT_MODEL$s.Add($RootParam$);
+            DbContext.$ROOT_MODEL$s.Add($root_model$);
 
             int count = DbContext.SaveChanges();
             if (count == 0)
                 throw new InsertFailedException(DalText.$ROOT_MODEL$_InsertFailed);
 
             // Return new data.
-            dao.$ROOT_MODEL$Key = $RootParam$.$ROOT_MODEL$Key;
-            dao.Timestamp = $RootParam$.Timestamp;
+            dao.$ROOT_MODEL$Key = $root_model$.$ROOT_MODEL$Key;
+            dao.Timestamp = $root_model$.Timestamp;
         }
 
         #endregion Insert
@@ -117,29 +117,29 @@
             )
         {
             // Get the specified $root_name$.
-            var $RootParam$ = DbContext.$ROOT_MODEL$s
+            var $root_model$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
                     e.$ROOT_MODEL$Key == dao.$ROOT_MODEL$Key
                 )
                 .FirstOrDefault()
                 ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
-            if ($RootParam$.Timestamp != dao.Timestamp)
+            if ($root_model$.Timestamp != dao.Timestamp)
                 throw new ConcurrencyException(DalText.$ROOT_MODEL$_Concurrency);
 
             // Check unique $root_name$ code.
-            if ($RootParam$.$ROOT_MODEL$Code != dao.$ROOT_MODEL$Code)
+            if ($root_model$.$ROOT_MODEL$Code != dao.$ROOT_MODEL$Code)
             {
                 int exist = DbContext.$ROOT_MODEL$s
-                    .Where(e => e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code && e.$ROOT_MODEL$Key != $RootParam$.$ROOT_MODEL$Key)
+                    .Where(e => e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code && e.$ROOT_MODEL$Key != $root_model$.$ROOT_MODEL$Key)
                     .Count();
                 if (exist > 0)
                     throw new DataExistException(DalText.$ROOT_MODEL$_$ROOT_MODEL$CodeExists.With(dao.$ROOT_MODEL$Code));
             }
 
             // Update the $root_name$.
-            $RootParam$.$ROOT_MODEL$Code = dao.$ROOT_MODEL$Code;
-            $RootParam$.$ROOT_MODEL$Name = dao.$ROOT_MODEL$Name;
-            $RootParam$.Timestamp = DateTime.Now; // Force update timestamp.
+            $root_model$.$ROOT_MODEL$Code = dao.$ROOT_MODEL$Code;
+            $root_model$.$ROOT_MODEL$Name = dao.$ROOT_MODEL$Name;
+            $root_model$.Timestamp = DateTime.Now; // Force update timestamp.
 
             int count = DbContext.SaveChanges();
             if (count == 0)
@@ -149,7 +149,7 @@
                 throw new UpdateFailedException(DalText.$ROOT_MODEL$_UpdateFailed);
 
             // Return new data.
-            dao.Timestamp = $RootParam$.Timestamp;
+            dao.Timestamp = $root_model$.Timestamp;
         }
 
         #endregion Update
@@ -165,7 +165,7 @@
             )
         {
             // Get the specified $root_name$.
-            var $RootParam$ = DbContext.$ROOT_MODEL$s
+            var $root_model$ = DbContext.$ROOT_MODEL$s
                 .Where(e =>
                     e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
                  )
@@ -181,7 +181,7 @@
             //    throw new DeleteFailedException(DalText.$ROOT_MODEL$_Delete_Others);
 
             // Delete the $root_name$.
-            DbContext.$ROOT_MODEL$s.Remove($RootParam$);
+            DbContext.$ROOT_MODEL$s.Remove($root_model$);
 
             int count = DbContext.SaveChanges();
             if (count == 0)
@@ -198,9 +198,9 @@
 					<Default>ROOT_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
 				<Literal>
 					<ID>root_name</ID>

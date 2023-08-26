@@ -154,12 +154,12 @@
             $ROOT_MODEL$Dto dto
             )
         {
-            long? $RootParam$Key = KeyHash.Decode(ID.$ROOT_MODEL$, dto.$ROOT_MODEL$Id);
-            $ROOT_MODEL$ $RootParam$ = $RootParam$Key.HasValue ?
+            long? $root_model$Key = KeyHash.Decode(ID.$ROOT_MODEL$, dto.$ROOT_MODEL$Id);
+            $ROOT_MODEL$ $root_model$ = $root_model$Key.HasValue ?
                 await Get(factory, dto.$ROOT_MODEL$Id) :
                 await New(factory);
-            $RootParam$.SetValuesOnBuild(dto, childFactory);
-            return $RootParam$;
+            $root_model$.SetValuesOnBuild(dto, childFactory);
+            return $root_model$;
         }
 
         /// <summary>
@@ -275,15 +275,15 @@
                     <Default>ROOT_MODEL</Default>
                 </Literal>
                 <Literal>
+                    <ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
+                </Literal>
+                <Literal>
                     <ID>root_name</ID>
                     <ToolTip>The model name in comments.</ToolTip>
                     <Default>root_name</Default>
                 </Literal>
-				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
-				</Literal>
 			</Declarations>
         </Snippet>
     </CodeSnippet>

@@ -10,18 +10,18 @@
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the editable $RootParam$ set $child_name$ data.
+    /// Defines the editable $root_name$ set $child_name$ data.
     /// </summary>
     public class $ROOT_MODEL$Set$CHILD_MODEL$Data
     {
         public string $CHILD_MODEL$Code { get; set; }
         public string $CHILD_MODEL$Name { get; set; }
         [JsonIgnore]
-        public string __$RootParam$Code; // for error messages
+        public string __$root_model$Code; // for error messages
     }
 
     /// <summary>
-    /// Defines the data access object of the editable $RootParam$ set $child_name$ object.
+    /// Defines the data access object of the editable $root_name$ set $child_name$ object.
     /// </summary>
     public class $ROOT_MODEL$Set$CHILD_MODEL$Dao : $ROOT_MODEL$Set$CHILD_MODEL$Data
     {
@@ -30,7 +30,7 @@
     }
 
     /// <summary>
-    /// Defines the data transfer object of the editable $RootParam$ set $child_name$ object.
+    /// Defines the data transfer object of the editable $root_name$ set $child_name$ object.
     /// </summary>
     public class $ROOT_MODEL$Set$CHILD_MODEL$Dto : $ROOT_MODEL$Set$CHILD_MODEL$Data
     {
@@ -45,7 +45,7 @@
                 $ROOT_MODEL$Key = KeyHash.Decode(ID.$ROOT_MODEL$, $ROOT_MODEL$Id),
                 $CHILD_MODEL$Code = $CHILD_MODEL$Code,
                 $CHILD_MODEL$Name = $CHILD_MODEL$Name,
-                __$RootParam$Code = __$RootParam$Code
+                __$root_model$Code = __$root_model$Code
             };
         }
     }]]>
@@ -67,11 +67,16 @@
 					<Default>ROOT_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
-			</Declarations>
+                <Literal>
+                    <ID>root_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>root_name</Default>
+                </Literal>
+            </Declarations>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>

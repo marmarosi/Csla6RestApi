@@ -124,8 +124,8 @@
                 if (target.Parent == null)
                     return;
 
-                $ROOT_MODEL$SetItem $RootParam$ = ($ROOT_MODEL$SetItem)target.Parent.Parent;
-                var count = $RootParam$.$CHILD_MODEL$s.Count($ChildParam$ => $ChildParam$.$CHILD_MODEL$Code == target.$CHILD_MODEL$Code);
+                $ROOT_MODEL$SetItem $root_model$ = ($ROOT_MODEL$SetItem)target.Parent.Parent;
+                var count = $root_model$.$CHILD_MODEL$s.Count($child_model$ => $child_model$.$CHILD_MODEL$Code == target.$CHILD_MODEL$Code);
                 if (count > 1)
                     context.AddErrorResult(ValidationText.$CHILD_MODEL$_$CHILD_MODEL$Code_NotUnique);
             }
@@ -216,8 +216,8 @@
 
             $ROOT_MODEL$Set$CHILD_MODEL$Criteria criteria = new $ROOT_MODEL$Set$CHILD_MODEL$Criteria($CHILD_MODEL$Key)
             {
-                __$RootParam$Code = (($ROOT_MODEL$SetItem)Parent.Parent).$ROOT_MODEL$Code,
-                __$ChildParam$Code = $CHILD_MODEL$Code
+                __$root_model$Code = (($ROOT_MODEL$SetItem)Parent.Parent).$ROOT_MODEL$Code,
+                __$child_model$Code = $CHILD_MODEL$Code
             };
             dal.Delete(criteria);
         }
@@ -232,9 +232,9 @@
 					<Default>CHILD_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>ChildParam</ID>
-					<ToolTip>The name of the child parameter.</ToolTip>
-					<Default>ChildParam</Default>
+					<ID>child_model</ID>
+                    <ToolTip>The child model variable.</ToolTip>
+                    <Default>child_model</Default>
 				</Literal>
 				<Literal>
 					<ID>child_name</ID>
@@ -247,9 +247,9 @@
 					<Default>ROOT_MODEL</Default>
 				</Literal>
 				<Literal>
-					<ID>RootParam</ID>
-					<ToolTip>The name of the root parameter.</ToolTip>
-					<Default>RootParam</Default>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
 				</Literal>
 			</Declarations>
         </Snippet>
