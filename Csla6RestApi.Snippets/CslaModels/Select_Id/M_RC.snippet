@@ -2,10 +2,10 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-			<Title>Model | Read-only list item model</Title>
+			<Title>Model | Read-only choice</Title>
 			<Author>Mármarosi József</Author>
-			<Description>Implements a read-only list item model.</Description>
-			<Shortcut>c6lc-ri</Shortcut>
+			<Description>Implements a read-only root collection.</Description>
+			<Shortcut>c6lirc</Shortcut>
         </Header>
         <Snippet>
             <Code Language="CSharp">
@@ -13,7 +13,7 @@
     /// Represents a read-only $root_name$ choice collection.
     /// </summary>
     [Serializable]
-    public class $ROOT_MODEL$Choice : ReadOnlyList<$ROOT_MODEL$Choice, CodeNameOption>
+    public class $ROOT_MODEL$Choice : ReadOnlyList<$ROOT_MODEL$Choice, IdNameOption>
     {
         #region Business Rules
 
@@ -37,7 +37,7 @@
         /// Gets a choice of $root_name$ options that match the criteria.
         /// </summary>
         /// <param name="factory">The data portal factory.</param>
-        /// <param name="criteria">The criteria $root_name$ choice.</param>
+        /// <param name="criteria">The criteria of the $root_name$ choice.</param>
         /// <returns>The requested $root_name$ choice instance.</returns>
         public static async Task<$ROOT_MODEL$Choice> Get(
             IDataPortalFactory factory,
@@ -55,15 +55,15 @@
         private void Fetch(
             $ROOT_MODEL$ChoiceCriteria criteria,
             [Inject] I$ROOT_MODEL$ChoiceDal dal,
-            [Inject] IChildDataPortal<CodeNameOption> itemPortal
+            [Inject] IChildDataPortal<IdNameOption> itemPortal
             )
         {
             // Load values from persistent storage.
             using (LoadListMode)
             {
-                List<CodeNameOptionDao> list = dal.Fetch(criteria);
+                List<IdNameOptionDao> list = dal.Fetch(criteria);
                 foreach (var item in list)
-                    Add(itemPortal.FetchChild(item));
+                    Add(itemPortal.FetchChild(item, ID.$ROOT_MODEL$));
             }
         }
 

@@ -2,19 +2,20 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Contract | Read-only arranged list DAL interface</Title>
-            <Author>Mármarosi József</Author>
-            <Description>Defines the DAL interface of a read-only root collection.</Description>
-            <Shortcut>c6af-rc-i</Shortcut>
-        </Header>
+			<Title>Contract | Read-only sorted-paginated list criteria</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the criteria of a read-only root model.</Description>
+			<Shortcut>c6afrmc</Shortcut>
+		</Header>
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the data access functions of the read-only $root_name$ collection.
+    /// Represents the criteria of the read-only $root_name$ collection.
     /// </summary>
-    public interface I$ROOT_MODEL$ListDal
+    [Serializable]
+    public class $ROOT_MODEL$ListCriteria : $ROOT_MODEL$ListCriteria
     {
-        IPaginatedList<$ROOT_MODEL$ListItemDao> Fetch($ROOT_MODEL$ListCriteria criteria);
+        public string $ROOT_MODEL$Name { get; set; }
     }]]>
             </Code>
             <Declarations>

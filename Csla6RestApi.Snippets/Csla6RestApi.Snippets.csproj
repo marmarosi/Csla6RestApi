@@ -183,7 +183,7 @@
     <Content Include="CslaModels\Tree_View\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\C_RI_Data.snippet">
+    <Content Include="CslaModels\Tree_View\C_CM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CslaModels\Select_Code\C_RC_Dal.snippet">
@@ -204,13 +204,13 @@
     <Content Include="CslaModels\Select_Key\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\C_RC_Crit.snippet">
+    <Content Include="CslaModels\Arrange_Paginated\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\C_RC_Dal.snippet">
+    <Content Include="CslaModels\Arrange_Paginated\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\C_RI_Data.snippet">
+    <Content Include="CslaModels\Arrange_Paginated\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CslaModels\Arrange_Sorted\C_RC_Crit.snippet">
@@ -225,16 +225,16 @@
     <Content Include="CslaModels\Arrange_Sorted\C_RC_Sort.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RC_Crit.snippet">
+    <Content Include="CslaModels\Arrange_Full\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RC_Dal.snippet">
+    <Content Include="CslaModels\Arrange_Full\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RC_Sort.snippet">
+    <Content Include="CslaModels\Arrange_Full\C_RM_Sort.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RI_Data.snippet">
+    <Content Include="CslaModels\Arrange_Full\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CslaModels\Junction_View\C_CM_Data.snippet">
@@ -264,10 +264,10 @@
     <Content Include="CslaModels\Junction_Edit\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\D_RC.snippet">
+    <Content Include="CslaModels\Arrange_Full\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\D_RC.snippet">
+    <Content Include="CslaModels\Arrange_Paginated\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CslaModels\Arrange_Sorted\D_RC.snippet">
@@ -360,13 +360,13 @@
     <Content Include="CslaModels\Arrange_Sorted\M_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Code\M_RI.snippet">
+    <Content Include="CslaModels\Select_Code\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Id\M_RI.snippet">
+    <Content Include="CslaModels\Select_Id\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Key\M_RI.snippet">
+    <Content Include="CslaModels\Select_Key\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CslaModels\Tree_View\M_RC.snippet">

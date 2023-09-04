@@ -2,41 +2,36 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-			<Title>Contract | Read-only tree node data objects</Title>
+			<Title>Contract | Read-only sorted-paginated list item data objects</Title>
 			<Author>Mármarosi József</Author>
 			<Description>Defines the data objects of a read-only child model.</Description>
-			<Shortcut>c6tl-cm-o</Shortcut>
+			<Shortcut>c6afcio</Shortcut>
 		</Header>
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the read-only $root_name$ node data.
+    /// Defines the read-only $root_name$ list item data.
     /// </summary>
-    public class $ROOT_MODEL$NodeData
+    public class $ROOT_MODEL$ListItemData
     {
-        public int? $ROOT_MODEL$Order { get; set; }
+        public string $ROOT_MODEL$Code { get; set; }
         public string $ROOT_MODEL$Name { get; set; }
-        public int? Level { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the read-only $root_name$ node object.
+    /// Defines the data access object of the read-only $root_name$ list item object.
     /// </summary>
-    public class $ROOT_MODEL$NodeDao : $ROOT_MODEL$NodeData
+    public class $ROOT_MODEL$ListItemDao : $ROOT_MODEL$ListItemData
     {
         public long? $ROOT_MODEL$Key { get; set; }
-        public long? ParentKey { get; set; }
-        public List<$ROOT_MODEL$NodeDao> Children { get; set; }
     }
 
     /// <summary>
-    /// Defines the data transfer object of the read-only $root_name$ node object.
+    /// Defines the data transfer object of the read-only $root_name$ list item object.
     /// </summary>
-    public class $ROOT_MODEL$NodeDto : $ROOT_MODEL$NodeData
+    public class $ROOT_MODEL$ListItemDto : $ROOT_MODEL$ListItemData
     {
         public string $ROOT_MODEL$Id { get; set; }
-        public string ParentId { get; set; }
-        public List<$ROOT_MODEL$NodeDto> Children { get; set; }
     }]]>
             </Code>
             <Declarations>
