@@ -2,48 +2,35 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-			<Title>Contract | Editable child data objects</Title>
+			<Title>Contract | Read-only child list item objects</Title>
 			<Author>Mármarosi József</Author>
-			<Description>Defines the data objects of a editable child model.</Description>
-			<Shortcut>c6je-cm-o</Shortcut>
+			<Description>Defines the data objects of a read-only child model.</Description>
+			<Shortcut>c6jvcio</Shortcut>
 		</Header>
         <Snippet>
             <Code Language="CSharp">
                 <![CDATA[/// <summary>
-    /// Defines the editable $root_name$-$child_name$ data.
+    /// Defines the read-only $root_name$-$child_name$ data.
     /// </summary>
-    public class $ROOT_MODEL$$CHILD_MODEL$Data
+    public class $ROOT_MODEL$$CHILD_MODEL$ViewData
     {
         public string $CHILD_MODEL$Name { get; set; }
     }
 
     /// <summary>
-    /// Defines the data access object of the editable $root_name$-$child_name$ object.
+    /// Defines the data access object of the read-only $root_name$-$child_name$ object.
     /// </summary>
-    public class $ROOT_MODEL$$CHILD_MODEL$Dao : $ROOT_MODEL$$CHILD_MODEL$Data
+    public class $ROOT_MODEL$$CHILD_MODEL$ViewDao : $ROOT_MODEL$$CHILD_MODEL$ViewData
     {
         public long? $CHILD_MODEL$Key { get; set; }
-        public long? $ROOT_MODEL$Key { get; set; }
     }
 
     /// <summary>
-    /// Defines the data transfer object of the editable $root_name$-$child_name$ object.
+    /// Defines the data transfer object of the read-only $root_name$-$child_name$ object.
     /// </summary>
-    public class $ROOT_MODEL$$CHILD_MODEL$Dto : $ROOT_MODEL$$CHILD_MODEL$Data
+    public class $ROOT_MODEL$$CHILD_MODEL$ViewDto : $ROOT_MODEL$$CHILD_MODEL$ViewData
     {
         public string $CHILD_MODEL$Id { get; set; }
-
-        public $ROOT_MODEL$$CHILD_MODEL$Dto()
-        { }
-
-        public $ROOT_MODEL$$CHILD_MODEL$Dto(
-            string $child_model$Id,
-            string $child_model$Name
-            )
-        {
-            $CHILD_MODEL$Id = $child_model$Id;
-            $CHILD_MODEL$Name = $child_model$Name;
-        }
     }]]>
             </Code>
             <Declarations>
@@ -61,11 +48,6 @@
 					<ID>CHILD_MODEL</ID>
 					<ToolTip>The name of the child model.</ToolTip>
 					<Default>CHILD_MODEL</Default>
-				</Literal>
-				<Literal>
-					<ID>child_model</ID>
-                    <ToolTip>The child model variable.</ToolTip>
-                    <Default>child_model</Default>
 				</Literal>
 				<Literal>
 					<ID>child_name</ID>
