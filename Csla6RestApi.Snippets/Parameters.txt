@@ -1,3 +1,0 @@
-    $ROOT_MODEL$  $CHILD_MODEL$  $COMMAND_MODEL$
-    $root_model$  $child_model$
-    $root_name$   $child_name$   $command_name$

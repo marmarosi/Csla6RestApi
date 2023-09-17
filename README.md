@@ -15,3 +15,5 @@ The corresponding namespaces in the _Csla6ModelTemplates_ project:
 |--------|---------------|
 |Csla6RestApi.Dal|Csla6ModelTemplates.Dal|
 |Csla6RestApi.Models|Csla6ModelTemplates.CslaExtensions|
+
+[Code Snippets](snippets.html)

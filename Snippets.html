@@ -50,6 +50,18 @@
     .param {
       width: 40px;
     }
+    .cl-abbr {
+      width: 100px;
+    }
+    .cl-param {
+      width: 250px;
+    }
+    .cl-desc {
+      width: 500px;
+    }
+    .cl-example {
+      width: 150px;
+    }
   </style>
 </head>
 <body>
@@ -2476,6 +2488,73 @@
             </tbody>
         </table>
     </div>
+
+    <h3>Column labels</h3>
+    <table>
+        <thead>
+            <tr>
+                <th class="cl-abbr">Abbreviation</th>
+                <th class="cl-param">Stands for parameter</th>
+                <th class="cl-desc">Description</th>
+                <th class="cl-example">Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="left">r-n</td>
+                <td class="left">root_name</td>
+                <td class="left">textual description of the root model in comments</td>
+                <td class="left">order</td>
+            </tr>
+            <tr>
+                <td class="left">RM</td>
+                <td class="left">ROOT_MODEL</td>
+                <td class="left">the name of the root model</td>
+                <td class="left">Order</td>
+            </tr>
+            <tr>
+                <td class="left">rm</td>
+                <td class="left">root_model</td>
+                <td class="left">the name of the variable for the root model</td>
+                <td class="left">order</td>
+            <tr>
+                <td class="left">c-n</td>
+                <td class="left">child_name</td>
+                <td class="left">textual description of the child model in comments</td>
+                <td class="left">order line</td>
+            </tr>
+            <tr>
+                <td class="left">CM</td>
+                <td class="left">CHILD_MODEL</td>
+                <td class="left">the name of the child model</td>
+                <td class="left">OrderLine</td>
+            </tr>
+            <tr>
+                <td class="left">cm</td>
+                <td class="left">child_model</td>
+                <td class="left">the name of the variable for the child model</td>
+                <td class="left">orderLine</td>
+            </tr>
+            <tr>
+                <td class="left">cmd</td>
+                <td class="left">command_name</td>
+                <td class="left">textual description of the command in comments</td>
+                <td class="left">set order status</td>
+            </tr>
+            <tr>
+                <td class="left">CMD</td>
+                <td class="left">COMMAND_MODEL</td>
+                <td class="left">the name of the command model</td>
+                <td class="left">SetOrderStatus</td>
+            </tr>
+            <tr>
+                <td class="left">DbC</td>
+                <td class="left">DB_CONTEXT</td>
+                <td class="left">the name of the database context</td>
+                <td class="left">ShopDbContext</td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>

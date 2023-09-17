@@ -467,7 +467,6 @@
     <Content Include="CslaModels\Junction_Edit\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Parameters.txt" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
