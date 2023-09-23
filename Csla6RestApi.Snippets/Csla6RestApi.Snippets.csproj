@@ -49,422 +49,425 @@
     <Compile Include="Csla6RestApi.SnippetsPackage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CslaModels\CslaModels.pkgdef">
+    <Content Include="Csla6RestApi.Snippets.pkgdef">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="CslaModels\Simple_View\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Simple_View\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_View\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Simple_View\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_View\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Simple_View\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Edit\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Simple_Edit\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Edit\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Simple_Edit\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Edit\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Simple_Edit\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_List\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Simple_List\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_List\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Simple_List\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_List\C_RI_Data.snippet">
+    <Content Include="Csla 6 REST API\Simple_List\C_RI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\C_RI_Data.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\C_RI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\C_RI_Dal.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\C_RI_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\C_RI_Crit.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\C_RI_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Command\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Simple_Command\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Command\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Simple_Command\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_CI_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\C_CI_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_CI_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\C_CI_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\C_RI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\C_RI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_RI_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_RI_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_RI_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_RI_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_RI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_RI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_CI_Dal.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_CI_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_CI_Crit.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_CI_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\C_CM_Data.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\C_CM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Code\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Select_Code\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Code\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Select_Code\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Id\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Select_Id\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Id\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Select_Id\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Key\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Select_Key\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Key\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Select_Key\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\C_RC_Crit.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\C_RC_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\C_RC_Dal.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\C_RC_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\C_RI_Data.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\C_RI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\C_RC_Sort.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\C_RC_Sort.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_RM_Sort.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\C_RM_Sort.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\C_CI_Data.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\C_CI_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\C_CI_Dal.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\C_CI_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\C_RM_Crit.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\C_RM_Crit.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\C_RM_Dal.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\C_RM_Dal.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\C_RM_Data.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\C_RM_Data.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Code\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Select_Code\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Id\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Select_Id\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Key\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Select_Key\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Command\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Simple_Command\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Edit\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Simple_Edit\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_List\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Simple_List\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\D_RI.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\D_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_View\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Simple_View\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\D_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\D_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\D_RC.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\D_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\D_RI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\D_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\D_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\D_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\D_CI.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\D_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\D_RM.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\D_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Full\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Full\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Paginated\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Paginated\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Arrange_Sorted\M_RI.snippet">
+    <Content Include="Csla 6 REST API\Arrange_Sorted\M_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Code\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Select_Code\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Id\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Select_Id\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Select_Key\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Select_Key\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Tree_View\M_CM.snippet">
+    <Content Include="Csla 6 REST API\Tree_View\M_CM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_View\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Simple_View\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_List\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Simple_List\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_List\M_RI.snippet">
+    <Content Include="Csla 6 REST API\Simple_List\M_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Edit\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Simple_Edit\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Set\M_RI.snippet">
+    <Content Include="Csla 6 REST API\Simple_Set\M_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Simple_Command\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Simple_Command\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_View\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Complex_View\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Edit\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Complex_Edit\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\M_RI.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\M_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_List\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_List\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\M_RI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\M_RI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\M_RC.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\M_RC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Set\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Set\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Complex_Command\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Complex_Command\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_View\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Junction_View\M_RM.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\M_CC.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\M_CC.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\M_CI.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\M_CI.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="CslaModels\Junction_Edit\M_RM.snippet">
+    <Content Include="Csla 6 REST API\Junction_Edit\M_RM.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Csla 6 REST API\Controller\WebApiController.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="source.extension.vsixmanifest">
