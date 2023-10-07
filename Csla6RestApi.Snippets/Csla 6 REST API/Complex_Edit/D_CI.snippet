@@ -13,7 +13,7 @@
     /// Implements the data access functions of the editable $child_name$ object.
     /// </summary>
     [DalImplementation]
-    public class $CHILD_MODEL$Dal : DalBase<$DB_CONTEXT$>, I$CHILD_MODEL$Dal
+    public class $ROOT_MODEL$$CHILD_MODEL$Dal : DalBase<$DB_CONTEXT$>, I$ROOT_MODEL$$CHILD_MODEL$Dal
     {
         #region Constructor
 
@@ -21,7 +21,7 @@
         /// Instantiates the data access object.
         /// </summary>
         /// <param name="context">The database context.</param>
-        public $CHILD_MODEL$Dal(
+        public $ROOT_MODEL$$CHILD_MODEL$Dal(
             $DB_CONTEXT$ dbContext
             )
         {
@@ -37,7 +37,7 @@
         /// </summary>
         /// <param name="dao">The data of the $child_name$.</param>
         public void Insert(
-            $CHILD_MODEL$Dao dao
+            $ROOT_MODEL$$CHILD_MODEL$Dao dao
             )
         {
             // Check unique $child_name$ code.
@@ -76,7 +76,7 @@
         /// </summary>
         /// <param name="dao">The data of the $child_name$.</param>
         public void Update(
-            $CHILD_MODEL$Dao dao
+            $ROOT_MODEL$$CHILD_MODEL$Dao dao
             )
         {
             // Get the specified $child_name$.
@@ -121,7 +121,7 @@
         /// </summary>
         /// <param name="criteria">The criteria of the $child_name$.</param>
         public void Delete(
-            $CHILD_MODEL$Criteria criteria
+            $ROOT_MODEL$$CHILD_MODEL$Criteria criteria
             )
         {
             int count = 0;

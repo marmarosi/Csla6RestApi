@@ -12,7 +12,7 @@
                 <![CDATA[/// <summary>
     /// Defines the read-only $child_name$ list item data.
     /// </summary>
-    public class $CHILD_MODEL$InfoData
+    public class $ROOT_MODEL$List$CHILD_MODEL$Data
     {
         public string $CHILD_MODEL$Code { get; set; }
         public string $CHILD_MODEL$Name { get; set; }
@@ -21,7 +21,7 @@
     /// <summary>
     /// Defines the data access object of the read-only $child_name$ info object.
     /// </summary>
-    public class $CHILD_MODEL$InfoDao : $CHILD_MODEL$InfoData
+    public class $ROOT_MODEL$List$CHILD_MODEL$Dao : $ROOT_MODEL$List$CHILD_MODEL$Data
     {
         public long? $CHILD_MODEL$Key { get; set; }
     }
@@ -29,13 +29,18 @@
     /// <summary>
     /// Defines the data transfer object of the read-only $child_name$ info object.
     /// </summary>
-    public class $CHILD_MODEL$InfoDto : $CHILD_MODEL$InfoData
+    public class $ROOT_MODEL$List$CHILD_MODEL$Dto : $ROOT_MODEL$List$CHILD_MODEL$Data
     {
         public string $CHILD_MODEL$Id { get; set; }
     }]]>
             </Code>
             <Declarations>
-				<Literal>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
 					<ID>CHILD_MODEL</ID>
 					<ToolTip>The name of the child model.</ToolTip>
 					<Default>CHILD_MODEL</Default>

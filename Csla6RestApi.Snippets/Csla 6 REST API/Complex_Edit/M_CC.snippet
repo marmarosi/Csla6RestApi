@@ -13,7 +13,7 @@
     /// Represents an editable $child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $CHILD_MODEL$s : EditableList<$CHILD_MODEL$s, $CHILD_MODEL$, $CHILD_MODEL$Dto>
+    public class $ROOT_MODEL$$CHILD_MODEL$s : EditableList<$ROOT_MODEL$$CHILD_MODEL$s, $ROOT_MODEL$$CHILD_MODEL$, $ROOT_MODEL$$CHILD_MODEL$Dto>
     {
         #region Business Rules
 
@@ -35,8 +35,8 @@
 
         [FetchChild]
         private void Fetch(
-            List<$CHILD_MODEL$Dao> list,
-            [Inject] IChildDataPortal<$CHILD_MODEL$> itemPortal
+            List<$ROOT_MODEL$$CHILD_MODEL$Dao> list,
+            [Inject] IChildDataPortal<$ROOT_MODEL$$CHILD_MODEL$> itemPortal
             )
         {
             foreach (var item in list)
@@ -47,7 +47,12 @@
     }]]>
             </Code>
             <Declarations>
-				<Literal>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
 					<ID>CHILD_MODEL</ID>
 					<ToolTip>The name of the child model.</ToolTip>
 					<Default>CHILD_MODEL</Default>

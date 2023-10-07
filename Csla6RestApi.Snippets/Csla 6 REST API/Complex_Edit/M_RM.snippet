@@ -50,8 +50,8 @@
             set => SetProperty($ROOT_MODEL$NameProperty, value);
         }
 
-        public static readonly PropertyInfo<$CHILD_MODEL$s> $CHILD_MODEL$sProperty = RegisterProperty<$CHILD_MODEL$s>(nameof($CHILD_MODEL$s));
-        public $CHILD_MODEL$s $CHILD_MODEL$s
+        public static readonly PropertyInfo<$ROOT_MODEL$$CHILD_MODEL$s> $CHILD_MODEL$sProperty = RegisterProperty<$ROOT_MODEL$$CHILD_MODEL$s>(nameof($CHILD_MODEL$s));
+        public $ROOT_MODEL$$CHILD_MODEL$s $CHILD_MODEL$s
         {
             get => GetProperty($CHILD_MODEL$sProperty);
             private set => LoadProperty($CHILD_MODEL$sProperty, value);
@@ -191,7 +191,7 @@
         [Create]
         [RunLocal]
         private void Create(
-            [Inject] IChildDataPortal<$CHILD_MODEL$s> itemsPortal
+            [Inject] IChildDataPortal<$ROOT_MODEL$$CHILD_MODEL$s> itemsPortal
             )
         {
             // Load default values.
@@ -204,7 +204,7 @@
         private void Fetch(
             $ROOT_MODEL$Criteria criteria,
             [Inject] I$ROOT_MODEL$Dal dal,
-            [Inject] IChildDataPortal<$CHILD_MODEL$s> itemsPortal
+            [Inject] IChildDataPortal<$ROOT_MODEL$$CHILD_MODEL$s> itemsPortal
             )
         {
             // Load values from persistent storage.
@@ -265,7 +265,7 @@
         [DeleteSelf]
         protected void DeleteSelf(
             [Inject] I$ROOT_MODEL$Dal dal,
-            [Inject] IChildDataPortal<$CHILD_MODEL$s> itemPortal
+            [Inject] IChildDataPortal<$ROOT_MODEL$$CHILD_MODEL$s> itemPortal
             )
         {
             using (BypassPropertyChecks)
@@ -276,7 +276,7 @@
         protected void Delete(
             $ROOT_MODEL$Criteria criteria,
             [Inject] I$ROOT_MODEL$Dal dal,
-            [Inject] IChildDataPortal<$CHILD_MODEL$s> itemPortal
+            [Inject] IChildDataPortal<$ROOT_MODEL$$CHILD_MODEL$s> itemPortal
             )
         {
             // Delete values from persistent storage.

@@ -53,7 +53,7 @@
                     $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
                     $ROOT_MODEL$Name = e.$ROOT_MODEL$Name,
                     $CHILD_MODEL$s = e.$CHILD_MODEL$s
-                        .Select(p => new $CHILD_MODEL$Dao
+                        .Select(p => new $ROOT_MODEL$$CHILD_MODEL$Dao
                         {
                             $CHILD_MODEL$Key = p.$CHILD_MODEL$Key,
                             $ROOT_MODEL$Key = p.$ROOT_MODEL$Key,
@@ -65,7 +65,7 @@
                     Timestamp = e.Timestamp
                 })
                 .AsNoTracking()
-                .FirstOrDefault()
+                .FirstOrDefault() 
                 ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
 
             return $root_model$;

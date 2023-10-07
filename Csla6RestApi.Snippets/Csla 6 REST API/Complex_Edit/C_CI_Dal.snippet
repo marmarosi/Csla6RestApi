@@ -12,15 +12,20 @@
                 <![CDATA[/// <summary>
     /// Defines the data access functions of the editable $child_name$ object.
     /// </summary>
-    public interface I$CHILD_MODEL$Dal
+    public interface I$ROOT_MODEL$$CHILD_MODEL$Dal
     {
-        void Insert($CHILD_MODEL$Dao dao);
-        void Update($CHILD_MODEL$Dao dao);
-        void Delete($CHILD_MODEL$Criteria criteria);
+        void Insert($ROOT_MODEL$$CHILD_MODEL$Dao dao);
+        void Update($ROOT_MODEL$$CHILD_MODEL$Dao dao);
+        void Delete($ROOT_MODEL$$CHILD_MODEL$Criteria criteria);
     }]]>
             </Code>
             <Declarations>
-				<Literal>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
 					<ID>CHILD_MODEL</ID>
 					<ToolTip>The name of the child model.</ToolTip>
 					<Default>CHILD_MODEL</Default>

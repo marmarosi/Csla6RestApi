@@ -13,7 +13,7 @@
     /// Represents a read-only $child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $CHILD_MODEL$Views : ReadOnlyList<$CHILD_MODEL$Views, $CHILD_MODEL$View>
+    public class $ROOT_MODEL$View$CHILD_MODEL$s : ReadOnlyList<$ROOT_MODEL$View$CHILD_MODEL$s, $ROOT_MODEL$View$CHILD_MODEL$>
     {
         #region Business Rules
 
@@ -35,8 +35,8 @@
 
         [FetchChild]
         private void Fetch(
-            List<$CHILD_MODEL$ViewDao> list,
-            [Inject] IChildDataPortal<$CHILD_MODEL$View> itemPortal
+            List<$ROOT_MODEL$View$CHILD_MODEL$Dao> list,
+            [Inject] IChildDataPortal<$ROOT_MODEL$View$CHILD_MODEL$> itemPortal
             )
         {
             // Load values from persistent storage.
@@ -48,7 +48,12 @@
     }]]>
             </Code>
             <Declarations>
-				<Literal>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
 					<ID>CHILD_MODEL</ID>
 					<ToolTip>The name of the child model.</ToolTip>
 					<Default>CHILD_MODEL</Default>

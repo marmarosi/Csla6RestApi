@@ -5,7 +5,7 @@
 			<Title>Model | Read-only child list item</Title>
 			<Author>Mármarosi József</Author>
 			<Description>Implements a read-only child model.</Description>
-			<Shortcut>c6cv-ci</Shortcut>
+			<Shortcut>c6cvci</Shortcut>
         </Header>
         <Snippet>
             <Code Language="CSharp">
@@ -13,7 +13,7 @@
     /// Represents an item in a read-only $child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $CHILD_MODEL$View : ReadOnlyModel<$CHILD_MODEL$View>
+    public class $ROOT_MODEL$View$CHILD_MODEL$ : ReadOnlyModel<$ROOT_MODEL$View$CHILD_MODEL$>
     {
         #region Properties
 
@@ -79,7 +79,7 @@
 
         [FetchChild]
         private void Fetch(
-            $CHILD_MODEL$ViewDao dao
+            $ROOT_MODEL$View$CHILD_MODEL$Dao dao
             )
         {
             // Load values from persistent storage.
@@ -90,7 +90,12 @@
     }]]>
             </Code>
             <Declarations>
-				<Literal>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
 					<ID>CHILD_MODEL</ID>
 					<ToolTip>The name of the child model.</ToolTip>
 					<Default>CHILD_MODEL</Default>

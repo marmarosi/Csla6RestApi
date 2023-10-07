@@ -45,8 +45,8 @@
             private set => LoadProperty($ROOT_MODEL$NameProperty, value);
         }
 
-        public static readonly PropertyInfo<$CHILD_MODEL$Views> $CHILD_MODEL$sProperty = RegisterProperty<$CHILD_MODEL$Views>(nameof($CHILD_MODEL$s));
-        public $CHILD_MODEL$Views $CHILD_MODEL$s
+        public static readonly PropertyInfo<$ROOT_MODEL$View$CHILD_MODEL$s> $CHILD_MODEL$sProperty = RegisterProperty<$ROOT_MODEL$View$CHILD_MODEL$s>(nameof($CHILD_MODEL$s));
+        public $ROOT_MODEL$View$CHILD_MODEL$s $CHILD_MODEL$s
         {
             get => GetProperty($CHILD_MODEL$sProperty);
             private set => LoadProperty($CHILD_MODEL$sProperty, value);
@@ -107,7 +107,7 @@
         private void Fetch(
             $ROOT_MODEL$ViewCriteria criteria,
             [Inject] I$ROOT_MODEL$ViewDal dal,
-            [Inject] IChildDataPortal<$CHILD_MODEL$Views> itemsPortal
+            [Inject] IChildDataPortal<$ROOT_MODEL$View$CHILD_MODEL$s> itemsPortal
             )
         {
             // Load values from persistent storage.

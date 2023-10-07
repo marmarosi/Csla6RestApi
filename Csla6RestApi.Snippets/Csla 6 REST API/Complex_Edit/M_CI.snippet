@@ -14,7 +14,7 @@
     /// </summary>
     [Serializable]
     [ValidationResourceType(typeof(ValidationText), ObjectName = "$CHILD_MODEL$")]
-    public class $CHILD_MODEL$ : EditableModel<$CHILD_MODEL$, $CHILD_MODEL$Dto>
+    public class $ROOT_MODEL$$CHILD_MODEL$ : EditableModel<$ROOT_MODEL$$CHILD_MODEL$, $ROOT_MODEL$$CHILD_MODEL$Dto>
     {
         #region Properties
 
@@ -120,7 +120,7 @@
                 IRuleContext context
                 )
             {
-                $CHILD_MODEL$ target = ($CHILD_MODEL$)context.Target;
+                $ROOT_MODEL$$CHILD_MODEL$ target = ($ROOT_MODEL$$CHILD_MODEL$)context.Target;
                 if (target.Parent == null)
                     return;
 
@@ -141,7 +141,7 @@
         /// <param name="dto">The data transfer object.</param>
         /// <param name="childFactory">The child data portal factory.</param>
         public override void SetValuesOnBuild(
-            $CHILD_MODEL$Dto dto,
+            $ROOT_MODEL$$CHILD_MODEL$Dto dto,
             IChildDataPortalFactory childFactory
             )
         {
@@ -163,7 +163,7 @@
 
         [FetchChild]
         private void Fetch(
-            $CHILD_MODEL$Dao dao
+            $ROOT_MODEL$$CHILD_MODEL$Dao dao
             )
         {
             // Load values from persistent storage.
@@ -174,14 +174,14 @@
         [InsertChild]
         private void Insert(
             $ROOT_MODEL$ parent,
-            [Inject] I$CHILD_MODEL$Dal dal
+            [Inject] I$ROOT_MODEL$$CHILD_MODEL$Dal dal
             )
         {
             // Insert values into persistent storage.
             using (BypassPropertyChecks)
             {
                 $ROOT_MODEL$Key = parent.$ROOT_MODEL$Key;
-                var dao = Copy.PropertiesFrom(this).ToNew<$CHILD_MODEL$Dao>();
+                var dao = Copy.PropertiesFrom(this).ToNew<$ROOT_MODEL$$CHILD_MODEL$Dao>();
                 dal.Insert(dao);
 
                 // Set new data.
@@ -193,13 +193,13 @@
         [UpdateChild]
         private void Update(
             $ROOT_MODEL$ parent,
-            [Inject] I$CHILD_MODEL$Dal dal
+            [Inject] I$ROOT_MODEL$$CHILD_MODEL$Dal dal
             )
         {
             // Update values in persistent storage.
             using (BypassPropertyChecks)
             {
-                var dao = Copy.PropertiesFrom(this).ToNew<$CHILD_MODEL$Dao>();
+                var dao = Copy.PropertiesFrom(this).ToNew<$ROOT_MODEL$$CHILD_MODEL$Dao>();
                 dal.Update(dao);
 
                 // Set new data.
@@ -210,7 +210,7 @@
         [DeleteSelfChild]
         private void Child_DeleteSelf(
             $ROOT_MODEL$ parent,
-            [Inject] I$CHILD_MODEL$Dal dal
+            [Inject] I$ROOT_MODEL$$CHILD_MODEL$Dal dal
             )
         {
             // Delete values from persistent storage.
@@ -218,7 +218,7 @@
             //Items.Clear();
             //FieldManager.UpdateChildren(this);
 
-            $CHILD_MODEL$Criteria criteria = new $CHILD_MODEL$Criteria($CHILD_MODEL$Key);
+            $ROOT_MODEL$$CHILD_MODEL$Criteria criteria = new $ROOT_MODEL$$CHILD_MODEL$Criteria($CHILD_MODEL$Key);
             dal.Delete(criteria);
         }
 

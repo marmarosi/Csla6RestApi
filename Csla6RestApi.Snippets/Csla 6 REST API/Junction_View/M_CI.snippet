@@ -13,7 +13,7 @@
     /// Represents an item in a read-only $root_name$-$child_name$ collection.
     /// </summary>
     [Serializable]
-    public class $ROOT_MODEL$$CHILD_MODEL$View : ReadOnlyModel<$ROOT_MODEL$$CHILD_MODEL$View>
+    public class $ROOT_MODEL$View$CHILD_MODEL$ : ReadOnlyModel<$ROOT_MODEL$View$CHILD_MODEL$>
     {
         #region Properties
 
@@ -72,7 +72,7 @@
 
         [FetchChild]
         private void Fetch(
-            $ROOT_MODEL$$CHILD_MODEL$ViewDao dao
+            $ROOT_MODEL$View$CHILD_MODEL$Dao dao
             )
         {
             // Load values from persistent storage.
