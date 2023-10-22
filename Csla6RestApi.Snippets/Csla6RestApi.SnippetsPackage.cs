@@ -1,7 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System;
+using Microsoft.VisualStudio.Shell;
 using System.Runtime.InteropServices;
-using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
 namespace Csla6RestApi.Snippets
