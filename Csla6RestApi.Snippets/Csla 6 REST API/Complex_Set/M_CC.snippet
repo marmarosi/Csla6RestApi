@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Editable child list</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a editable child collection.</Description>
+			<Shortcut>c6cscc</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents an editable $child_name$ collection.
+    /// </summary>
+    [Serializable]
+    public class $ROOT_MODEL$Set$CHILD_MODEL$s : EditableList<$ROOT_MODEL$Set$CHILD_MODEL$s, $ROOT_MODEL$Set$CHILD_MODEL$, $ROOT_MODEL$Set$CHILD_MODEL$Dto>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($ROOT_MODEL$Set$CHILD_MODEL$s),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            List<$ROOT_MODEL$Set$CHILD_MODEL$Dao> list,
+            [Inject] IChildDataPortal<$ROOT_MODEL$Set$CHILD_MODEL$> childPortal
+            )
+        {
+            foreach (var item in list)
+                Add(childPortal.FetchChild(item));
+        }
+
+        [UpdateChild]
+        protected void Update()
+        {
+            // Update values in persistent storage.
+            Child_Update();
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>CHILD_MODEL</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>CHILD_MODEL</Default>
+				</Literal>
+				<Literal>
+					<ID>child_name</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>child_name</Default>
+				</Literal>
+				<Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

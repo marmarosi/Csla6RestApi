@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Contract | Editable model DAL interface</Title>
+            <Author>Mármarosi József</Author>
+            <Description>Defines the DAL interface of a editable root model.</Description>
+            <Shortcut>c6sermi</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Defines the data access functions of the editable $root_name$ object.
+    /// </summary>
+    public interface I$ROOT_MODEL$Dal : ITransactionalDal
+    {
+        $ROOT_MODEL$Dao Fetch($ROOT_MODEL$Criteria criteria);
+        void Insert($ROOT_MODEL$Dao dao);
+        void Update($ROOT_MODEL$Dao dao);
+        void Delete($ROOT_MODEL$Criteria criteria);
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
+                    <ID>root_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>root_name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

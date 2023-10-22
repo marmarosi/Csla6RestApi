@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Contract | Sorting enumeration</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the options of sorting.</Description>
+			<Shortcut>c6afrms</Shortcut>
+		</Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Defines the $root_name$ sorting options.
+    /// </summary>
+    public static class $ROOT_MODEL$ListSortBy
+    {
+        public const string $ROOT_MODEL$Code = "$ROOT_MODEL$Code";
+        public const string $ROOT_MODEL$Name = "$ROOT_MODEL$Name";
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
+                    <ID>root_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>root_name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

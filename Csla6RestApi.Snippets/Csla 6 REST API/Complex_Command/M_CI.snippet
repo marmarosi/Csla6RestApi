@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Read-only child list item</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a read-only child model.</Description>
+			<Shortcut>c6ccci</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents an item in a read-only $child_name$ collection.
+    /// </summary>
+    [Serializable]
+    public class $CHILD_MODEL$Result : ReadOnlyModel<$CHILD_MODEL$Result>
+    {
+        #region Properties
+
+        public static readonly PropertyInfo<long?> $CHILD_MODEL$KeyProperty = RegisterProperty<long?>(nameof($CHILD_MODEL$Key));
+        public long? $CHILD_MODEL$Key
+        {
+            get => GetProperty($CHILD_MODEL$KeyProperty);
+            private set => LoadProperty($CHILD_MODEL$KeyProperty, value);
+        }
+
+        public static readonly PropertyInfo<string> $CHILD_MODEL$NameProperty = RegisterProperty<string>(nameof($CHILD_MODEL$Name));
+        public string $CHILD_MODEL$Name
+        {
+            get => GetProperty($CHILD_MODEL$NameProperty);
+            private set => LoadProperty($CHILD_MODEL$NameProperty, value);
+        }
+
+        #endregion
+
+        #region Business Rules
+
+        //protected override void AddBusinessRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        new IsInRole(
+        //            AuthorizationActions.WriteProperty,
+        //            ItemCountProperty,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($CHILD_MODEL$ListItem),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Data Access
+
+        [FetchChild]
+        private void Fetch(
+            $CHILD_MODEL$ResultDao dao
+            )
+        {
+            // Load values from persistent storage.
+            DataMapper.Map(dao, this);
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>CHILD_MODEL</ID>
+					<ToolTip>The name of the child model.</ToolTip>
+					<Default>CHILD_MODEL</Default>
+				</Literal>
+				<Literal>
+					<ID>child_name</ID>
+					<ToolTip>The model name in comments.</ToolTip>
+					<Default>child_name</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

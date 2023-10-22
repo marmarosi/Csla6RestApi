@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Model | Read-only choice</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements a read-only root collection.</Description>
+			<Shortcut>c6lkrc</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents a read-only $root_name$ choice collection.
+    /// </summary>
+    [Serializable]
+    public class $ROOT_MODEL$Choice : ReadOnlyList<$ROOT_MODEL$Choice, KeyNameOption>
+    {
+        #region Business Rules
+
+        //private static void AddObjectAuthorizationRules()
+        //{
+        //    // Add authorization rules.
+        //    BusinessRules.AddRule(
+        //        typeof($ROOT_MODEL$Choice),
+        //        new IsInRole(
+        //            AuthorizationActions.GetObject,
+        //            "Manager"
+        //            )
+        //        );
+        //}
+
+        #endregion
+
+        #region Factory Methods
+
+        /// <summary>
+        /// Gets a choice of $root_name$ options that match the criteria.
+        /// </summary>
+        /// <param name="factory">The data portal factory.</param>
+        /// <param name="criteria">The criteria $root_name$ choice.</param>
+        /// <returns>The requested $root_name$ choice instance.</returns>
+        public static async Task<$ROOT_MODEL$Choice> Get(
+            IDataPortalFactory factory,
+            $ROOT_MODEL$ChoiceCriteria criteria
+            )
+        {
+            return await factory.GetPortal<$ROOT_MODEL$Choice>().FetchAsync(criteria);
+        }
+
+        #endregion
+
+        #region Data Access
+
+        [Fetch]
+        private void Fetch(
+            $ROOT_MODEL$ChoiceCriteria criteria,
+            [Inject] I$ROOT_MODEL$ChoiceDal dal,
+            [Inject] IChildDataPortal<KeyNameOption> itemPortal
+            )
+        {
+            // Load values from persistent storage.
+            using (LoadListMode)
+            {
+                List<KeyNameOptionDao> list = dal.Fetch(criteria);
+                foreach (var item in list)
+                    Add(itemPortal.FetchChild(item));
+            }
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
+                    <ID>root_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>root_name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

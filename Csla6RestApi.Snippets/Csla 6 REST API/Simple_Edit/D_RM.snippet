@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>DAL | Editable model</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Implements the data access of the editable root model.</Description>
+			<Shortcut>c6sercd</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Implements the data access functions of the editable $root_name$ object.
+    /// </summary>
+    [DalImplementation]
+    public class $ROOT_MODEL$Dal : DalBase<$DB_CONTEXT$>, I$ROOT_MODEL$Dal
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates the data access object.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        public $ROOT_MODEL$Dal(
+            $DB_CONTEXT$ dbContext
+            )
+        {
+            DbContext = dbContext;
+        }
+
+        #endregion Constructor
+
+        #region Fetch
+
+        /// <summary>
+        /// Gets the specified $root_name$.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $root_name$.</param>
+        /// <returns>The requested $root_name$.</returns>
+        public $ROOT_MODEL$Dao Fetch(
+            $ROOT_MODEL$Criteria criteria
+            )
+        {
+            // Get the specified $root_name$.
+            var $root_model$ = DbContext.$ROOT_MODEL$s
+                .Where(e =>
+                    e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
+                 )
+                .Select(e => new $ROOT_MODEL$Dao
+                {
+                    $ROOT_MODEL$Key = e.$ROOT_MODEL$Key,
+                    $ROOT_MODEL$Code = e.$ROOT_MODEL$Code,
+                    $ROOT_MODEL$Name = e.$ROOT_MODEL$Name,
+                    Timestamp = e.Timestamp
+                })
+                .AsNoTracking()
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
+
+            return $root_model$;
+        }
+
+        #endregion Fetch
+
+        #region Insert
+
+        /// <summary>
+        /// Creates a new $root_name$ using the specified data.
+        /// </summary>
+        /// <param name="dao">The data of the $root_name$.</param>
+        public void Insert(
+            $ROOT_MODEL$Dao dao
+            )
+        {
+            // Check unique $root_name$ code.
+            var $root_model$ = DbContext.$ROOT_MODEL$s
+                .Where(e =>
+                    e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code
+                )
+                .FirstOrDefault();
+            if ($root_model$ != null)
+                throw new DataExistException(DalText.$ROOT_MODEL$_$ROOT_MODEL$CodeExists.With(dao.$ROOT_MODEL$Code));
+
+            // Create the new $root_name$.
+            $root_model$ = new $ROOT_MODEL$
+            {
+                $ROOT_MODEL$Code = dao.$ROOT_MODEL$Code,
+                $ROOT_MODEL$Name = dao.$ROOT_MODEL$Name
+            };
+            DbContext.$ROOT_MODEL$s.Add($root_model$);
+
+            int count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new InsertFailedException(DalText.$ROOT_MODEL$_InsertFailed);
+
+            // Return new data.
+            dao.$ROOT_MODEL$Key = $root_model$.$ROOT_MODEL$Key;
+            dao.Timestamp = $root_model$.Timestamp;
+        }
+
+        #endregion Insert
+
+        #region Update
+
+        /// <summary>
+        /// Updates an existing $root_name$ using the specified data.
+        /// </summary>
+        /// <param name="dao">The data of the $root_name$.</param>
+        public void Update(
+            $ROOT_MODEL$Dao dao
+            )
+        {
+            // Get the specified $root_name$.
+            var $root_model$ = DbContext.$ROOT_MODEL$s
+                .Where(e =>
+                    e.$ROOT_MODEL$Key == dao.$ROOT_MODEL$Key
+                )
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
+            if ($root_model$.Timestamp != dao.Timestamp)
+                throw new ConcurrencyException(DalText.$ROOT_MODEL$_Concurrency);
+
+            // Check unique $root_name$ code.
+            if ($root_model$.$ROOT_MODEL$Code != dao.$ROOT_MODEL$Code)
+            {
+                int exist = DbContext.$ROOT_MODEL$s
+                    .Where(e => e.$ROOT_MODEL$Code == dao.$ROOT_MODEL$Code && e.$ROOT_MODEL$Key != $root_name$.$ROOT_MODEL$Key)
+                    .Count();
+                if (exist > 0)
+                    throw new DataExistException(DalText.$ROOT_MODEL$_$ROOT_MODEL$CodeExists.With(dao.$ROOT_MODEL$Code));
+            }
+
+            // Update the $root_name$.
+            $root_model$.$ROOT_MODEL$Code = dao.$ROOT_MODEL$Code;
+            $root_model$.$ROOT_MODEL$Name = dao.$ROOT_MODEL$Name;
+
+            int count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new UpdateFailedException(DalText.$ROOT_MODEL$_UpdateFailed);
+
+            // Return new data.
+            dao.Timestamp = $root_model$.Timestamp;
+        }
+
+        #endregion Update
+
+        #region Delete
+
+        /// <summary>
+        /// Deletes the specified $root_name$.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $root_name$.</param>
+        public void Delete(
+            $ROOT_MODEL$Criteria criteria
+            )
+        {
+            int count = 0;
+
+            // Get the specified $root_name$.
+            var $root_model$ = DbContext.$ROOT_MODEL$s
+                .Where(e =>
+                    e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key
+                 )
+                .AsNoTracking()
+                .FirstOrDefault()
+                ?? throw new DataNotFoundException(DalText.$ROOT_MODEL$_NotFound);
+
+            // Check references.
+            //int dependents = 0;
+
+            //dependents = DbContext.Others.Count(e => e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key);
+            //if (dependents > 0)
+            //    throw new DeleteFailedException(DalText.$ROOT_MODEL$_Delete_Others);
+
+            // Delete references.
+            //var others = DbContext.Others
+            //    .Where(e => e.$ROOT_MODEL$Key == criteria.$ROOT_MODEL$Key)
+            //    .ToList();
+            //foreach (var other in others)
+            //    DbContext.Others.Remove(other);
+
+            //count = DbContext.SaveChanges();
+            //if (count != others.Count)
+            //    throw new DeleteFailedException(DalText.$ROOT_MODEL$_Delete_Others);
+
+            // Delete the $root_name$.
+            DbContext.$ROOT_MODEL$s.Remove($root_model$);
+
+            count = DbContext.SaveChanges();
+            if (count == 0)
+                throw new DeleteFailedException(DalText.$ROOT_MODEL$_DeleteFailed);
+        }
+
+        #endregion Delete
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>DB_CONTEXT</ID>
+                    <ToolTip>The name of the database context.</ToolTip>
+                    <Default>DB_CONTEXT</Default>
+                </Literal>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+				<Literal>
+					<ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
+				</Literal>
+				<Literal>
+                    <ID>root_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>root_name</Default>
+                </Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

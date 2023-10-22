@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Contract | Editable child list item criteria</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the criteria of a editable child model.</Description>
+			<Shortcut>c6cecic</Shortcut>
+		</Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the editable $child_name$ object.
+    /// </summary>
+    [Serializable]
+    public class $ROOT_MODEL$$CHILD_MODEL$Criteria
+    {
+        public long? $CHILD_MODEL$Key { get; set; }
+
+        public $ROOT_MODEL$$CHILD_MODEL$Criteria()
+        { }
+
+        public $ROOT_MODEL$$CHILD_MODEL$Criteria(
+            long? $child_model$Key
+            )
+        {
+            $CHILD_MODEL$Key = $child_model$Key;
+        }
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
+                    <ID>CHILD_MODEL</ID>
+                    <ToolTip>The name of the child model.</ToolTip>
+                    <Default>CHILD_MODEL</Default>
+                </Literal>
+				<Literal>
+					<ID>child_model</ID>
+                    <ToolTip>The child model variable.</ToolTip>
+                    <Default>child_model</Default>
+				</Literal>
+				<Literal>
+                    <ID>child_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>child_name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

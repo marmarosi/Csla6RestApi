@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="Csla6RestApi.Snippets.86c5f3e3-e57b-4efc-8292-4fc59f4fba22" Version="1.0" Language="en-US" Publisher="Mármarosi József" />
         <DisplayName>Csla6RestApi.Snippets</DisplayName>
-        <Description>Empty VSIX Project.</Description>
+        <Description xml:space="preserve">Code snippets for CSLA 6 models.</Description>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
@@ -18,6 +18,6 @@
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="CslaModels\CslaModels.pkgdef" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="Csla6RestApi.Snippets.pkgdef" />
     </Assets>
 </PackageManifest>

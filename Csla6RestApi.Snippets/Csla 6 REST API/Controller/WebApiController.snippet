@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Web API CRUD controller</Title>
+            <Author>Mármarosi József</Author>
+            <Description>Implements a web API controller for CRUD operations.</Description>
+            <Shortcut>c6c</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Contains the API endpoints for $root_name$ models.
+    /// </summary>
+    [Route("api/$root_model$")]
+    [ApiController]
+    public class $ROOT_MODEL$Controller : ApiController
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Creates a new instance.
+        /// </summary>
+        /// <param name="logger">The application logging service.</param>
+        /// <param name="csla">The CSLA helper service.</param>
+        public $ROOT_MODEL$Controller(
+            ILogger<$ROOT_MODEL$Controller> logger,
+            ICslaService csla
+            ) : base(logger, csla)
+        { }
+
+        #endregion
+
+        #region List
+
+        /// <summary>
+        /// Gets a list of $root_name$s.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $root_name$ list.</param>
+        /// <returns>The requested $root_name$ list.</returns>
+        [HttpGet]
+        [ProducesResponseType(typeof(IList<$ROOT_MODEL$ListItemDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get$ROOT_MODEL$List(
+            [FromQuery] $ROOT_MODEL$ListCriteria criteria
+            )
+        {
+            try
+            {
+                var list = await $ROOT_MODEL$List.Get(Factory, criteria);
+                return Ok(list.ToDto<$ROOT_MODEL$ListItemDto>());
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region View
+
+        /// <summary>
+        /// Gets the specified $root_name$ details to display.
+        /// </summary>
+        /// <param name="id">The identifier of the $root_name$.</param>
+        /// <returns>The requested $root_name$ view.</returns>
+        [HttpGet("{id}/view")]
+        [ProducesResponseType(typeof($ROOT_MODEL$ViewDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get$ROOT_MODEL$View(
+            string id
+            )
+        {
+            try
+            {
+                var $root_model$ = await $ROOT_MODEL$View.Get(Factory, id);
+                return Ok($root_model$.ToDto<$ROOT_MODEL$ViewDto>());
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region New
+
+        /// <summary>
+        /// Gets a new $root_name$ to edit.
+        /// </summary>
+        /// <returns>The new $root_name$.</returns>
+        [HttpGet("new")]
+        [ProducesResponseType(typeof($ROOT_MODEL$Dto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetNew$ROOT_MODEL$()
+        {
+            try
+            {
+                var $root_model$ = await $ROOT_MODEL$.New(Factory);
+                return Ok($root_model$.ToDto());
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Create
+
+        /// <summary>
+        /// Creates a new $root_name$.
+        /// </summary>
+        /// <param name="dto">The data transer object of the $root_name$.</param>
+        /// <returns>The created $root_name$.</returns>
+        [HttpPost]
+        [ProducesResponseType(typeof($ROOT_MODEL$Dto), StatusCodes.Status201Created)]
+        public async Task<IActionResult> Create$ROOT_MODEL$(
+            [FromBody] $ROOT_MODEL$Dto dto
+            )
+        {
+            try
+            {
+                return Created(Uri, await RetryOnDeadlock(async () =>
+                {
+                    var $root_model$ = await $ROOT_MODEL$.Build(Factory, ChildFactory, dto);
+                    if ($root_model$.IsValid)
+                    {
+                        $root_model$ = await $root_model$.SaveAsync();
+                    }
+                    return $root_model$.ToDto();
+                }));
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Read
+
+        /// <summary>
+        /// Gets the specified $root_name$ to edit.
+        /// </summary>
+        /// <param name="id">The identifier of the $root_name$.</param>
+        /// <returns>The requested $root_name$.</returns>
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof($ROOT_MODEL$Dto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get$ROOT_MODEL$(
+            string id
+            )
+        {
+            try
+            {
+                var $root_model$ = await $ROOT_MODEL$.Get(Factory, id);
+                return Ok($root_model$.ToDto());
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Update
+
+        /// <summary>
+        /// Updates the specified $root_name$.
+        /// </summary>
+        /// <param name="dto">The data transer object of the $root_name$.</param>
+        /// <returns>The updated $root_name$.</returns>
+        [HttpPut]
+        [ProducesResponseType(typeof($ROOT_MODEL$Dto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Update$ROOT_MODEL$(
+            [FromBody] $ROOT_MODEL$Dto dto
+            )
+        {
+            try
+            {
+                return Ok(await RetryOnDeadlock(async () =>
+                {
+                    var $root_model$ = await $ROOT_MODEL$.Build(Factory, ChildFactory, dto);
+                    if ($root_model$.IsSavable)
+                    {
+                        $root_model$ = await $root_model$.SaveAsync();
+                    }
+                    return $root_model$.ToDto();
+                }));
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Delete
+
+        /// <summary>
+        /// Deletes the specified $root_name$.
+        /// </summary>
+        /// <param name="id">The identifier of the $root_name$.</param>
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> Delete$ROOT_MODEL$(
+            string id
+            )
+        {
+            try
+            {
+                await RetryOnDeadlock(async () =>
+                {
+                    await $ROOT_MODEL$.Delete(Factory, id);
+                });
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Read-Set
+
+        /// <summary>
+        /// Gets the specified $root_name$ set to edit.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $root_name$ set.</param>
+        /// <returns>The requested $root_name$ set.</returns>
+        [HttpGet("set")]
+        [ProducesResponseType(typeof(IList<$ROOT_MODEL$SetItemDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get$ROOT_MODEL$Set(
+            [FromQuery] $ROOT_MODEL$SetCriteria criteria
+            )
+        {
+            try
+            {
+                var $root_model$s = await $ROOT_MODEL$Set.Get(Factory, criteria);
+                return Ok($root_model$s.ToDto());
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Update-Set
+
+        /// <summary>
+        /// Updates the specified $root_name$ set.
+        /// </summary>
+        /// <param name="criteria">The criteria of the $root_name$ set.</param>
+        /// <param name="dto">The data transer objects of the $root_name$ set.</param>
+        /// <returns>The updated $root_name$ set.</returns>
+        [HttpPut("set")]
+        [ProducesResponseType(typeof(IList<$ROOT_MODEL$SetItemDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> Update$ROOT_MODEL$Set(
+            [FromQuery] $ROOT_MODEL$SetCriteria criteria,
+            [FromBody] List<$ROOT_MODEL$SetItemDto> dto
+            )
+        {
+            try
+            {
+                return Ok(await RetryOnDeadlock(async () =>
+                {
+                    var $root_model$s = await $ROOT_MODEL$Set.Build(Factory, ChildFactory, criteria, dto);
+                    if ($root_model$s.IsSavable)
+                    {
+                        $root_model$s = await $root_model$s.SaveAsync();
+                    }
+                    return $root_model$s.ToDto();
+                }));
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+
+        #region Command
+
+        /// <summary>
+        /// Executes the $command_name$ command.
+        /// </summary>
+        /// <param name="dto">The data transer object of the $command_name$ command.</param>
+        /// <returns>True when the $command_name$ was successful; otherwise false.</returns>
+        [HttpPatch]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        public async Task<IActionResult> $COMMAND_MODEL$Command(
+            [FromBody] $COMMAND_MODEL$Dto dto
+            )
+        {
+            try
+            {
+                return Ok(await RetryOnDeadlock(async () =>
+                {
+                    var command = await $COMMAND_MODEL$.Execute(Factory, dto);
+                    return command.Result;
+                }));
+            }
+            catch (Exception ex)
+            {
+                return HandleError(ex);
+            }
+        }
+
+        #endregion
+    }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>ROOT_MODEL</ID>
+                    <ToolTip>The name of the root model.</ToolTip>
+                    <Default>ROOT_MODEL</Default>
+                </Literal>
+                <Literal>
+                    <ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
+                </Literal>
+                <Literal>
+                    <ID>root_name</ID>
+                    <ToolTip>The model name in comments.</ToolTip>
+                    <Default>root_name</Default>
+                </Literal>
+                <Literal>
+                    <ID>COMMAND_MODEL</ID>
+                    <ToolTip>The name of the command model.</ToolTip>
+                    <Default>COMMAND_MODEL</Default>
+                </Literal>
+                <Literal>
+                    <ID>command_name</ID>
+                    <ToolTip>The command name in comments.</ToolTip>
+                    <Default>command_name</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

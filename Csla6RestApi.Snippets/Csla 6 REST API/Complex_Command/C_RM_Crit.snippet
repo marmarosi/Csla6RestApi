@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+			<Title>Contract | Command model criteria</Title>
+			<Author>Mármarosi József</Author>
+			<Description>Defines the criteria of a command model.</Description>
+			<Shortcut>c6ccrmc</Shortcut>
+		</Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[/// <summary>
+    /// Represents the criteria of the $command_name$ command.
+    /// </summary>
+    [Serializable]
+    public class $COMMAND_MODEL$Criteria
+    {
+        public string $Parameter$ { get; set; }
+
+        public $COMMAND_MODEL$Criteria()
+        { }
+
+        public $COMMAND_MODEL$Criteria(
+            string $root_model$Name
+            )
+        {
+            $ROOT_MODEL$Name = $root_model$Name;
+        }
+    }]]>
+            </Code>
+            <Declarations>
+				<Literal>
+					<ID>COMMAND_MODEL</ID>
+					<ToolTip>The name of the command model.</ToolTip>
+					<Default>COMMAND_MODEL</Default>
+				</Literal>
+				<Literal>
+					<ID>command_name</ID>
+					<ToolTip>The command name in comments.</ToolTip>
+					<Default>command_name</Default>
+				</Literal>
+				<Literal>
+					<ID>ROOT_MODEL</ID>
+					<ToolTip>The name of the root model.</ToolTip>
+					<Default>ROOT_MODEL</Default>
+				</Literal>
+				<Literal>
+                    <ID>root_model</ID>
+                    <ToolTip>The root model variable.</ToolTip>
+                    <Default>root_model</Default>
+                </Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

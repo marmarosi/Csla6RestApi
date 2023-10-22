@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    body {
+      font-family: Arial;
+      margin: 0 32px 32px 32px;
+    }
+    .section {
+      border: black 1px solid;
+      padding: 4px 9px;
+      text-align: center;
+      margin-bottom: 5px;
+      width: 1026px;
+    }
+    .model {
+      cursor: pointer;
+      font-weight: bold;
+      background-color: paleturquoise;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      width: 1026px;
+    }
+    .snippets {
+      display: none;
+      /*padding: 0 10px;*/
+      margin-bottom: 5px;
+    }
+    th {
+      font-weight: normal;
+      padding: 3px 5px;
+      background-color: palegoldenrod;
+    }
+    td {
+      text-align: center;
+      padding: 3px 5px;
+    }
+    .left {
+      text-align: left;
+    }
+    .description {
+      width: 300px;
+    }
+    .shortcut {
+      width: 80px;
+    }
+    .filename {
+      width: 160px;
+    }
+    .param {
+      width: 40px;
+    }
+    .cl-abbr {
+      width: 100px;
+    }
+    .cl-param {
+      width: 250px;
+    }
+    .cl-desc {
+      width: 500px;
+    }
+    .cl-example {
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+    <script type="text/javascript">
+        //document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        let selectedId = '';
+        function toggle(snippetId) {
+            if (selectedId) {
+                if (selectedId === snippetId) {
+                    const div = document.getElementById(selectedId);
+                    div.style.display = div.style.display === 'none' ? 'block' : 'none';
+                }
+                else {
+                    document.getElementById(selectedId).style.display = 'none';
+                    selectedId = snippetId;
+                    document.getElementById(selectedId).style.display = 'block';
+                }
+            }
+            else {
+                selectedId = snippetId;
+                document.getElementById(selectedId).style.display = 'block';
+            }
+        }
+    </script>
+
+    <h1>CSLA 6 REST API Code Snippets</h1>
+
+    <div class="section">Controller</div>
+
+    <div onclick="toggle('ctlr')" class="model">CRUD Controller</div>
+    <div id="ctlr" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Controller: CRUD operations</td>
+                    <td class="left">c6c</td>
+                    <td class="left">___Controller</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">Simple Models</div>
+
+    <div onclick="toggle('s01')" class="model">Simple List</div>
+    <div id="s01" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root item data objects</td>
+                    <td class="left">c6slrio</td>
+                    <td class="left">___ListItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6slrcc</td>
+                    <td class="left">___ListCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6slrci</td>
+                    <td class="left">I___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6slrcd</td>
+                    <td class="left">___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root item</td>
+                    <td class="left">c6slri</td>
+                    <td class="left">___ListItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6slrc</td>
+                    <td class="left">___List</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s02')" class="model">Simple View</div>
+    <div id="s02" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root model data objects</td>
+                    <td class="left">c6svrmo</td>
+                    <td class="left">___ViewData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model  criteria</td>
+                    <td class="left">c6svrmc</td>
+                    <td class="left">___ViewCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6svrmi</td>
+                    <td class="left">I___ViewDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6svrmd</td>
+                    <td class="left">___ViewDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6svrm</td>
+                    <td class="left">___View</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s03')" class="model">Simple Edit</div>
+    <div id="s03" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root model data objects</td>
+                    <td class="left">c6sermo</td>
+                    <td class="left">___Data</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model  criteria</td>
+                    <td class="left">c6sermc</td>
+                    <td class="left">___Criteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6sermi</td>
+                    <td class="left">I___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6sercd</td>
+                    <td class="left">___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6serm</td>
+                    <td class="left">___</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s04')" class="model">Simple Set</div>
+    <div id="s04" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root item data objects</td>
+                    <td class="left">c6ssrio</td>
+                    <td class="left">___SetItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root item criteria</td>
+                    <td class="left">c6ssric</td>
+                    <td class="left">___SetItemCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root item interface</td>
+                    <td class="left">c6ssrii</td>
+                    <td class="left">I___SetItemDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6ssrcc</td>
+                    <td class="left">___SetCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6ssrci</td>
+                    <td class="left">I___SetDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root item</td>
+                    <td class="left">c6ssrcd</td>
+                    <td class="left">___SetItemDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6ssrcd</td>
+                    <td class="left">___SetDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root item</td>
+                    <td class="left">c6ssri</td>
+                    <td class="left">___SetItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6ssrc</td>
+                    <td class="left">___Set</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s05')" class="model">Simple Command</div>
+    <div id="s05" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: command model data objects</td>
+                    <td class="left">c6scrmo</td>
+                    <td class="left">___Data</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: command model interface</td>
+                    <td class="left">c6scrmi</td>
+                    <td class="left">I___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: command model</td>
+                    <td class="left">c6scrmd</td>
+                    <td class="left">___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: command model</td>
+                    <td class="left">c6scrm</td>
+                    <td class="left">___</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">Arrangement</div>
+
+    <div onclick="toggle('s11')" class="model">Sorted List</div>
+    <div id="s11" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root item data objects</td>
+                    <td class="left">c6ascmo</td>
+                    <td class="left">___ListItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: sorting options</td>
+                    <td class="left">c6asrcs</td>
+                    <td class="left">___ListSortBy</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6asrcc</td>
+                    <td class="left">___ListCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6asrci</td>
+                    <td class="left">I___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6asrcd</td>
+                    <td class="left">___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root item</td>
+                    <td class="left">c6asri</td>
+                    <td class="left">___ListItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6asrc</td>
+                    <td class="left">___List</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s12')" class="model">Paginated List</div>
+    <div id="s12" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6apcio</td>
+                    <td class="left">___ListItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model criteria</td>
+                    <td class="left">c6aprmc</td>
+                    <td class="left">___ListCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6aprmi</td>
+                    <td class="left">I___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6aprmd</td>
+                    <td class="left">___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6apci</td>
+                    <td class="left">___ListItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6apcc</td>
+                    <td class="left">___ListItems</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6aprm</td>
+                    <td class="left">___List</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s13')" class="model">Full List</div>
+    <div id="s13" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6afcio</td>
+                    <td class="left">___ListItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: sorting options</td>
+                    <td class="left">c6afrms</td>
+                    <td class="left">___ListSortBy</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model criteria</td>
+                    <td class="left">c6afrmc</td>
+                    <td class="left">___ListCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6afrmi</td>
+                    <td class="left">I___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6afrmd</td>
+                    <td class="left">___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6afci</td>
+                    <td class="left">___ListItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6afcc</td>
+                    <td class="left">___ListItems</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6afrm</td>
+                    <td class="left">___List</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">Selection</div>
+
+    <div onclick="toggle('s21')" class="model">Selection with Key</div>
+    <div id="s21" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6lkrcc</td>
+                    <td class="left">___ChoiceCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6lkrci</td>
+                    <td class="left">I___ChoiceDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6lkrcd</td>
+                    <td class="left">___ChoiceDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6lkrc</td>
+                    <td class="left">___Choice</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s22')" class="model">Selection with ID</div>
+    <div id="s22" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6lircc</td>
+                    <td class="left">___ChoiceCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6lirci</td>
+                    <td class="left">I___ChoiceDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6lircd</td>
+                    <td class="left">___ChoiceDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6lirc</td>
+                    <td class="left">___Choice</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s23')" class="model">Selection with Code</div>
+    <div id="s23" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6lcrcc</td>
+                    <td class="left">___ChoiceCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6lcrci</td>
+                    <td class="left">I___ChoiceDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6lcrcd</td>
+                    <td class="left">___ChoiceDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6lcrc</td>
+                    <td class="left">___Choice</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">Complex Models</div>
+
+    <div onclick="toggle('s31')" class="model">Complex List</div>
+    <div id="s31" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6clcio</td>
+                    <td class="left">___List¯¯¯Data</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root item data objects</td>
+                    <td class="left">c6clrio</td>
+                    <td class="left">___ListItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6clrcc</td>
+                    <td class="left">___ListCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6clrci</td>
+                    <td class="left">I___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6clrcd</td>
+                    <td class="left">___ListDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6clci</td>
+                    <td class="left">___List¯¯¯</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6clcc</td>
+                    <td class="left">___List¯¯¯s</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root item</td>
+                    <td class="left">c6clri</td>
+                    <td class="left">___ListItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6clrc</td>
+                    <td class="left">___List</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s32')" class="model">Complex View</div>
+    <div id="s32" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6cvcio</td>
+                    <td class="left">___View¯¯¯Data</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model data objects</td>
+                    <td class="left">c6cvrmo</td>
+                    <td class="left">___ViewData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model criteria</td>
+                    <td class="left">c6cvrmc</td>
+                    <td class="left">___ViewCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6cvrmi</td>
+                    <td class="left">I___ViewDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6cvrmd</td>
+                    <td class="left">___ViewDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6clci</td>
+                    <td class="left">___View¯¯¯</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6cvcc</td>
+                    <td class="left">___View¯¯¯s</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6cvrm</td>
+                    <td class="left">___View</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s33')" class="model">Complex Edit</div>
+    <div id="s33" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6cecio</td>
+                    <td class="left">___¯¯¯Data</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: child item criteria</td>
+                    <td class="left">c6cecic</td>
+                    <td class="left">___¯¯¯Criteria</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: child item interface</td>
+                    <td class="left">c6cecii</td>
+                    <td class="left">I___¯¯¯Dal</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model data objects</td>
+                    <td class="left">c6cermo</td>
+                    <td class="left">___Data</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model criteria</td>
+                    <td class="left">c6cermc</td>
+                    <td class="left">___Criteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6cermi</td>
+                    <td class="left">I___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: child item</td>
+                    <td class="left">c6cecid</td>
+                    <td class="left">___¯¯¯Dal</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6cermd</td>
+                    <td class="left">___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6ceci</td>
+                    <td class="left">___¯¯¯</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6cecc</td>
+                    <td class="left">___¯¯¯s</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6cerm</td>
+                    <td class="left">___</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s34')" class="model">Complex Set</div>
+    <div id="s34" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6cscio</td>
+                    <td class="left">___Set¯¯¯Data</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: child item  criteria</td>
+                    <td class="left">c6cscic</td>
+                    <td class="left">___Set¯¯¯Criteria</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: child item interface</td>
+                    <td class="left">c6cscii</td>
+                    <td class="left">I___Set¯¯¯Dal</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root item data objects</td>
+                    <td class="left">c6csrio</td>
+                    <td class="left">___SetItemData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root item criteria</td>
+                    <td class="left">c6csric</td>
+                    <td class="left">___SetItemCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root item interface</td>
+                    <td class="left">c6csrii</td>
+                    <td class="left">I___SetItemDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6csrcc</td>
+                    <td class="left">___SetCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6csrci</td>
+                    <td class="left">I___SetDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: child item</td>
+                    <td class="left">c6cscid</td>
+                    <td class="left">___Set¯¯¯Dal</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root item</td>
+                    <td class="left">c6csrid</td>
+                    <td class="left">___SetItemDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6csrcd</td>
+                    <td class="left">___SetDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6csci</td>
+                    <td class="left">___Set¯¯¯</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6cscc</td>
+                    <td class="left">___Set¯¯¯s</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root item</td>
+                    <td class="left">c6csri</td>
+                    <td class="left">___SetItem</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6csrc</td>
+                    <td class="left">___Set</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s35')" class="model">Complex Command</div>
+    <div id="s35" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6cccio</td>
+                    <td class="left">___¯¯¯Data</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: command model criteria</td>
+                    <td class="left">c6ccrmc</td>
+                    <td class="left">___Criteria</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: command model interface</td>
+                    <td class="left">c6ccrmi</td>
+                    <td class="left">I___Dal</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: command model</td>
+                    <td class="left">c6ccrmd</td>
+                    <td class="left">___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6ccci</td>
+                    <td class="left">___¯¯¯</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6cccc</td>
+                    <td class="left">___¯¯¯s</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: command model</td>
+                    <td class="left">c6ccrm</td>
+                    <td class="left">___</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">Tree Model</div>
+
+    <div onclick="toggle('s41')" class="model">Tree View</div>
+    <div id="s41" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child model data objects</td>
+                    <td class="left">c6tvcmo</td>
+                    <td class="left">___NodeData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection criteria</td>
+                    <td class="left">c6tvrcc</td>
+                    <td class="left">___TreeCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root collection interface</td>
+                    <td class="left">c6tvrci</td>
+                    <td class="left">I___TreeDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root collection</td>
+                    <td class="left">c6tvrcd</td>
+                    <td class="left">___TreeDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child model (node)</td>
+                    <td class="left">c6tvcm</td>
+                    <td class="left">___Node</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6tvcc</td>
+                    <td class="left">___Nodes</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root collection</td>
+                    <td class="left">c6tvrc</td>
+                    <td class="left">___Tree</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">Junction Models</div>
+
+    <div onclick="toggle('s51')" class="model">Junction View</div>
+    <div id="s51" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6jvcio</td>
+                    <td class="left">___View¯¯¯Data</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model data objects</td>
+                    <td class="left">c6jvrmo</td>
+                    <td class="left">___ViewData</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model  criteria</td>
+                    <td class="left">c6jvrmc</td>
+                    <td class="left">___ViewCriteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6jvrmi</td>
+                    <td class="left">I___ViewDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6jvrmd</td>
+                    <td class="left">___ViewDal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6jvci</td>
+                    <td class="left">___View¯¯¯</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6jvcc</td>
+                    <td class="left">___View¯¯¯s</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6jvrm</td>
+                    <td class="left">___View</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div onclick="toggle('s52')" class="model">Junction Edit</div>
+    <div id="s52" class="snippets">
+        <table>
+            <thead>
+                <tr>
+                    <th class="description">Snippet</th>
+                    <th class="shortcut">Shortcut</th>
+                    <th class="filename">File Name</th>
+                    <th class="param">r-n</th>
+                    <th class="param">RM</th>
+                    <th class="param">rm</th>
+                    <th class="param">c-n</th>
+                    <th class="param">CM</th>
+                    <th class="param">cm</th>
+                    <th class="param">cmd</th>
+                    <th class="param">CMD</th>
+                    <th class="param">DbC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Contract: child item data objects</td>
+                    <td class="left">c6jecio</td>
+                    <td class="left">___¯¯¯Data</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: child item interface</td>
+                    <td class="left">c6jecii</td>
+                    <td class="left">I___¯¯¯Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model data objects</td>
+                    <td class="left">c6jermo</td>
+                    <td class="left">___Data</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model  criteria</td>
+                    <td class="left">c6jermc</td>
+                    <td class="left">___Criteria</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Contract: root model interface</td>
+                    <td class="left">c6jermi</td>
+                    <td class="left">I___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: child item</td>
+                    <td class="left">c6jecmd</td>
+                    <td class="left">___¯¯¯Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">DAL: root model</td>
+                    <td class="left">c6jermd</td>
+                    <td class="left">___Dal</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child item</td>
+                    <td class="left">c6jeci</td>
+                    <td class="left">___¯¯¯</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: child collection</td>
+                    <td class="left">c6jecc</td>
+                    <td class="left">___¯¯¯s</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="left">Model: root model</td>
+                    <td class="left">c6jerm</td>
+                    <td class="left">___</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td></td>
+                    <td>x</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Column labels</h3>
+    <table>
+        <thead>
+            <tr>
+                <th class="cl-abbr">Abbreviation</th>
+                <th class="cl-param">Stands for parameter</th>
+                <th class="cl-desc">Description</th>
+                <th class="cl-example">Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="left">r-n</td>
+                <td class="left">root_name</td>
+                <td class="left">textual description of the root model in comments</td>
+                <td class="left">order</td>
+            </tr>
+            <tr>
+                <td class="left">RM</td>
+                <td class="left">ROOT_MODEL</td>
+                <td class="left">the name of the root model</td>
+                <td class="left">Order</td>
+            </tr>
+            <tr>
+                <td class="left">rm</td>
+                <td class="left">root_model</td>
+                <td class="left">the name of the variable for the root model</td>
+                <td class="left">order</td>
+            <tr>
+                <td class="left">c-n</td>
+                <td class="left">child_name</td>
+                <td class="left">textual description of the child model in comments</td>
+                <td class="left">order line</td>
+            </tr>
+            <tr>
+                <td class="left">CM</td>
+                <td class="left">CHILD_MODEL</td>
+                <td class="left">the name of the child model</td>
+                <td class="left">OrderLine</td>
+            </tr>
+            <tr>
+                <td class="left">cm</td>
+                <td class="left">child_model</td>
+                <td class="left">the name of the variable for the child model</td>
+                <td class="left">orderLine</td>
+            </tr>
+            <tr>
+                <td class="left">cmd</td>
+                <td class="left">command_name</td>
+                <td class="left">textual description of the command in comments</td>
+                <td class="left">set order status</td>
+            </tr>
+            <tr>
+                <td class="left">CMD</td>
+                <td class="left">COMMAND_MODEL</td>
+                <td class="left">the name of the command model</td>
+                <td class="left">SetOrderStatus</td>
+            </tr>
+            <tr>
+                <td class="left">DbC</td>
+                <td class="left">DB_CONTEXT</td>
+                <td class="left">the name of the database context</td>
+                <td class="left">ShopDbContext</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>File names</h3>
+    <div>The file name column shows the suggested file name for the particular building block, where:</div>
+    <table>
+        <tbody>
+            <tr>
+                <td class="left">___</td>
+                <td class="left">represents the root model name</td>
+            </tr>
+            <tr>
+                <td class="left">¯¯¯</td>
+                <td class="left">represents the child model name</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
